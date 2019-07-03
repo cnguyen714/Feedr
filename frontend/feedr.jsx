@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
   let store = configureStore();
 
   // === debug start ===
-  window.createNewUser = createNewUser;
-  window.logout = logout;
-  window.login = login;
-  window.store = store;
+  // window.createNewUser = createNewUser;
+  // window.logout = logout;
+  // window.login = login;
+  // window.store = store;
 
   // === debug end   ===
 
