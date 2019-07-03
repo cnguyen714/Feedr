@@ -53,3 +53,422 @@ Migrating to CreateUsers (20190702204357)
   ↳ bin/rails:9
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/hahaer/.rbenv/versions/2.5.1/bin/annotate:23
+Started GET "/" for ::1 at 2019-07-02 15:03:02 -0700
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/hahaer/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 2065ms (Views: 2057.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/users" for ::1 at 2019-07-02 15:24:16 -0700
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/hahaer/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"calvin", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 329ms (ActiveRecord: 1.1ms)
+
+
+  
+NoMethodError (undefined method `base64_urlsafe' for SecureRandom:Module):
+  
+app/models/user.rb:41:in `ensure_session_token'
+app/controllers/api/users_controller.rb:5:in `create'
+Started POST "/api/users" for ::1 at 2019-07-02 15:25:21 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"calvin", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "calvin"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "NTrHO6jO0ithXwkUKjycUg"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "NTrHO6jO0ithXwkUKjycUg"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/users_controller.rb:7
+Completed 500 Internal Server Error in 339ms (ActiveRecord: 2.6ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 3, expected 0..2)):
+  
+app/controllers/api/users_controller.rb:11:in `create'
+Started POST "/api/users" for ::1 at 2019-07-02 15:26:33 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"calvin", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mUser Exists (3.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "calvin"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "eCl3D2yfH2cIgZFOy2eNXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "eCl3D2yfH2cIgZFOy2eNXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/users_controller.rb:7
+Completed 422 Unprocessable Entity in 316ms (Views: 0.9ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/api/users" for ::1 at 2019-07-02 15:28:51 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"calvin", "password"=>"[FILTERED]", "email"=>"email"}}
+Unpermitted parameter: :email
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "calvin"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "45c1OqLiHifgucEd5qjLjA"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "45c1OqLiHifgucEd5qjLjA"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/users_controller.rb:7
+Completed 422 Unprocessable Entity in 305ms (Views: 0.1ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/api/users" for ::1 at 2019-07-02 15:29:06 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"calvin", "password"=>"[FILTERED]", "email"=>"email"}}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "calvin"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "axfKbGbwse4IsjenS0ZdcA"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "axfKbGbwse4IsjenS0ZdcA"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mUser Create (2.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "calvin"], ["email", "email"], ["password_digest", "$2a$12$yaZU2PWyENh6ZRdBiLtjWeRugFh7p0G33QPOxNwabyC6ovZXlI2Te"], ["session_token", "axfKbGbwse4IsjenS0ZdcA"], ["created_at", "2019-07-02 22:29:07.105641"], ["updated_at", "2019-07-02 22:29:07.105641"]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[35m (17.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/users_controller.rb:7
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (1.1ms)
+Completed 200 OK in 362ms (Views: 7.5ms | ActiveRecord: 21.2ms)
+
+
+Started POST "/api/users" for ::1 at 2019-07-02 15:29:25 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"calvin", "password"=>"[FILTERED]", "email"=>"email"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "calvin"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "Lwjk7CB4mrQoabYS61BaIg"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "Lwjk7CB4mrQoabYS61BaIg"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/users_controller.rb:7
+Completed 422 Unprocessable Entity in 304ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/api/users" for ::1 at 2019-07-02 15:29:37 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"calvin", "password"=>"[FILTERED]", "email"=>"email"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "calvin"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "I9YojZhuWUj9amblIgGzdw"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "I9YojZhuWUj9amblIgGzdw"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/users_controller.rb:7
+Completed 422 Unprocessable Entity in 309ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/api/users" for ::1 at 2019-07-02 15:29:44 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"calvin2", "password"=>"[FILTERED]", "email"=>"email"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "calvin2"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "iX6VuvnzvSy_agtG70hPdQ"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "iX6VuvnzvSy_agtG70hPdQ"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/users_controller.rb:7
+Completed 422 Unprocessable Entity in 307ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/api/users" for ::1 at 2019-07-02 15:30:09 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"calvin2", "password"=>"[FILTERED]", "email"=>"email"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "calvin2"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "email"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "eHvjwyqz3pVW33PGogqxMg"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/users_controller.rb:7
+Completed 422 Unprocessable Entity in 324ms (Views: 0.2ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/api/users" for ::1 at 2019-07-02 15:46:50 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"calvin2", "password"=>"[FILTERED]", "email"=>"email"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "calvin2"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "email"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "rtxnx2mu0K1VcVQij_lLMg"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/users_controller.rb:7
+Completed 422 Unprocessable Entity in 316ms (Views: 0.2ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/api/users" for ::1 at 2019-07-02 15:46:56 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"calvin2", "password"=>"[FILTERED]", "email"=>"email2"}}
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "calvin2"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "email2"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "WZ0a6fzHwFF23JzzYBSE2g"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mUser Create (18.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "calvin2"], ["email", "email2"], ["password_digest", "$2a$12$qxRmHldAnRQbz0YvXkDrXOH4IaeOTLVF.StuLhFQUiN0y95YpugeG"], ["session_token", "WZ0a6fzHwFF23JzzYBSE2g"], ["created_at", "2019-07-02 22:46:57.145220"], ["updated_at", "2019-07-02 22:46:57.145220"]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[35m (29.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/users_controller.rb:7
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (0.5ms)
+Completed 200 OK in 360ms (Views: 5.1ms | ActiveRecord: 49.0ms)
+
+
+Started POST "/api/session" for ::1 at 2019-07-02 15:47:19 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"calvin", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+actionpack (5.2.3) lib/action_controller/metal/request_forgery_protection.rb:211:in `handle_unverified_request'
+actionpack (5.2.3) lib/action_controller/metal/request_forgery_protection.rb:243:in `handle_unverified_request'
+actionpack (5.2.3) lib/action_controller/metal/request_forgery_protection.rb:238:in `verify_authenticity_token'
+activesupport (5.2.3) lib/active_support/callbacks.rb:426:in `block in make_lambda'
+activesupport (5.2.3) lib/active_support/callbacks.rb:198:in `block (2 levels) in halting'
+actionpack (5.2.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.2.3) lib/active_support/callbacks.rb:199:in `block in halting'
+activesupport (5.2.3) lib/active_support/callbacks.rb:513:in `block in invoke_before'
+activesupport (5.2.3) lib/active_support/callbacks.rb:513:in `each'
+activesupport (5.2.3) lib/active_support/callbacks.rb:513:in `invoke_before'
+activesupport (5.2.3) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.2.3) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.3) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.3) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.3) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.3) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.3) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.3) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.3) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.3) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.3) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (5.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/api/session" for ::1 at 2019-07-02 15:47:41 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"calvin", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 178ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `user' for #<Api::SessionsController:0x00007f75b82bba80>):
+  
+app/controllers/api/sessions_controller.rb:6:in `create'
+Started POST "/api/session" for ::1 at 2019-07-02 15:48:35 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"calvin", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `findBy' for #<Class:0x00005622c60c1590>
+Did you mean?  find_by
+               find_by!
+               find):
+  
+app/models/user.rb:24:in `find_by_credentials'
+app/controllers/api/sessions_controller.rb:6:in `create'
+Started POST "/api/session" for ::1 at 2019-07-02 15:48:56 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"calvin", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "calvin"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+Completed 200 OK in 313ms (Views: 0.4ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/api/session" for ::1 at 2019-07-02 15:49:16 -0700
+Processing by Api::SessionsController#destroy as JSON
+  Parameters: {"user"=>{"username"=>"calvin", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "axfKbGbwse4IsjenS0ZdcA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/api/session" for ::1 at 2019-07-02 16:22:01 -0700
+Processing by Api::SessionsController#destroy as JSON
+  Parameters: {"user"=>{"username"=>"calvin", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.5ms)
+
+
+  
+NoMethodError (undefined method `reset_session_token!' for nil:NilClass):
+  
+app/controllers/application_controller.rb:18:in `logout!'
+app/controllers/api/sessions_controller.rb:18:in `destroy'
+Started DELETE "/api/session" for ::1 at 2019-07-02 16:23:06 -0700
+Processing by Api::SessionsController#destroy as JSON
+  Parameters: {"user"=>{"username"=>"calvin", "password"=>"[FILTERED]"}}
+Redirected to http://localhost:3000/#/session/new
+Filter chain halted as :require_logged_in rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-02 16:23:06 -0700
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 1095ms (Views: 1088.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-02 17:08:32 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 61ms (Views: 58.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-02 17:11:21 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 145ms (Views: 142.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-02 17:11:34 -0700
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/hahaer/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 1188ms (Views: 1179.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-02 17:12:08 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 40ms (Views: 38.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-02 17:12:09 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 42ms (Views: 40.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-02 17:12:26 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 59ms (Views: 58.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-02 17:15:03 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 791ms (Views: 789.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-02 17:15:20 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 721ms (Views: 719.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-02 17:16:50 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 918ms (Views: 916.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-02 17:17:27 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 735ms (Views: 733.6ms | ActiveRecord: 0.0ms)
+
+
