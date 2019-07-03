@@ -1,0 +1,49 @@
+.nav-bar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  height: 56px;
+  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.05);
+  padding-left: 30px;
+  padding-right: 30px;
+  font-family: $sans-serif;
+}
+
+.nav-bar-inner {
+  width: 888px;
+  display: inline-block;
+}
+
+.nav-bar-inner > i {
+  float: left;
+  width: 25px;
+  height: 25px;
+  background-color: lightgreen;
+}
+
+.nav-bar-inner > ul {
+  display: flex;
+  float: right;
+}
+
+.nav-bar-inner > ul > button {
+  color: $gray;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 17px;
+  padding-top: 8px;
+  padding-bottom: 6px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}

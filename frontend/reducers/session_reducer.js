@@ -5,7 +5,7 @@ import {
 } from "../actions/session_actions";
 
 const _nullSession = {
-  currentUserId: null
+  currentUser: null
 };
 
 export default (state = _nullSession, action) => {
@@ -15,8 +15,7 @@ export default (state = _nullSession, action) => {
 
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      debugger
-      nextState = { currentUserId: action.user.id};
+      nextState = { currentUser: action.user};
       return nextState;
     case LOGOUT_CURRENT_USER:
       return _nullSession;
