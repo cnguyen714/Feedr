@@ -7,6 +7,9 @@ import {
   logout,
   login 
 } from './actions/session_actions';
+import Modal from 'react-modal';
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
   let root = document.getElementById('root');
@@ -19,6 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.store = store;
 
   // === debug end   ===
+
+  Modal.setAppElement(root);
 
   ReactDOM.render(<Root store={store} />, root);
 });

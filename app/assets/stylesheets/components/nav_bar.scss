@@ -29,7 +29,7 @@
   float: right;
 }
 
-.nav-bar-inner > ul > button {
+.nav-bar-inner > ul button {
   color: $gray;
   text-transform: uppercase;
   font-size: 11px;
@@ -40,6 +40,11 @@
   padding-bottom: 6px;
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.15);
+  margin-left: 5px; 
+}
+
+.nav-bar-inner > ul > button:hover {
+  border: 1px solid rgba(0, 0, 0, 0.25);
 }
 
 .clearfix::after {
@@ -47,3 +52,4 @@
   clear: both;
   display: table;
 }
+
