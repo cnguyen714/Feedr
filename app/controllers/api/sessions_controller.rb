@@ -4,20 +4,21 @@ class Api::SessionsController < ApplicationController
   before_action :require_logged_in, only: [:destroy]
 
   def create
-    @user = User.find_by_credentials(params[:user][:username], params[:user][:password])
+    @user = User.find_by_credentials(user_params[:email], user_params[:password])
 
     if @user
       login!(@user)
-      render json: ["Logged In"]
+      render :show
     else
-      render json: @user.errors.full_messages, status: 422
+      render json: ["Invalid email/password"], status: 401
     end
 
   end
 
   def destroy
+    @user = current_user
     logout!
-    render json: ["Logged out"]
+    render :show
   end
 
   private

@@ -3,29 +3,29 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Modal from "react-modal";
 
-const customStyles = {
-  content: {
-    
-  }
-};
-
 class SessionModal extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      initialFormType: this.props.formType,
+      formType: this.props.formType,
       modalIsOpen: false,
       user: {
-        username: null,
-        email: null,
-        password: null
+        username: "",
+        email: "",
+        password: ""
       }
     };
 
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-    
+    this.switchSessionModal = this.switchSessionModal.bind(this);
+
+    this.handleInput = this.handleInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   openModal() {
@@ -37,43 +37,138 @@ class SessionModal extends React.Component {
   }
 
   closeModal() {
-    this.setState({ modalIsOpen: false });
+    this.setState({ 
+      modalIsOpen: false,
+      formType: this.state.initialFormType 
+    });
+  }
+
+  switchSessionModal(e) {
+    e.preventDefault();
+
+    this.isLoginForm()
+      ? this.setState({formType: "signup"})
+      : this.setState({formType: "login"});
+  }
+
+  isLoginForm() {
+    return this.state.formType === "login"
   }
 
   typeName() {
-    return this.props.formType === "log in" ? "Log In" : "Sign Up";
+    return this.isLoginForm() ? "Log In" : "Sign Up";
   }
 
   handleInput(type) {
+    return (e) => {
 
+      let nextState = Object.assign({}, this.state)
+      nextState.user[type] = e.target.value;
+      
+      this.setState(nextState);
+    };
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+
+    if (this.isLoginForm()) {
+      this.props.login(this.state.user)
+        .then(() => this.closeModal,
+        
+        errors => this.props.pushErrors(errors));
+    } else {
+      this.props.createNewUser(this.state.user)
+        .then(() => this.closeModal,
+        errors => this.props.pushErrors(errors));
+    }
+    
+  }
+
+  handleDemo(e) {
+    e.preventDefault();
+
+    let demoUser = {
+      email: "demo@feedr.com",
+      password: "password"
+    };
+
+    this.props.login(demoUser)
   }
 
   render() {
     return (
       <div>
-        <button id={this.typeName()} onClick={this.openModal}>
-          {this.typeName()}
+        <button id={this.state.initialFormType} onClick={this.openModal}>
+          {this.state.initialFormType === "login" ? "Log In" : "Sign Up"}
         </button>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
-          contentLabel={this.props.formType}
+          contentLabel={this.state.formType}
           className="modal"
         >
 
-          <button onClick={this.closeModal}>&times;</button>
-          <i id="login-icon" />
+          <button className="close-button" onClick={this.closeModal}>&times;</button>
+          <i className="logo-icon" />
           <i id="login-splash"/>
           <h1> 
-            {this.props.formType === "log in"
+            {this.isLoginForm()
               ? "Sign in to personalize your feedly and access it from everywhere."
               : `Create an account and access your feedly everywhere.`}
           </h1>
-          <br></br>
-          <form>
-            <input />
+          <form onSubmit={this.handleSubmit}>
+            <ul>
+              <li><input 
+                className="input-text input-top" 
+                type="email" 
+                placeholder="Email" 
+                value={this.state.user.email}
+                onChange={this.handleInput("email")}
+              /></li>
 
+              {!this.isLoginForm()
+                ? <li><input 
+                  className="input-text" 
+                  type="text" 
+                  placeholder="Username" 
+                  value={this.state.user.username}
+                  onChange={this.handleInput("username")}
+                /></li>
+                : null
+              }
+
+              <li><input 
+                className="input-text input-bottom" 
+                type="password" 
+                placeholder="Password" 
+                onFocus={(e) => e.target.placeholder='6 characters min'} 
+                onBlur={(e) => e.target.placeholder='Password'} 
+                value={this.state.user.password}
+                onChange={this.handleInput("password")}
+              /></li>
+            </ul>
+            <input type="submit" 
+              className="submit-button" 
+              value={this.isLoginForm() 
+                ? "Login" : "Create My Account"}
+            />
+          </form>
+
+          <a onClick={this.switchSessionModal}>
+            {this.isLoginForm() 
+              ? "New user? Sign up"
+              : "Existing user? Login"
+            }
+          </a>
+
+          <form onSubmit={this.handleDemo}>
+            <input 
+              type ="submit" 
+              className="submit-button demo-login" 
+              value="Demo Login" 
+            />
           </form>
 
         </Modal>
