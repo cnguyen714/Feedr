@@ -3,7 +3,7 @@
   position: fixed;
   font-family: $sans-serif;
 
-  width: 400px;
+  width: 450px;
   height: 600px;
   top: 50%;
   left: 50%;
@@ -11,13 +11,34 @@
   bottom: auto;
   margin-right: -50%;
   transform: translate(-50%, -50%);
-  border: 1px solid #757575;
+  border: 1px solid $gray;
+  border-radius: 10px;
   padding: 25px;
   
   display: flex;
   flex-direction: column;
-  // justify-content: center;
   align-items: center; 
+}
+
+#login-icon {
+  display: inline-block;
+  float: top;
+  width: 27px;
+  height: 23px;
+  margin-right: auto; 
+  background: image_url('login-feedr-logo@2x.png');
+  background-size: 80px 23px;
+}
+
+#login-splash {
+  width: 350px;
+  height: 175px;
+  background: image_url('login-devices@2x.png');
+  background-size: 350px 175px;
+}
+
+.modal > .center {
+  margin: auto;
 }
 
 .modal > button {
@@ -27,7 +48,13 @@
 }
 
 .modal > h1 { 
-  font-size: 30px;
+  text-align: center;
+  font-size: 20px;
   font-weight: bold;
-  color: black;
+  color: $gray;
+  text-transform: lowercase;
+  width: 270px;
+}
+.modal > h1:first-letter {
+    text-transform: capitalize;
 }

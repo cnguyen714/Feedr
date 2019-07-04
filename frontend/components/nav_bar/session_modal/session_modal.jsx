@@ -25,6 +25,7 @@ class SessionModal extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    
   }
 
   openModal() {
@@ -32,7 +33,7 @@ class SessionModal extends React.Component {
   }
 
   afterOpenModal() {
-    this.subtitle.style.color = '#f00';
+
   }
 
   closeModal() {
@@ -41,6 +42,10 @@ class SessionModal extends React.Component {
 
   typeName() {
     return this.props.formType === "log in" ? "Log In" : "Sign Up";
+  }
+
+  handleInput(type) {
+
   }
 
   render() {
@@ -57,14 +62,20 @@ class SessionModal extends React.Component {
           className="modal"
         >
 
-          <h1 ref={subtitle => this.subtitle = subtitle}>{this.typeName()}</h1>
-          <br></br>
           <button onClick={this.closeModal}>&times;</button>
-          <div>I am a modal</div>
+          <i id="login-icon" />
+          <i id="login-splash"/>
+          <h1> 
+            {this.props.formType === "log in"
+              ? "Sign in to personalize your feedly and access it from everywhere."
+              : `Create an account and access your feedly everywhere.`}
+          </h1>
+          <br></br>
           <form>
             <input />
 
           </form>
+
         </Modal>
       </div>
     );
