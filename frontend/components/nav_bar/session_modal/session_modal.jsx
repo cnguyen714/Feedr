@@ -41,14 +41,16 @@ class SessionModal extends React.Component {
       modalIsOpen: false,
       formType: this.state.initialFormType 
     });
+    this.props.dropErrors();
   }
 
   switchSessionModal(e) {
     e.preventDefault();
 
-    this.isLoginForm()
-      ? this.setState({formType: "signup"})
-      : this.setState({formType: "login"});
+    this.isLoginForm() ?
+      this.setState({formType: "signup"}) :
+      this.setState({formType: "login"});
+    this.props.dropErrors();
   }
 
   isLoginForm() {
@@ -113,11 +115,22 @@ class SessionModal extends React.Component {
           <button className="close-button" onClick={this.closeModal}>&times;</button>
           <i className="logo-icon" />
           <i id="login-splash"/>
+        
           <h1> 
-            {this.isLoginForm()
-              ? "Sign in to personalize your feedly and access it from everywhere."
-              : `Create an account and access your feedly everywhere.`}
+            {this.isLoginForm() ?
+              "Sign in to personalize your feedr and access it from everywhere." :
+              `Create an account and access your feedr everywhere.`
+            }
           </h1>
+
+          {this.props.errors.length !== 0 ?
+            <ul className="errors">
+              {this.props.errors.map(error => 
+                <li key={error}>{error}</li>  
+              )}
+            </ul> :
+            null
+          }  
           <form onSubmit={this.handleSubmit}>
             <ul>
               <li><input 
@@ -128,15 +141,15 @@ class SessionModal extends React.Component {
                 onChange={this.handleInput("email")}
               /></li>
 
-              {!this.isLoginForm()
-                ? <li><input 
+              {!this.isLoginForm() ? 
+                <li><input 
                   className="input-text" 
                   type="text" 
                   placeholder="Username" 
                   value={this.state.user.username}
                   onChange={this.handleInput("username")}
-                /></li>
-                : null
+                /></li> :
+                null
               }
 
               <li><input 
@@ -157,9 +170,8 @@ class SessionModal extends React.Component {
           </form>
 
           <a onClick={this.switchSessionModal}>
-            {this.isLoginForm() 
-              ? "New user? Sign up"
-              : "Existing user? Login"
+            {this.isLoginForm() ?
+              "New user? Sign up" : "Existing user? Login"
             }
           </a>
 

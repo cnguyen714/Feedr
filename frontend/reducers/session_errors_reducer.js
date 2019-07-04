@@ -11,11 +11,10 @@ export default (state = _nullErrors, action) => {
 
   switch (action.type) {
     case RECEIVE_ERRORS:
-      debugger
       let errors = action.errors.responseJSON;
       return errors;
     case REMOVE_ERRORS:
-      return _nullerrors;
+      return _nullErrors;
     default:
       return state;
   }

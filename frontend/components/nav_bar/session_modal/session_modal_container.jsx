@@ -7,7 +7,8 @@ import { pushErrors, dropErrors } from "../../../actions/session_error_actions";
 import { withRouter } from "react-router-dom";
 
 const mapStateToProps = (state, ownProps) => ({
-  formType: ownProps.formType
+  formType: ownProps.formType,
+  errors: state.errors.session
 });
 
 const mapDispatchToProps = dispatch => ({
