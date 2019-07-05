@@ -29,7 +29,7 @@ export default ({ currentUser, logout} ) => {
         <AuthRoute to="/" component={SessionModalContainer} formType="login" />
         
         {!!currentUser
-          ? <button onClick={logout}>Logout</button>
+          ? <div>{currentUser.email}<button onClick={logout}>Logout</button></div>
           : null
         }
       </ul>
