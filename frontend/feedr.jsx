@@ -31,10 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
   let store = configureStore(preloadedState);
 
   // === debug start ===
-  window.store = store;
-  window.createNewUser = (user) => store.dispatch(createNewUser(user));
-  window.login = (user) => store.dispatch(login(user));
-  window.logout = () => store.dispatch(logout());
+  // window.store = store;
+  // window.createNewUser = (user) => store.dispatch(createNewUser(user));
+  // window.login = (user) => store.dispatch(login(user));
+  // window.logout = () => store.dispatch(logout());
 
   // === debug end   ===
 
