@@ -10,16 +10,31 @@ import {
 import Modal from 'react-modal';
 
 
-
 document.addEventListener('DOMContentLoaded', () => {
   let root = document.getElementById('root');
-  let store = configureStore();
+  let preloadedState = undefined;
+  if (window.currentUser) {
+    preloadedState = {
+      entities: {
+        users: {
+          [window.currentUser.id]: window.currentUser
+        }
+      },
+      errors: {
+        session: []
+      },
+      session: {
+        currentUser: window.currentUser
+      }
+    };
+  }
+  let store = configureStore(preloadedState);
 
   // === debug start ===
-  // window.createNewUser = createNewUser;
-  // window.logout = logout;
-  // window.login = login;
-  // window.store = store;
+  window.store = store;
+  window.createNewUser = (user) => store.dispatch(createNewUser(user));
+  window.login = (user) => store.dispatch(login(user));
+  window.logout = () => store.dispatch(logout());
 
   // === debug end   ===
 

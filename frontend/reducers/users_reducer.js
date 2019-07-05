@@ -16,7 +16,7 @@ export default (state = {}, action) => {
       };
       return nextState;
     case LOGOUT_CURRENT_USER:
-      delete nextState[action.user.id];
+      delete nextState[Object.values(state)[0].id];
       return nextState;
     default:
       return state;

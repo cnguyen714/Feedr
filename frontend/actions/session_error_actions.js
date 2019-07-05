@@ -1,14 +1,15 @@
 
-export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
-export const REMOVE_ERRORS = "REMOVE_ERRORS";
+export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
+export const REMOVE_SESSION_ERRORS = "REMOVE_SESSION_ERRORS";
 
-const receiveErrors = errors => ({
-  type: RECEIVE_ERRORS,
+const receiveErrors = errors => {
+  return {
+  type: RECEIVE_SESSION_ERRORS,
   errors
-});
+}};
 
 const removeErrors = () => ({
-  type: REMOVE_ERRORS,
+  type: REMOVE_SESSION_ERRORS,
 });
 
 export const pushErrors = errors => dispatch => dispatch(receiveErrors(errors));

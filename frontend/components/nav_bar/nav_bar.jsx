@@ -1,6 +1,9 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
+import { Route } from 'react-router-dom';
+import { AuthRoute, ProtectedRoute } from "../../util/route_util";
+
 import SessionModalContainer from "./session_modal/session_modal_container";
 
 export default ({ currentUser, logout} ) => (
@@ -9,8 +12,8 @@ export default ({ currentUser, logout} ) => (
       <i className="logo-icon" />
 
       <ul className="nav-list">
-        <SessionModalContainer formType="signup" />
-        <SessionModalContainer formType="login" />
+        <AuthRoute to="/" component={SessionModalContainer} formType="signup" />
+        <AuthRoute to="/" component={SessionModalContainer} formType="login" />
       </ul>
     </nav>
   </header>

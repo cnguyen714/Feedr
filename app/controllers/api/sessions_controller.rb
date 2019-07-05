@@ -17,8 +17,12 @@ class Api::SessionsController < ApplicationController
 
   def destroy
     @user = current_user
-    logout!
-    render :show
+    if @user 
+      logout!
+      render :show
+    else
+      render json: ["Already logged out"], status: 404
+    end
   end
 
   private

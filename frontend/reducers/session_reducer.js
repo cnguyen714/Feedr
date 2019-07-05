@@ -13,6 +13,7 @@ export default (state = _nullSession, action) => {
 
   let nextState = Object.assign({}, state);
 
+  
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
       nextState = { currentUser: action.user};
