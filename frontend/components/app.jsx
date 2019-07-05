@@ -2,13 +2,17 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
-import NavBarContainer from "./nav_bar/nav_bar_container";
 import Splash from "./splash/splash"
+import NavBarContainer from "./nav_bar/nav_bar_container";
+import SidebarContainer from "./sidebar/sidebar_container";
+import ContentMainContainer from './content_main/content_main_container';
 
 export default () => (
   <div className="frame">
     
+    <ProtectedRoute to="/" component={SidebarContainer} />
     <Route to="/" component={NavBarContainer} />
-    <Route exact to="/" component={Splash} />
+    <AuthRoute exact to="/" component={Splash} />
+    <ProtectedRoute to="/" component={ContentMainContainer} />
   </div>
 );

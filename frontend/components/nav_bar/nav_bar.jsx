@@ -8,10 +8,14 @@ import SessionModalContainer from "./session_modal/session_modal_container";
 
 
 
-export default ({ currentUser, logout} ) => (
+export default ({ currentUser, logout} ) => {
+  let sidebar = document.getElementById("sidebar");
 
-
-  <header className="nav-bar">
+  return (
+  <header 
+    id="nav-bar" 
+    className={`nav-bar ${sidebar ? "sidebar-active" : ""}`}>
+    
     <nav className="nav-bar-inner clearfix">
       <i className="logo-icon" />
 
@@ -23,8 +27,8 @@ export default ({ currentUser, logout} ) => (
           ? <button onClick={logout}>Logout</button>
           : null
         }
-
       </ul>
     </nav>
   </header>
-);
+  );
+};
