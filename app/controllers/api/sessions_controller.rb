@@ -8,18 +8,17 @@ class Api::SessionsController < ApplicationController
 
     if @user
       login!(@user)
-      render :show
+      render "api/session/show"
     else
       render json: ["Invalid email/password"], status: 401
     end
-
   end
 
   def destroy
     @user = current_user
     if @user 
       logout!
-      render :show
+      render "api/session/show"
     else
       render json: ["Already logged out"], status: 404
     end

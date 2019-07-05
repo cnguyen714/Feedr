@@ -5,11 +5,14 @@ import NavBar from "./nav_bar";
 import { logout } from "../../actions/session_actions";
 
 const mapStateToProps = state => ({
-  currentUser: state.session.currentUserId
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(logout())
+  logout: (e) => { 
+    e.preventDefault();
+    dispatch(logout());
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
