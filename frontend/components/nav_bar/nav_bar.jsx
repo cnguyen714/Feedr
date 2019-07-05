@@ -10,11 +10,16 @@ import SessionModalContainer from "./session_modal/session_modal_container";
 
 export default ({ currentUser, logout} ) => {
   let sidebar = document.getElementById("sidebar");
+  let sidebarIsActive = false;
+
+  if(sidebar) {
+    sidebarIsActive = sidebar.classList.contains("active")
+  }
 
   return (
   <header 
     id="nav-bar" 
-    className={`nav-bar ${sidebar ? "sidebar-active" : ""}`}>
+    className={`nav-bar ${sidebarIsActive ? "sidebar-offset" : ""}`}>
     
     <nav className="nav-bar-inner clearfix">
       <i className="logo-icon" />

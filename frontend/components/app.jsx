@@ -10,7 +10,7 @@ import ContentMainContainer from './content_main/content_main_container';
 export default () => (
   <div className="frame">
     
-    <ProtectedRoute to="/" component={SidebarContainer} />
+    <Route to="/" component={SidebarContainer} />
     <Route to="/" component={NavBarContainer} />
     <AuthRoute exact to="/" component={Splash} />
     <ProtectedRoute to="/" component={ContentMainContainer} />

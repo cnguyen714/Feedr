@@ -7666,3 +7666,264 @@ Processing by StaticPagesController#root as HTML
 Completed 200 OK in 864ms (Views: 860.7ms | ActiveRecord: 1.2ms)
 
 
+Started GET "/" for ::1 at 2019-07-05 11:01:11 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uuPvnA8BCZybv-VnrK1bgA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (1.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 913ms (Views: 909.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for ::1 at 2019-07-05 11:03:03 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uuPvnA8BCZybv-VnrK1bgA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 902ms (Views: 900.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2019-07-05 11:05:35 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uuPvnA8BCZybv-VnrK1bgA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (1.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 845ms (Views: 842.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2019-07-05 11:07:32 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uuPvnA8BCZybv-VnrK1bgA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 2091ms (Views: 2090.0ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/api/session" for ::1 at 2019-07-05 11:07:37 -0700
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uuPvnA8BCZybv-VnrK1bgA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering api/session/show.json.jbuilder
+  Rendered api/session/show.json.jbuilder (0.6ms)
+Completed 200 OK in 5ms (Views: 2.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/session" for ::1 at 2019-07-05 11:07:43 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+Completed 401 Unauthorized in 6ms (Views: 0.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/session" for ::1 at 2019-07-05 11:07:45 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"demo@feedr.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@feedr.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  Rendering api/session/show.json.jbuilder
+  Rendered api/session/show.json.jbuilder (0.5ms)
+Completed 200 OK in 296ms (Views: 7.0ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/api/session" for ::1 at 2019-07-05 11:07:51 -0700
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uuPvnA8BCZybv-VnrK1bgA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering api/session/show.json.jbuilder
+  Rendered api/session/show.json.jbuilder (0.4ms)
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/session" for ::1 at 2019-07-05 11:07:55 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"demo@feedr.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@feedr.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  Rendering api/session/show.json.jbuilder
+  Rendered api/session/show.json.jbuilder (0.4ms)
+Completed 200 OK in 309ms (Views: 2.1ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/api/session" for ::1 at 2019-07-05 11:08:02 -0700
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uuPvnA8BCZybv-VnrK1bgA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering api/session/show.json.jbuilder
+  Rendered api/session/show.json.jbuilder (0.4ms)
+Completed 200 OK in 6ms (Views: 2.0ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/api/session" for ::1 at 2019-07-05 11:08:05 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"demo@feedr.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@feedr.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  Rendering api/session/show.json.jbuilder
+  Rendered api/session/show.json.jbuilder (1.4ms)
+Completed 200 OK in 335ms (Views: 3.3ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/api/session" for ::1 at 2019-07-05 11:08:20 -0700
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uuPvnA8BCZybv-VnrK1bgA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering api/session/show.json.jbuilder
+  Rendered api/session/show.json.jbuilder (0.5ms)
+Completed 200 OK in 6ms (Views: 2.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/session" for ::1 at 2019-07-05 11:08:23 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"demo@feedr.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@feedr.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  Rendering api/session/show.json.jbuilder
+  Rendered api/session/show.json.jbuilder (0.5ms)
+Completed 200 OK in 331ms (Views: 2.0ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/api/session" for ::1 at 2019-07-05 11:08:43 -0700
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uuPvnA8BCZybv-VnrK1bgA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering api/session/show.json.jbuilder
+  Rendered api/session/show.json.jbuilder (0.4ms)
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/session" for ::1 at 2019-07-05 11:08:46 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"demo@feedr.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@feedr.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  Rendering api/session/show.json.jbuilder
+  Rendered api/session/show.json.jbuilder (0.5ms)
+Completed 200 OK in 306ms (Views: 2.9ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/api/session" for ::1 at 2019-07-05 11:09:07 -0700
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uuPvnA8BCZybv-VnrK1bgA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering api/session/show.json.jbuilder
+  Rendered api/session/show.json.jbuilder (1.6ms)
+Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/session" for ::1 at 2019-07-05 11:09:11 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"demo@feedr.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@feedr.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  Rendering api/session/show.json.jbuilder
+  Rendered api/session/show.json.jbuilder (0.7ms)
+Completed 200 OK in 289ms (Views: 2.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2019-07-05 11:09:27 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uuPvnA8BCZybv-VnrK1bgA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (1.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 180ms (Views: 178.9ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/api/session" for ::1 at 2019-07-05 11:09:30 -0700
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uuPvnA8BCZybv-VnrK1bgA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering api/session/show.json.jbuilder
+  Rendered api/session/show.json.jbuilder (1.1ms)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2019-07-05 11:09:33 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered static_pages/root.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 58ms (Views: 56.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/session" for ::1 at 2019-07-05 11:09:36 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"demo@feedr.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@feedr.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  Rendering api/session/show.json.jbuilder
+  Rendered api/session/show.json.jbuilder (0.9ms)
+Completed 200 OK in 291ms (Views: 2.4ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/api/session" for ::1 at 2019-07-05 11:10:04 -0700
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uuPvnA8BCZybv-VnrK1bgA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering api/session/show.json.jbuilder
+  Rendered api/session/show.json.jbuilder (0.6ms)
+Completed 200 OK in 5ms (Views: 2.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/session" for ::1 at 2019-07-05 11:10:08 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"demo@feedr.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@feedr.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  Rendering api/session/show.json.jbuilder
+  Rendered api/session/show.json.jbuilder (0.4ms)
+Completed 200 OK in 335ms (Views: 4.7ms | ActiveRecord: 0.3ms)
+
+
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4615429597976623860)[0m
+  ↳ bin/rails:9
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateFeeds (20190705181820)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (52.3ms)[0m  [1m[35mCREATE TABLE "feeds" ("id" bigserial primary key, "name" character varying NOT NULL, "user_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190705181820_create_feeds.rb:3
+  [1m[35m (7.9ms)[0m  [1m[35mCREATE  INDEX  "index_feeds_on_name" ON "feeds"  ("name")[0m
+  ↳ db/migrate/20190705181820_create_feeds.rb:9
+  [1m[35m (42.9ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(4615429597976623860)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4615429597976623860)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateFeeds (20190705181820)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (18.0ms)[0m  [1m[35mCREATE TABLE "feeds" ("id" bigserial primary key, "name" character varying NOT NULL, "user_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190705181820_create_feeds.rb:3
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE  INDEX  "index_feeds_on_name" ON "feeds"  ("name")[0m
+  ↳ db/migrate/20190705181820_create_feeds.rb:9
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE  INDEX  "index_feeds_on_user_id" ON "feeds"  ("user_id")[0m
+  ↳ db/migrate/20190705181820_create_feeds.rb:10
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190705181820"]]
+  ↳ bin/rails:9
+  [1m[35m (3.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4615429597976623860)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9

@@ -9,8 +9,11 @@ class ContentMain extends React.Component {
 
   render() {
     return (
-      <div className="content sidebar-active">
-        Content
+      <div className="content-frame sidebar-offset">
+        <div className="content">
+          Content
+
+        </div>
       </div>
     );
   }
