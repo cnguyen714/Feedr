@@ -20,6 +20,8 @@ class Api::FeedsController < ApplicationController
     end
   end
 
+  ## === Restful routes ===
+
   def index
     @feeds = current_user.feeds
 
@@ -38,9 +40,10 @@ class Api::FeedsController < ApplicationController
 
   def create
     @feed = Feed.new(feeds_params)
+    @feed[:user_id] = current_user.id;
 
     if @feed.save
-      render "api/feeds/#{@feed.id}"
+      render "api/feeds/show"
     else # shouldn't ever fail, but whaddya know?
       render json: @feed.errors.full_messages, status: 400
     end
@@ -68,6 +71,6 @@ class Api::FeedsController < ApplicationController
 
   private
   def feeds_params
-    params.require(:feed).permit(:name)
+    params.require(:feed).permit(:name, :user_id)
   end
 end

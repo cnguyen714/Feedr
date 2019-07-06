@@ -22,7 +22,6 @@ const mapStateToAuthProps = state => {
 
 export const AuthRoute = withRouter(connect(mapStateToAuthProps, null)(Auth));
 
-
 const Protected = ({ component: Component, path, loggedIn, exact, ...rest }) => (
   <Route {...rest} path={path} exact={exact} render={(props) => (
     loggedIn ? (
