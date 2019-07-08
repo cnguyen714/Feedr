@@ -17,9 +17,11 @@ class FeedsSourceIndex extends React.Component {
 
     return (
       <li className="feeds-source-index">
-        <header className="select">
-          <Link to="">{this.props.feed.name}</Link>
-        </header>
+        <Link to={`/feeds/${this.props.feed.id}`} >
+          <header className="select">
+            {this.props.feed.name}
+          </header>
+        </Link>
 
         <ul>
           <FeedsSourceIndexItem source={null} />

@@ -1,4 +1,26 @@
 
+.content-frame {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .content {
+  width: 100%;
+  max-width: 864px;
+  box-sizing: border-box;
+  display: inline-block;
+  text-align: left;
+  margin: 20px;
+  padding-top: 25px
+}
+
+.content header {
+
+}
+
+.content h1 {
 
 }
