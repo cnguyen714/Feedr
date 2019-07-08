@@ -4,34 +4,30 @@
   z-index: 100;
   top: 0;
   left: 0;
-  height: 100%;
-  background-color: #d9d9d9;
+  height: calc(100% - 71px);
+  background-color: #EEEEEE;
   font-size: 13px;
   font-family: $sans-serif;
-  overflow-y: hidden;
+  overflow-y: scroll;
   overflow-x: hidden;
+  padding-top: 20px;
+  // padding-bottom: 51px;
 }
 
 .active {
   width: 268px;
+  opacity: 1;
   transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .inactive {
   width: 0px;
+  opacity: 0;
   transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .sidebar-offset {
   margin-left: 268px;
-}
-
-.sidebar header {
-  padding: 20px;
-  font-size: 11px;
-  letter-spacing: 0.5px;
-  color: $gray;
-  font-weight: 200;
 }
 
 .sidebar footer {
@@ -59,8 +55,76 @@
   transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.sidebar footer i {
-  font-size: 30px;
-  padding-right: 5px;
-  display: inline-block;
+// .sidebar footer i {
+//   font-size: 30px;
+//   padding-right: 5px;
+//   display: inline-block;
+// }
+
+.feeds-index {
+  padding-top: 10px;
+}
+
+.feeds-index > header {
+  padding-left: 20px;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  color: $gray;
+  font-weight: 200;
+  margin-bottom: 10px;
+}
+
+.feeds-source-index {
+  color: $gray;
+  font-weight: bold;
+  font-family: $sans-serif;
+  cursor: pointer;
+  margin-bottom: 10px;                                                                                                                                                                                                                                                                                            
+}
+
+.feeds-source-index > header {
+  box-sizing: border-box;
+  padding: 6px;
+
+  padding-left: 25px;
+  color: $gray;
+  font-weight: bold;
+  font-family: $sans-serif;
+  cursor: pointer;
+}
+
+.select:hover {
+  background-color: #DDDDDD;
+  transition: 0.1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.source-item {
+  box-sizing: border-box;
+  padding: 6px;
+  padding-left: 30px;
+  font-weight: 100;
+}
+
+/* Let's get this party started */
+::-webkit-scrollbar {
+    width: 4px;
+    margin: 2px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    // -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+	background: rgba(0,0,0,0.2); 
+    // -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(0,0,0,0.1); 
 }

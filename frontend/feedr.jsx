@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         session: []
       },
       session: {
-        currentUser: window.currentUser
+        currentUserId: window.currentUser.id
       }
     };
   }
