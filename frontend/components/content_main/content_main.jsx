@@ -14,9 +14,7 @@ class ContentMain extends React.Component {
     return (
       <div className="content-frame sidebar-offset">
         <div className="content">
-          <Switch>
-            <Route exact to="/feeds/:feedId" component={FeedTimelineContainer} />
-          </Switch>
+          <Route exact path="/feeds/:feedId" component={FeedTimelineContainer} />
         </div>
       </div>
     );

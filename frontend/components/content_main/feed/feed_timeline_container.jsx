@@ -6,7 +6,7 @@ import FeedTimeline from "./feed_timeline";
 import { fetchFeed } from "../../../actions/feed_actions";
 
 const mapStateToProps = (state, ownProps) => ({
-  // feeds: own
+  feeds: state.entities.feeds
 });
 
 const mapDispatchToProps = dispatch => ({
