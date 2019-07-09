@@ -3,6 +3,7 @@
 import React from "react";
 import { AuthRoute, ProtectedRoute } from "../../../util/route_util";
 import { fetchFeed } from "../../../actions/feed_actions";
+import { Redirect } from "react-router-dom";
 
 class FeedTimeline extends React.Component {
   constructor(props) {
@@ -11,13 +12,9 @@ class FeedTimeline extends React.Component {
     this.state = null;
   }
 
-  componentDidMount() {
-    this.props.fetchFeed(this.props.match.params.feedId)
-      .then(feed => this.setState(feed.feed));
-  }
 
   render() {
-    if (this.state === null) return null;
+    
 
 
     return (
