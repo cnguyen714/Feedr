@@ -20,6 +20,11 @@ class Api::SourcesController < ApplicationController
     end
   end
 
+  def index
+    @sources = current_user.sources
+    render "api/sources/index"
+  end
+
   def show
     @source = Source.find_by(id: params['id'])
     render "api/sources/show"

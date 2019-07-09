@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let store = configureStore(preloadedState);
 
   // === debug methods start ===
+  
   window.store = store;
   // window.createNewUser = (user) => store.dispatch(createNewUser(user));
   // window.login = (user) => store.dispatch(login(user));

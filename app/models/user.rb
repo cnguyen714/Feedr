@@ -21,6 +21,7 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
 
   has_many :feeds, dependent: :destroy
+  has_many :sources, through: :feeds
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
