@@ -31,10 +31,15 @@ document.addEventListener('DOMContentLoaded', () => {
       entities: {
         users: {
           [window.currentUser.id]: window.currentUser
-        }
+        },
+        feeds: {},
+        sources: {}
       },
       errors: {
         session: []
+      },
+      ui: {
+        loading: true
       },
       session: {
         currentUserId: window.currentUser.id

@@ -20370,3 +20370,1911 @@ Migrating to AddUserColumnSource (20190709184210)
   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
   [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
   [1m[36mSource Load (1.0ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" INNER JOIN "feeds" ON "follows"."feed_id" = "feeds"."id" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+Started GET "/api/feeds/7/sources" for ::1 at 2019-07-09 15:08:05 -0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/hahaer/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Api::SourcesController#index as JSON
+  Parameters: {"feed_id"=>"7"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (3.7ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/sources_controller.rb:31
+  Rendering api/sources/index.json.jbuilder
+  [1m[36mSource Load (0.9ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/sources/index.json.jbuilder:1
+  Rendered api/sources/_source.json.jbuilder (5.0ms)
+  Rendered api/sources/index.json.jbuilder (54.5ms)
+Completed 500 Internal Server Error in 26501ms (ActiveRecord: 24.5ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/sources/_source.json.jbuilder:1:in `_app_views_api_sources__source_json_jbuilder___4018973126416724655_70225915153740'
+  app/views/api/sources/index.json.jbuilder:3:in `block (2 levels) in _app_views_api_sources_index_json_jbuilder__2897263515914632505_47002287400280'
+  app/views/api/sources/index.json.jbuilder:2:in `block in _app_views_api_sources_index_json_jbuilder__2897263515914632505_47002287400280'
+  app/views/api/sources/index.json.jbuilder:1:in `_app_views_api_sources_index_json_jbuilder__2897263515914632505_47002287400280'
+  app/controllers/api/sources_controller.rb:40:in `index'
+
+Started POST "/__better_errors/59aee94a6d298fa7/variables" for ::1 at 2019-07-09 15:08:32 -0700
+Started GET "/api/feeds/7/sources" for ::1 at 2019-07-09 15:09:49 -0700
+Processing by Api::SourcesController#index as JSON
+  Parameters: {"feed_id"=>"7"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (5.0ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/sources_controller.rb:31
+  [1m[36mSource Load (0.8ms)[0m  [1m[34mSELECT  "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1 LIMIT $2[0m  [["feed_id", 7], ["LIMIT", 11]]
+  ↳ app/controllers/api/sources_controller.rb:33
+  [1m[36mCACHE Source Load (0.0ms)[0m  [1m[34mSELECT  "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1 LIMIT $2[0m  [["feed_id", 7], ["LIMIT", 11]]
+  ↳ app/controllers/api/sources_controller.rb:40
+  Rendering api/sources/index.json.jbuilder
+  [1m[36mSource Load (1.2ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/sources/index.json.jbuilder:1
+  Rendered api/sources/_source.json.jbuilder (52.3ms)
+  Rendered api/sources/index.json.jbuilder (115.1ms)
+Completed 500 Internal Server Error in 136408ms (ActiveRecord: 7.5ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/sources/_source.json.jbuilder:1:in `_app_views_api_sources__source_json_jbuilder___4018973126416724655_47002287179400'
+  app/views/api/sources/index.json.jbuilder:3:in `block (2 levels) in _app_views_api_sources_index_json_jbuilder__2897263515914632505_70225909091460'
+  app/views/api/sources/index.json.jbuilder:2:in `block in _app_views_api_sources_index_json_jbuilder__2897263515914632505_70225909091460'
+  app/views/api/sources/index.json.jbuilder:1:in `_app_views_api_sources_index_json_jbuilder__2897263515914632505_70225909091460'
+  app/controllers/api/sources_controller.rb:40:in `index'
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `rescue in protected_app_call'
+Started GET "/api/feeds/7/sources" for ::1 at 2019-07-09 15:12:22 -0700
+Processing by Api::SourcesController#index as JSON
+  Parameters: {"feed_id"=>"7"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Started GET "/api/feeds/7/sources" for ::1 at 2019-07-09 15:12:30 -0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/hahaer/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Api::SourcesController#index as JSON
+  Parameters: {"feed_id"=>"7"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (1.9ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/sources_controller.rb:31
+  Rendering api/sources/index.json.jbuilder
+  [1m[36mSource Load (1.5ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/sources/index.json.jbuilder:1
+  Rendered api/sources/_source.json.jbuilder (37.5ms)
+  Rendered api/sources/index.json.jbuilder (188.2ms)
+Completed 500 Internal Server Error in 27430ms (ActiveRecord: 20.9ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/sources/_source.json.jbuilder:1:in `_app_views_api_sources__source_json_jbuilder__277519941960432136_70283023992480'
+  app/views/api/sources/index.json.jbuilder:3:in `block (2 levels) in _app_views_api_sources_index_json_jbuilder__4299908121816731799_70283024307480'
+  app/views/api/sources/index.json.jbuilder:2:in `block in _app_views_api_sources_index_json_jbuilder__4299908121816731799_70283024307480'
+  app/views/api/sources/index.json.jbuilder:1:in `_app_views_api_sources_index_json_jbuilder__4299908121816731799_70283024307480'
+  app/controllers/api/sources_controller.rb:40:in `index'
+
+Started POST "/__better_errors/3e01414f30717924/variables" for ::1 at 2019-07-09 15:12:58 -0700
+Started GET "/api/feeds/7/sources" for ::1 at 2019-07-09 15:13:25 -0700
+Processing by Api::SourcesController#index as JSON
+  Parameters: {"feed_id"=>"7"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (1.4ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/sources_controller.rb:31
+  Rendering api/sources/index.json.jbuilder
+  [1m[36mSource Load (0.4ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/sources/index.json.jbuilder:1
+  Rendered api/sources/_source.json.jbuilder (0.6ms)
+  Rendered api/sources/index.json.jbuilder (5.4ms)
+Completed 200 OK in 3422ms (Views: 8.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 15:14:04 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.5ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (49.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (81.3ms)
+Completed 200 OK in 2260ms (Views: 2250.3ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/api/feeds" for ::1 at 2019-07-09 15:14:06 -0700
+Processing by Api::FeedsController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "feeds" WHERE "feeds"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:29
+  Rendering api/feeds/index.json.jbuilder
+  [1m[36mFeed Load (2.1ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/feeds/index.json.jbuilder:1
+  [1m[36mSource Load (0.7ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (57.6ms)
+  [1m[36mSource Load (0.6ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 8]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (2.5ms)
+  [1m[36mSource Load (0.6ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 9]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (2.6ms)
+  Rendered api/feeds/index.json.jbuilder (72.5ms)
+Completed 200 OK in 82ms (Views: 64.1ms | ActiveRecord: 13.6ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 15:15:51 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.4ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (2.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 874ms (Views: 871.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 15:15:52 -0700
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.4ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (3.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (19.5ms)
+Completed 200 OK in 69ms (Views: 60.9ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/api/session" for ::1 at 2019-07-09 15:15:56 -0700
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering api/session/show.json.jbuilder
+  [1m[36mFeed Load (0.4ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (2.3ms)
+  Rendered api/session/show.json.jbuilder (4.6ms)
+Completed 200 OK in 11ms (Views: 7.9ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/api/session" for ::1 at 2019-07-09 15:15:58 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"demo@feedr.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@feedr.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  Rendering api/session/show.json.jbuilder
+  [1m[36mFeed Load (0.3ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (1.8ms)
+  Rendered api/session/show.json.jbuilder (3.0ms)
+Completed 200 OK in 299ms (Views: 4.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 15:15:59 -0700
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.3ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (3.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 79ms (Views: 71.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 15:16:14 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.3ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (3.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 55ms (Views: 52.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 15:16:15 -0700
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (2.7ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (5.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (19.2ms)
+Completed 200 OK in 87ms (Views: 79.3ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 15:16:55 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.3ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (5.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 901ms (Views: 898.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/feeds" for ::1 at 2019-07-09 15:16:56 -0700
+Processing by Api::FeedsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "feeds" WHERE "feeds"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:29
+  Rendering api/feeds/index.json.jbuilder
+  [1m[36mFeed Load (0.3ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/feeds/index.json.jbuilder:1
+  [1m[36mSource Load (1.5ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (6.9ms)
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 8]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (2.1ms)
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 9]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (2.4ms)
+  Rendered api/feeds/index.json.jbuilder (20.5ms)
+Completed 200 OK in 31ms (Views: 24.2ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 15:17:45 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (3.4ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (7.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 1065ms (Views: 1056.5ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 15:17:47 -0700
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.3ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (3.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (18.1ms)
+Completed 200 OK in 67ms (Views: 60.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/feeds" for ::1 at 2019-07-09 15:17:47 -0700
+Processing by Api::FeedsController#index as JSON
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "feeds" WHERE "feeds"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:29
+  Rendering api/feeds/index.json.jbuilder
+  [1m[36mFeed Load (0.4ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/feeds/index.json.jbuilder:1
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (2.7ms)
+  [1m[36mSource Load (6.2ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 8]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (11.7ms)
+  [1m[36mSource Load (0.6ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 9]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (3.6ms)
+  Rendered api/feeds/index.json.jbuilder (23.3ms)
+Completed 200 OK in 34ms (Views: 20.4ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 15:18:08 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.7ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (3.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 1033ms (Views: 1030.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 15:18:09 -0700
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (1.0ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (6.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 73ms (Views: 65.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/api/feeds" for ::1 at 2019-07-09 15:18:09 -0700
+Processing by Api::FeedsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "feeds" WHERE "feeds"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:29
+  Rendering api/feeds/index.json.jbuilder
+  [1m[36mFeed Load (0.3ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/feeds/index.json.jbuilder:1
+  [1m[36mSource Load (1.4ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (6.5ms)
+  [1m[36mSource Load (0.4ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 8]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (2.0ms)
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 9]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (2.2ms)
+  Rendered api/feeds/index.json.jbuilder (14.8ms)
+Completed 200 OK in 22ms (Views: 14.3ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/feeds/undefined/sources" for ::1 at 2019-07-09 15:18:09 -0700
+Processing by Api::SourcesController#index as JSON
+  Parameters: {"feed_id"=>"undefined"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.4ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/sources_controller.rb:30
+Completed 500 Internal Server Error in 8ms (Views: 0.3ms | ActiveRecord: 0.7ms)
+
+
+
+NoMethodError - undefined method `sources' for nil:NilClass:
+  app/controllers/api/sources_controller.rb:38:in `index'
+
+Started GET "/api/feeds/undefined/sources" for ::1 at 2019-07-09 15:18:09 -0700
+Processing by Api::SourcesController#index as JSON
+  Parameters: {"feed_id"=>"undefined"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (3.2ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/sources_controller.rb:30
+Completed 500 Internal Server Error in 10ms (Views: 0.2ms | ActiveRecord: 3.5ms)
+
+
+
+NoMethodError - undefined method `sources' for nil:NilClass:
+  app/controllers/api/sources_controller.rb:38:in `index'
+
+Started GET "/api/feeds/undefined/sources" for ::1 at 2019-07-09 15:18:09 -0700
+Processing by Api::SourcesController#index as JSON
+  Parameters: {"feed_id"=>"undefined"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.4ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/sources_controller.rb:30
+Completed 500 Internal Server Error in 7ms (Views: 0.5ms | ActiveRecord: 0.6ms)
+
+
+
+NoMethodError - undefined method `sources' for nil:NilClass:
+  app/controllers/api/sources_controller.rb:38:in `index'
+
+Started GET "/api/feeds/undefined/sources" for ::1 at 2019-07-09 15:18:10 -0700
+Processing by Api::SourcesController#index as JSON
+  Parameters: {"feed_id"=>"undefined"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.3ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/sources_controller.rb:30
+Completed 500 Internal Server Error in 9ms (Views: 0.8ms | ActiveRecord: 0.6ms)
+
+
+
+NoMethodError - undefined method `sources' for nil:NilClass:
+  app/controllers/api/sources_controller.rb:38:in `index'
+
+Started GET "/api/feeds/undefined/sources" for ::1 at 2019-07-09 15:18:10 -0700
+Processing by Api::SourcesController#index as JSON
+  Parameters: {"feed_id"=>"undefined"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.2ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/sources_controller.rb:30
+Completed 500 Internal Server Error in 7ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+
+NoMethodError - undefined method `sources' for nil:NilClass:
+  app/controllers/api/sources_controller.rb:38:in `index'
+
+Started GET "/api/feeds/undefined/sources" for ::1 at 2019-07-09 15:18:10 -0700
+Processing by Api::SourcesController#index as JSON
+  Parameters: {"feed_id"=>"undefined"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (1.1ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/sources_controller.rb:30
+Completed 500 Internal Server Error in 6ms (Views: 0.2ms | ActiveRecord: 1.4ms)
+
+
+
+NoMethodError - undefined method `sources' for nil:NilClass:
+  app/controllers/api/sources_controller.rb:38:in `index'
+
+Started GET "/" for ::1 at 2019-07-09 15:18:53 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.5ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (9.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (16.5ms)
+Completed 200 OK in 1357ms (Views: 1354.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 15:18:55 -0700
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (2.8ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (6.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (20.7ms)
+Completed 200 OK in 85ms (Views: 76.0ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/api/feeds" for ::1 at 2019-07-09 15:18:56 -0700
+Processing by Api::FeedsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "feeds" WHERE "feeds"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:29
+  Rendering api/feeds/index.json.jbuilder
+  [1m[36mFeed Load (1.4ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/feeds/index.json.jbuilder:1
+  [1m[36mSource Load (1.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (4.8ms)
+  [1m[36mSource Load (0.2ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 8]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (2.1ms)
+  [1m[36mSource Load (0.7ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 9]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (2.4ms)
+  Rendered api/feeds/index.json.jbuilder (20.0ms)
+Completed 200 OK in 28ms (Views: 19.4ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/api/feeds/undefined/sources" for ::1 at 2019-07-09 15:18:56 -0700
+Processing by Api::SourcesController#index as JSON
+  Parameters: {"feed_id"=>"undefined"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.2ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/sources_controller.rb:30
+Completed 500 Internal Server Error in 6ms (Views: 0.3ms | ActiveRecord: 0.5ms)
+
+
+
+NoMethodError - undefined method `sources' for nil:NilClass:
+  app/controllers/api/sources_controller.rb:38:in `index'
+
+Started GET "/api/feeds/undefined/sources" for ::1 at 2019-07-09 15:18:56 -0700
+Processing by Api::SourcesController#index as JSON
+  Parameters: {"feed_id"=>"undefined"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.3ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/sources_controller.rb:30
+Completed 500 Internal Server Error in 7ms (Views: 0.3ms | ActiveRecord: 0.5ms)
+
+
+
+NoMethodError - undefined method `sources' for nil:NilClass:
+  app/controllers/api/sources_controller.rb:38:in `index'
+
+Started GET "/api/feeds/undefined/sources" for ::1 at 2019-07-09 15:18:56 -0700
+Processing by Api::SourcesController#index as JSON
+  Parameters: {"feed_id"=>"undefined"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.3ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/sources_controller.rb:30
+Completed 500 Internal Server Error in 7ms (Views: 0.3ms | ActiveRecord: 0.6ms)
+
+
+
+NoMethodError - undefined method `sources' for nil:NilClass:
+  app/controllers/api/sources_controller.rb:38:in `index'
+
+Started GET "/api/feeds/undefined/sources" for ::1 at 2019-07-09 15:18:56 -0700
+Processing by Api::SourcesController#index as JSON
+  Parameters: {"feed_id"=>"undefined"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.3ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/sources_controller.rb:30
+Completed 500 Internal Server Error in 6ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+
+NoMethodError - undefined method `sources' for nil:NilClass:
+  app/controllers/api/sources_controller.rb:38:in `index'
+
+Started GET "/" for ::1 at 2019-07-09 15:22:25 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.6ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (5.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 897ms (Views: 892.8ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 15:22:27 -0700
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.2ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (4.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 78ms (Views: 71.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/feeds" for ::1 at 2019-07-09 15:22:27 -0700
+Processing by Api::FeedsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "feeds" WHERE "feeds"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:29
+  Rendering api/feeds/index.json.jbuilder
+  [1m[36mFeed Load (3.8ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/feeds/index.json.jbuilder:1
+  [1m[36mSource Load (3.2ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (6.3ms)
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 8]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (1.8ms)
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 9]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (2.1ms)
+  Rendered api/feeds/index.json.jbuilder (20.9ms)
+Completed 200 OK in 33ms (Views: 19.5ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 15:24:12 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.3ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (2.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 857ms (Views: 855.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 15:24:14 -0700
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (1.0ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (5.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 79ms (Views: 71.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/api/feeds" for ::1 at 2019-07-09 15:24:14 -0700
+Processing by Api::FeedsController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Exists (2.6ms)[0m  [1m[34mSELECT  1 AS one FROM "feeds" WHERE "feeds"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:29
+  Rendering api/feeds/index.json.jbuilder
+  [1m[36mFeed Load (0.6ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/feeds/index.json.jbuilder:1
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (3.2ms)
+  [1m[36mSource Load (0.5ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 8]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (2.9ms)
+  [1m[36mSource Load (1.1ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 9]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (4.7ms)
+  Rendered api/feeds/index.json.jbuilder (21.6ms)
+Completed 200 OK in 32ms (Views: 22.6ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 15:25:26 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.6ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (8.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 1001ms (Views: 997.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 15:25:28 -0700
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (1.1ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (4.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 65ms (Views: 57.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/api/feeds" for ::1 at 2019-07-09 15:25:28 -0700
+Processing by Api::FeedsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "feeds" WHERE "feeds"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:29
+  Rendering api/feeds/index.json.jbuilder
+  [1m[36mFeed Load (0.2ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/feeds/index.json.jbuilder:1
+  [1m[36mSource Load (0.5ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (6.2ms)
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 8]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (1.9ms)
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 9]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (2.2ms)
+  Rendered api/feeds/index.json.jbuilder (15.0ms)
+Completed 200 OK in 22ms (Views: 17.0ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/api/sources" for ::1 at 2019-07-09 15:25:28 -0700
+Processing by Api::SourcesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering api/sources/index.json.jbuilder
+  [1m[36mSource Load (1.7ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" INNER JOIN "feeds" ON "follows"."feed_id" = "feeds"."id" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/sources/index.json.jbuilder:1
+  Rendered api/sources/_source.json.jbuilder (0.5ms)
+  Rendered api/sources/index.json.jbuilder (10.7ms)
+Completed 200 OK in 27ms (Views: 13.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 15:28:03 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.3ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (7.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (22.6ms)
+Completed 200 OK in 104ms (Views: 97.8ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 15:28:04 -0700
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (1.7ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (6.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 1171ms (Views: 1161.7ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/api/feeds" for ::1 at 2019-07-09 15:28:05 -0700
+Processing by Api::FeedsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "feeds" WHERE "feeds"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:29
+  Rendering api/feeds/index.json.jbuilder
+  [1m[36mFeed Load (0.6ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/feeds/index.json.jbuilder:1
+  [1m[36mSource Load (0.6ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (4.9ms)
+  [1m[36mSource Load (0.4ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 8]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (2.6ms)
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 9]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (4.8ms)
+  Rendered api/feeds/index.json.jbuilder (18.4ms)
+Completed 200 OK in 28ms (Views: 21.7ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/api/sources" for ::1 at 2019-07-09 15:28:06 -0700
+Processing by Api::SourcesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering api/sources/index.json.jbuilder
+  [1m[36mSource Load (1.0ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" INNER JOIN "feeds" ON "follows"."feed_id" = "feeds"."id" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/sources/index.json.jbuilder:1
+  Rendered api/sources/_source.json.jbuilder (3.9ms)
+  Rendered api/sources/index.json.jbuilder (15.2ms)
+Completed 200 OK in 22ms (Views: 18.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 15:28:26 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.3ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (2.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 42ms (Views: 40.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 15:29:46 -0700
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.4ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (11.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (28.1ms)
+Completed 200 OK in 112ms (Views: 102.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/feeds" for ::1 at 2019-07-09 15:29:46 -0700
+Processing by Api::FeedsController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "feeds" WHERE "feeds"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:29
+  Rendering api/feeds/index.json.jbuilder
+  [1m[36mFeed Load (0.3ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/feeds/index.json.jbuilder:1
+  [1m[36mSource Load (1.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (5.5ms)
+  [1m[36mSource Load (4.4ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 8]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (7.3ms)
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 9]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (2.4ms)
+  Rendered api/feeds/index.json.jbuilder (20.4ms)
+Completed 200 OK in 30ms (Views: 17.1ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/api/sources" for ::1 at 2019-07-09 15:30:36 -0700
+Processing by Api::SourcesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering api/sources/index.json.jbuilder
+  [1m[36mSource Load (1.2ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" INNER JOIN "feeds" ON "follows"."feed_id" = "feeds"."id" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/sources/index.json.jbuilder:1
+  Rendered api/sources/_source.json.jbuilder (0.6ms)
+  Rendered api/sources/index.json.jbuilder (7.0ms)
+Completed 200 OK in 12ms (Views: 8.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 15:31:35 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.2ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (2.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 931ms (Views: 929.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 15:31:52 -0700
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.3ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (4.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (24.6ms)
+Completed 200 OK in 115ms (Views: 107.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/feeds" for ::1 at 2019-07-09 15:31:52 -0700
+Processing by Api::FeedsController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "feeds" WHERE "feeds"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:29
+  Rendering api/feeds/index.json.jbuilder
+  [1m[36mFeed Load (0.3ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/feeds/index.json.jbuilder:1
+  [1m[36mSource Load (0.2ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (2.0ms)
+  [1m[36mSource Load (0.2ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 8]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (1.7ms)
+  [1m[36mSource Load (0.2ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 9]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (1.4ms)
+  Rendered api/feeds/index.json.jbuilder (8.7ms)
+Completed 200 OK in 15ms (Views: 10.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/sources" for ::1 at 2019-07-09 15:31:53 -0700
+Processing by Api::SourcesController#index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering api/sources/index.json.jbuilder
+  [1m[36mSource Load (2.9ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" INNER JOIN "feeds" ON "follows"."feed_id" = "feeds"."id" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/sources/index.json.jbuilder:1
+  Rendered api/sources/_source.json.jbuilder (2.3ms)
+  Rendered api/sources/index.json.jbuilder (10.6ms)
+Completed 200 OK in 18ms (Views: 11.3ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 15:33:51 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.2ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (4.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 909ms (Views: 907.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 15:34:04 -0700
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.9ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (8.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (26.8ms)
+Completed 200 OK in 87ms (Views: 75.4ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/api/feeds" for ::1 at 2019-07-09 15:34:04 -0700
+Processing by Api::FeedsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "feeds" WHERE "feeds"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:29
+  Rendering api/feeds/index.json.jbuilder
+  [1m[36mFeed Load (2.5ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/feeds/index.json.jbuilder:1
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (2.7ms)
+  [1m[36mSource Load (0.2ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 8]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (1.6ms)
+  [1m[36mSource Load (0.2ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 9]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (1.3ms)
+  Rendered api/feeds/index.json.jbuilder (15.9ms)
+Completed 200 OK in 27ms (Views: 16.5ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 15:34:19 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.3ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (2.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 45ms (Views: 44.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 15:34:39 -0700
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.8ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (9.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (22.0ms)
+Completed 200 OK in 103ms (Views: 94.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/api/feeds" for ::1 at 2019-07-09 15:34:39 -0700
+Processing by Api::FeedsController#index as JSON
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "feeds" WHERE "feeds"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:29
+  Rendering api/feeds/index.json.jbuilder
+  [1m[36mFeed Load (1.2ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/feeds/index.json.jbuilder:1
+  [1m[36mSource Load (0.2ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (2.9ms)
+  [1m[36mSource Load (0.5ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 8]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (9.0ms)
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 9]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (1.6ms)
+  Rendered api/feeds/index.json.jbuilder (24.5ms)
+Completed 200 OK in 37ms (Views: 26.6ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 15:36:03 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (2.2ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (10.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (20.7ms)
+Completed 200 OK in 1018ms (Views: 1011.9ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 15:36:05 -0700
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (1.0ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (5.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (26.6ms)
+Completed 200 OK in 83ms (Views: 69.7ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/api/feeds" for ::1 at 2019-07-09 15:36:05 -0700
+Processing by Api::FeedsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Exists (6.1ms)[0m  [1m[34mSELECT  1 AS one FROM "feeds" WHERE "feeds"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:29
+  Rendering api/feeds/index.json.jbuilder
+  [1m[36mFeed Load (0.3ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/feeds/index.json.jbuilder:1
+  [1m[36mSource Load (1.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (4.9ms)
+  [1m[36mSource Load (0.8ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 8]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (4.0ms)
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 9]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (3.4ms)
+  Rendered api/feeds/index.json.jbuilder (18.0ms)
+Completed 200 OK in 32ms (Views: 19.0ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/api/sources" for ::1 at 2019-07-09 15:36:05 -0700
+Processing by Api::SourcesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering api/sources/index.json.jbuilder
+  [1m[36mSource Load (1.6ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" INNER JOIN "feeds" ON "follows"."feed_id" = "feeds"."id" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/sources/index.json.jbuilder:1
+  Rendered api/sources/_source.json.jbuilder (0.4ms)
+  Rendered api/sources/index.json.jbuilder (5.5ms)
+Completed 200 OK in 10ms (Views: 6.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 15:37:06 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.3ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (3.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 1453ms (Views: 1451.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 15:37:08 -0700
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.3ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (2.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 75ms (Views: 66.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/feeds" for ::1 at 2019-07-09 15:37:08 -0700
+Processing by Api::FeedsController#index as JSON
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Exists (13.7ms)[0m  [1m[34mSELECT  1 AS one FROM "feeds" WHERE "feeds"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:29
+  Rendering api/feeds/index.json.jbuilder
+  [1m[36mFeed Load (0.3ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/feeds/index.json.jbuilder:1
+  [1m[36mSource Load (0.4ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (6.3ms)
+  [1m[36mSource Load (1.0ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 8]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (4.3ms)
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 9]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (2.7ms)
+  Rendered api/feeds/index.json.jbuilder (19.9ms)
+Completed 200 OK in 42ms (Views: 20.5ms | ActiveRecord: 16.4ms)
+
+
+Started GET "/api/sources" for ::1 at 2019-07-09 15:37:09 -0700
+Processing by Api::SourcesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering api/sources/index.json.jbuilder
+  [1m[36mSource Load (2.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" INNER JOIN "feeds" ON "follows"."feed_id" = "feeds"."id" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/sources/index.json.jbuilder:1
+  Rendered api/sources/_source.json.jbuilder (0.6ms)
+  Rendered api/sources/index.json.jbuilder (7.4ms)
+Completed 200 OK in 13ms (Views: 8.1ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/api/feeds/7" for ::1 at 2019-07-09 15:37:16 -0700
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.3ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:9
+  [1m[36mCACHE Feed Load (0.0ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:17
+  [1m[36mCACHE Feed Load (0.0ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:37
+  Rendering api/feeds/show.json.jbuilder
+  [1m[36mSource Load (0.7ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (3.1ms)
+  Rendered api/feeds/show.json.jbuilder (4.7ms)
+Completed 200 OK in 14ms (Views: 7.2ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/api/session" for ::1 at 2019-07-09 15:39:29 -0700
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering api/session/show.json.jbuilder
+  [1m[36mFeed Load (0.3ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (2.6ms)
+  Rendered api/session/show.json.jbuilder (3.9ms)
+Completed 200 OK in 9ms (Views: 6.1ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api/session" for ::1 at 2019-07-09 15:39:31 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"demo@feedr.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@feedr.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  Rendering api/session/show.json.jbuilder
+  [1m[36mFeed Load (0.2ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (2.6ms)
+  Rendered api/session/show.json.jbuilder (3.6ms)
+Completed 200 OK in 336ms (Views: 5.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 15:39:31 -0700
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.3ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (2.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 932ms (Views: 925.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/feeds" for ::1 at 2019-07-09 15:39:32 -0700
+Processing by Api::FeedsController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "feeds" WHERE "feeds"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:29
+  Rendering api/feeds/index.json.jbuilder
+  [1m[36mFeed Load (0.2ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/feeds/index.json.jbuilder:1
+  [1m[36mSource Load (0.6ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (5.5ms)
+  [1m[36mSource Load (0.2ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 8]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (1.5ms)
+  [1m[36mSource Load (0.2ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 9]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (1.5ms)
+  Rendered api/feeds/index.json.jbuilder (12.0ms)
+Completed 200 OK in 17ms (Views: 12.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/api/sources" for ::1 at 2019-07-09 15:39:32 -0700
+Processing by Api::SourcesController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering api/sources/index.json.jbuilder
+  [1m[36mSource Load (0.5ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" INNER JOIN "feeds" ON "follows"."feed_id" = "feeds"."id" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/sources/index.json.jbuilder:1
+  Rendered api/sources/_source.json.jbuilder (0.6ms)
+  Rendered api/sources/index.json.jbuilder (5.9ms)
+Completed 200 OK in 12ms (Views: 8.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 16:06:08 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (1.7ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (5.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 80ms (Views: 72.7ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 16:06:09 -0700
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.8ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (4.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 89ms (Views: 80.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/feeds" for ::1 at 2019-07-09 16:06:09 -0700
+Processing by Api::FeedsController#index as JSON
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "feeds" WHERE "feeds"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:29
+  Rendering api/feeds/index.json.jbuilder
+  [1m[36mFeed Load (0.4ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/feeds/index.json.jbuilder:1
+  [1m[36mSource Load (7.9ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (16.2ms)
+  [1m[36mSource Load (0.6ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 8]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (2.1ms)
+  [1m[36mSource Load (0.6ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 9]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (2.2ms)
+  Rendered api/feeds/index.json.jbuilder (46.4ms)
+Completed 200 OK in 57ms (Views: 40.2ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/api/sources" for ::1 at 2019-07-09 16:06:09 -0700
+Processing by Api::SourcesController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering api/sources/index.json.jbuilder
+  [1m[36mSource Load (1.2ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" INNER JOIN "feeds" ON "follows"."feed_id" = "feeds"."id" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/sources/index.json.jbuilder:1
+  Rendered api/sources/_source.json.jbuilder (0.6ms)
+  Rendered api/sources/index.json.jbuilder (8.4ms)
+Completed 200 OK in 15ms (Views: 11.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 16:06:18 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (1.2ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (4.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 57ms (Views: 54.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 16:06:18 -0700
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (1.5ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (6.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 80ms (Views: 71.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/feeds" for ::1 at 2019-07-09 16:06:18 -0700
+Processing by Api::FeedsController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Exists (2.8ms)[0m  [1m[34mSELECT  1 AS one FROM "feeds" WHERE "feeds"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:29
+  Rendering api/feeds/index.json.jbuilder
+  [1m[36mFeed Load (0.4ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/feeds/index.json.jbuilder:1
+  [1m[36mSource Load (0.9ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (8.5ms)
+  [1m[36mSource Load (0.6ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 8]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (2.6ms)
+  [1m[36mSource Load (1.1ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 9]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (7.7ms)
+  Rendered api/feeds/index.json.jbuilder (24.6ms)
+Completed 200 OK in 38ms (Views: 25.4ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/api/sources" for ::1 at 2019-07-09 16:06:18 -0700
+Processing by Api::SourcesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering api/sources/index.json.jbuilder
+  [1m[36mSource Load (0.6ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" INNER JOIN "feeds" ON "follows"."feed_id" = "feeds"."id" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/sources/index.json.jbuilder:1
+  Rendered api/sources/_source.json.jbuilder (0.4ms)
+  Rendered api/sources/index.json.jbuilder (3.7ms)
+Completed 200 OK in 8ms (Views: 5.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/feeds/7" for ::1 at 2019-07-09 16:07:22 -0700
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.5ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:9
+  [1m[36mCACHE Feed Load (0.0ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:17
+  [1m[36mCACHE Feed Load (0.0ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:37
+  Rendering api/feeds/show.json.jbuilder
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (2.1ms)
+  Rendered api/feeds/show.json.jbuilder (6.3ms)
+Completed 200 OK in 22ms (Views: 9.9ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 16:08:05 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (1.5ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (5.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 956ms (Views: 952.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 16:08:07 -0700
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.3ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (3.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (17.5ms)
+Started GET "/api/feeds/7" for ::1 at 2019-07-09 16:08:07 -0700
+Completed 200 OK in 85ms (Views: 78.2ms | ActiveRecord: 1.8ms)
+
+
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.4ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:9
+  [1m[36mCACHE Feed Load (0.0ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:17
+  [1m[36mCACHE Feed Load (0.0ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:37
+  Rendering api/feeds/show.json.jbuilder
+  [1m[36mSource Load (1.1ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (4.1ms)
+  Rendered api/feeds/show.json.jbuilder (17.8ms)
+Completed 200 OK in 39ms (Views: 26.4ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/api/feeds" for ::1 at 2019-07-09 16:08:07 -0700
+Processing by Api::FeedsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "feeds" WHERE "feeds"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:29
+  Rendering api/feeds/index.json.jbuilder
+  [1m[36mFeed Load (0.2ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/feeds/index.json.jbuilder:1
+  [1m[36mSource Load (0.6ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (3.5ms)
+  [1m[36mSource Load (0.5ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 8]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (2.3ms)
+  [1m[36mSource Load (0.4ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 9]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (1.9ms)
+  Rendered api/feeds/index.json.jbuilder (12.8ms)
+Completed 200 OK in 62ms (Views: 56.0ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/api/sources" for ::1 at 2019-07-09 16:08:07 -0700
+Processing by Api::SourcesController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering api/sources/index.json.jbuilder
+  [1m[36mSource Load (0.7ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" INNER JOIN "feeds" ON "follows"."feed_id" = "feeds"."id" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/sources/index.json.jbuilder:1
+  Rendered api/sources/_source.json.jbuilder (0.8ms)
+  Rendered api/sources/index.json.jbuilder (88.2ms)
+Completed 200 OK in 218ms (Views: 214.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 16:08:16 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.3ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (1.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 985ms (Views: 982.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 16:08:17 -0700
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Started GET "/api/feeds/7" for ::1 at 2019-07-09 16:08:17 -0700
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"7"}
+  [1m[36mFeed Load (1.0ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (7.1ms)
+  [1m[36mFeed Load (1.2ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:9
+  [1m[36mCACHE Feed Load (0.0ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered static_pages/root.html.erb within layouts/application (29.9ms)
+  ↳ app/controllers/api/feeds_controller.rb:17
+  [1m[36mCACHE Feed Load (0.0ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:37
+  Rendering api/feeds/show.json.jbuilder
+  [1m[36mSource Load (0.5ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (3.3ms)
+  Rendered api/feeds/show.json.jbuilder (4.7ms)
+Completed 200 OK in 22ms (Views: 11.2ms | ActiveRecord: 2.2ms)
+
+
+Completed 200 OK in 132ms (Views: 120.9ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/api/feeds" for ::1 at 2019-07-09 16:08:18 -0700
+Processing by Api::FeedsController#index as JSON
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Exists (2.7ms)[0m  [1m[34mSELECT  1 AS one FROM "feeds" WHERE "feeds"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:29
+  Rendering api/feeds/index.json.jbuilder
+  [1m[36mFeed Load (1.7ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/feeds/index.json.jbuilder:1
+  [1m[36mSource Load (0.7ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (3.8ms)
+  [1m[36mSource Load (0.6ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 8]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (2.4ms)
+  [1m[36mSource Load (0.6ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 9]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (3.7ms)
+  Rendered api/feeds/index.json.jbuilder (18.3ms)
+Completed 200 OK in 30ms (Views: 17.9ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/api/sources" for ::1 at 2019-07-09 16:08:18 -0700
+Processing by Api::SourcesController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering api/sources/index.json.jbuilder
+  [1m[36mSource Load (0.6ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" INNER JOIN "feeds" ON "follows"."feed_id" = "feeds"."id" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/sources/index.json.jbuilder:1
+  Rendered api/sources/_source.json.jbuilder (0.4ms)
+  Rendered api/sources/index.json.jbuilder (4.1ms)
+Completed 200 OK in 11ms (Views: 7.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 16:08:35 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.4ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (14.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (19.9ms)
+Completed 200 OK in 886ms (Views: 884.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 16:08:37 -0700
+Processing by StaticPagesController#root as */*
+Started GET "/api/feeds/7" for ::1 at 2019-07-09 16:08:37 -0700
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.3ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:9
+  [1m[36mCACHE Feed Load (0.0ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:17
+  [1m[36mCACHE Feed Load (0.0ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:37
+  Rendering api/feeds/show.json.jbuilder
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mSource Load (2.1ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (5.0ms)
+  Rendered api/feeds/show.json.jbuilder (6.3ms)
+Completed 200 OK in 15ms (Views: 6.9ms | ActiveRecord: 2.9ms)
+
+
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (1.3ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (5.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (20.9ms)
+Completed 200 OK in 91ms (Views: 78.4ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/api/feeds" for ::1 at 2019-07-09 16:08:37 -0700
+Processing by Api::FeedsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "feeds" WHERE "feeds"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:29
+  Rendering api/feeds/index.json.jbuilder
+  [1m[36mFeed Load (0.3ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/feeds/index.json.jbuilder:1
+  [1m[36mSource Load (0.8ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (4.1ms)
+  [1m[36mSource Load (1.0ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 8]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (3.7ms)
+  [1m[36mSource Load (1.4ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 9]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (4.9ms)
+  Rendered api/feeds/index.json.jbuilder (17.3ms)
+Completed 200 OK in 24ms (Views: 15.8ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/api/sources" for ::1 at 2019-07-09 16:08:37 -0700
+Processing by Api::SourcesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering api/sources/index.json.jbuilder
+  [1m[36mSource Load (0.6ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" INNER JOIN "feeds" ON "follows"."feed_id" = "feeds"."id" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/sources/index.json.jbuilder:1
+  Rendered api/sources/_source.json.jbuilder (0.6ms)
+  Rendered api/sources/index.json.jbuilder (4.4ms)
+Completed 200 OK in 12ms (Views: 7.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 16:10:07 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.2ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (2.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 43ms (Views: 41.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 16:10:08 -0700
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (1.6ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (5.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (16.0ms)
+Started GET "/api/feeds/7" for ::1 at 2019-07-09 16:10:08 -0700
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (3.3ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:9
+  [1m[36mCACHE Feed Load (0.0ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:17
+  [1m[36mCACHE Feed Load (0.0ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:37
+  Rendering api/feeds/show.json.jbuilder
+  [1m[36mSource Load (0.8ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (3.8ms)
+  Rendered api/feeds/show.json.jbuilder (7.9ms)
+Completed 200 OK in 21ms (Views: 12.5ms | ActiveRecord: 4.4ms)
+
+
+Completed 200 OK in 94ms (Views: 85.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/api/feeds" for ::1 at 2019-07-09 16:10:08 -0700
+Processing by Api::FeedsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Exists (2.7ms)[0m  [1m[34mSELECT  1 AS one FROM "feeds" WHERE "feeds"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:29
+  Rendering api/feeds/index.json.jbuilder
+  [1m[36mFeed Load (0.3ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/feeds/index.json.jbuilder:1
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (4.8ms)
+  [1m[36mSource Load (1.1ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 8]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (4.7ms)
+  [1m[36mSource Load (4.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 9]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (7.2ms)
+  Rendered api/feeds/index.json.jbuilder (24.4ms)
+Completed 200 OK in 37ms (Views: 21.9ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/api/sources" for ::1 at 2019-07-09 16:10:08 -0700
+Processing by Api::SourcesController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering api/sources/index.json.jbuilder
+  [1m[36mSource Load (0.7ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" INNER JOIN "feeds" ON "follows"."feed_id" = "feeds"."id" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/sources/index.json.jbuilder:1
+  Rendered api/sources/_source.json.jbuilder (0.6ms)
+  Rendered api/sources/index.json.jbuilder (5.3ms)
+Completed 200 OK in 10ms (Views: 6.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 16:11:43 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.2ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (3.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 978ms (Views: 973.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 16:11:45 -0700
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Started GET "/api/feeds/7" for ::1 at 2019-07-09 16:11:45 -0700
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (1.7ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (3.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (28.6ms)
+  [1m[36mFeed Load (3.9ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:9
+  [1m[36mCACHE Feed Load (0.0ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:17
+  [1m[36mCACHE Feed Load (0.0ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:37
+  Rendering api/feeds/show.json.jbuilder
+  [1m[36mSource Load (0.4ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (3.3ms)
+  Rendered api/feeds/show.json.jbuilder (5.5ms)
+Completed 200 OK in 52ms (Views: 27.4ms | ActiveRecord: 6.2ms)
+
+
+Completed 200 OK in 94ms (Views: 85.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/api/feeds" for ::1 at 2019-07-09 16:11:45 -0700
+Processing by Api::FeedsController#index as JSON
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Exists (2.2ms)[0m  [1m[34mSELECT  1 AS one FROM "feeds" WHERE "feeds"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:29
+  Rendering api/feeds/index.json.jbuilder
+  [1m[36mFeed Load (0.8ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/feeds/index.json.jbuilder:1
+  [1m[36mSource Load (1.7ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (6.2ms)
+  [1m[36mSource Load (0.8ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 8]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (3.2ms)
+  [1m[36mSource Load (0.8ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 9]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (13.3ms)
+  Rendered api/feeds/index.json.jbuilder (28.8ms)
+Completed 200 OK in 41ms (Views: 28.7ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/api/sources" for ::1 at 2019-07-09 16:11:45 -0700
+Processing by Api::SourcesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering api/sources/index.json.jbuilder
+  [1m[36mSource Load (0.7ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" INNER JOIN "feeds" ON "follows"."feed_id" = "feeds"."id" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/sources/index.json.jbuilder:1
+  Rendered api/sources/_source.json.jbuilder (0.3ms)
+  Rendered api/sources/index.json.jbuilder (3.7ms)
+Completed 200 OK in 10ms (Views: 5.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 16:12:02 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.9ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (5.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 880ms (Views: 876.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 16:12:03 -0700
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Started GET "/api/feeds/7" for ::1 at 2019-07-09 16:12:03 -0700
+  [1m[36mFeed Load (0.5ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (3.0ms)
+Processing by Api::FeedsController#show as JSON
+  Rendered static_pages/root.html.erb within layouts/application (19.0ms)
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.9ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:9
+  [1m[36mCACHE Feed Load (0.0ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:17
+  [1m[36mCACHE Feed Load (0.0ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:37
+  Rendering api/feeds/show.json.jbuilder
+  [1m[36mSource Load (6.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (9.4ms)
+  Rendered api/feeds/show.json.jbuilder (15.1ms)
+Completed 200 OK in 53ms (Views: 24.1ms | ActiveRecord: 8.4ms)
+
+
+Completed 200 OK in 107ms (Views: 98.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/api/feeds" for ::1 at 2019-07-09 16:12:03 -0700
+Processing by Api::FeedsController#index as JSON
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "feeds" WHERE "feeds"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:29
+  Rendering api/feeds/index.json.jbuilder
+  [1m[36mFeed Load (0.4ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/feeds/index.json.jbuilder:1
+  [1m[36mSource Load (0.9ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (6.4ms)
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 8]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (2.2ms)
+  [1m[36mSource Load (0.2ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 9]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (1.5ms)
+  Rendered api/feeds/index.json.jbuilder (15.8ms)
+Completed 200 OK in 29ms (Views: 16.7ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/api/sources" for ::1 at 2019-07-09 16:12:03 -0700
+Processing by Api::SourcesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering api/sources/index.json.jbuilder
+  [1m[36mSource Load (0.7ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" INNER JOIN "feeds" ON "follows"."feed_id" = "feeds"."id" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/sources/index.json.jbuilder:1
+  Rendered api/sources/_source.json.jbuilder (0.4ms)
+  Rendered api/sources/index.json.jbuilder (4.2ms)
+Completed 200 OK in 9ms (Views: 6.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 16:12:13 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.2ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (2.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 50ms (Views: 47.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 16:12:14 -0700
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+Started GET "/api/feeds/8" for ::1 at 2019-07-09 16:12:14 -0700
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"8"}
+  [1m[36mFeed Load (1.0ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (5.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (23.3ms)
+  [1m[36mFeed Load (0.4ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:9
+  [1m[36mCACHE Feed Load (0.0ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:17
+  [1m[36mCACHE Feed Load (0.0ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:37
+  Rendering api/feeds/show.json.jbuilder
+  [1m[36mSource Load (2.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 8]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (4.5ms)
+  Rendered api/feeds/show.json.jbuilder (5.6ms)
+Completed 200 OK in 20ms (Views: 8.7ms | ActiveRecord: 3.2ms)
+
+
+Completed 200 OK in 103ms (Views: 94.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/api/feeds" for ::1 at 2019-07-09 16:12:14 -0700
+Processing by Api::FeedsController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "feeds" WHERE "feeds"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:29
+  Rendering api/feeds/index.json.jbuilder
+  [1m[36mFeed Load (0.4ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/feeds/index.json.jbuilder:1
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (4.0ms)
+  [1m[36mSource Load (4.4ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 8]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (7.3ms)
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 9]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (2.0ms)
+  Rendered api/feeds/index.json.jbuilder (19.8ms)
+Completed 200 OK in 25ms (Views: 16.2ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/api/sources" for ::1 at 2019-07-09 16:12:14 -0700
+Processing by Api::SourcesController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering api/sources/index.json.jbuilder
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" INNER JOIN "feeds" ON "follows"."feed_id" = "feeds"."id" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/sources/index.json.jbuilder:1
+  Rendered api/sources/_source.json.jbuilder (0.5ms)
+  Rendered api/sources/index.json.jbuilder (3.9ms)
+Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 16:13:20 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.2ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (2.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 844ms (Views: 843.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 16:13:21 -0700
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (0.3ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (3.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (20.5ms)
+Started GET "/api/feeds/8" for ::1 at 2019-07-09 16:13:21 -0700
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Load (2.8ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:9
+  [1m[36mCACHE Feed Load (0.0ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:17
+  [1m[36mCACHE Feed Load (0.0ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:37
+  Rendering api/feeds/show.json.jbuilder
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 8]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (3.4ms)
+  Rendered api/feeds/show.json.jbuilder (4.7ms)
+Completed 200 OK in 32ms (Views: 13.6ms | ActiveRecord: 3.4ms)
+
+
+Completed 200 OK in 136ms (Views: 129.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/feeds" for ::1 at 2019-07-09 16:13:21 -0700
+Processing by Api::FeedsController#index as JSON
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mFeed Exists (4.2ms)[0m  [1m[34mSELECT  1 AS one FROM "feeds" WHERE "feeds"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/feeds_controller.rb:29
+  Rendering api/feeds/index.json.jbuilder
+  [1m[36mFeed Load (0.9ms)[0m  [1m[34mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/feeds/index.json.jbuilder:1
+  [1m[36mSource Load (0.4ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 7]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (3.9ms)
+  [1m[36mSource Load (0.2ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 8]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (1.7ms)
+  [1m[36mSource Load (0.4ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" WHERE "follows"."feed_id" = $1[0m  [["feed_id", 9]]
+  ↳ app/views/api/feeds/_feed.json.jbuilder:2
+  Rendered api/feeds/_feed.json.jbuilder (2.3ms)
+  Rendered api/feeds/index.json.jbuilder (14.1ms)
+Completed 200 OK in 29ms (Views: 15.5ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/api/sources" for ::1 at 2019-07-09 16:13:21 -0700
+Processing by Api::SourcesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering api/sources/index.json.jbuilder
+  [1m[36mSource Load (1.6ms)[0m  [1m[34mSELECT "sources".* FROM "sources" INNER JOIN "follows" ON "sources"."id" = "follows"."source_id" INNER JOIN "feeds" ON "follows"."feed_id" = "feeds"."id" WHERE "feeds"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/views/api/sources/index.json.jbuilder:1
+  Rendered api/sources/_source.json.jbuilder (0.5ms)
+  Rendered api/sources/index.json.jbuilder (6.7ms)
+Completed 200 OK in 12ms (Views: 7.6ms | ActiveRecord: 2.0ms)
+
+

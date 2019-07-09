@@ -1,5 +1,8 @@
 
 import * as SessionAPIUtil from "../util/session_api_util";
+import  { setLoading } from "./loading_actions";
+import  { fetchFeeds } from "./feed_actions";
+import  { fetchSources } from "./source_actions";
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
@@ -21,3 +24,5 @@ export const login = user => dispatch => SessionAPIUtil.createSession(user)
 
 export const logout = () => dispatch => SessionAPIUtil.destroySession()
   .then(() => dispatch(logoutCurrentUser()));
+
+

@@ -1,10 +1,6 @@
 import { combineReducers } from "redux";
-import UsersReducer from './users_reducer';
-import FeedsReducer from './feeds_reducer';
-import SourcesReducer from './sources_reducer';
+import loadingReducer from './loading_reducer';
 
 export default combineReducers({
-  users: UsersReducer,
-  feeds: FeedsReducer,
-  sources: SourcesReducer
+  loading: loadingReducer
 });

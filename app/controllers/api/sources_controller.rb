@@ -21,7 +21,21 @@ class Api::SourcesController < ApplicationController
   end
 
   def index
-    @sources = current_user.sources
+    if (params['feed_id'] == nil) 
+      @sources = current_user.sources
+      render "api/sources/index"
+      return
+    end
+
+    feed = Feed.find_by(id: params['feed_id'])
+
+    if !feed 
+      render json: ["Feed does not exist"], status: 404 
+    elsif feed.user_id != current_user.id
+      render json: ["You don't own this feed "], status: 401
+    end
+    
+    @sources = feed.sources
     render "api/sources/index"
   end
 

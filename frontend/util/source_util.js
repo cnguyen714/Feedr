@@ -1,7 +1,14 @@
 
-export const fetchSources = id => {
+export const fetchSources = () => {
   return $.ajax({
     url: `api/sources`,
+    method: `GET`
+  });
+};
+
+export const fetchSourcesfromFeed = feed_id => {
+  return $.ajax({
+    url: `api/feeds/${feed_id}/sources`,
     method: `GET`
   });
 };

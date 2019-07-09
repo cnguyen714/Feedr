@@ -10,8 +10,12 @@ class FeedsSourceIndex extends React.Component {
 
   }
 
+  componentWillMount() {
+
+  }
+
   render() {
-    if (this.props.feed === undefined) {
+    if (this.props.loading || this.props.feed === undefined) {
       return null;
     }
 
@@ -24,7 +28,9 @@ class FeedsSourceIndex extends React.Component {
         </Link>
 
         <ul>
-          <FeedsSourceIndexItem source={null} />
+          {this.props.feed.sourceIds.map(sourceId => (
+            <FeedsSourceIndexItem key={`source-idx-${sourceId}`} source={this.props.sources[sourceId]} />
+          ))}
         </ul>
       </li>
     );

@@ -23,7 +23,7 @@ ActiveRecord::Base.transaction do
   user2.save!
   user3.save!
 
-  feed1 = Feed.new(name: "Games", user_id: demoUser.id)
+ https://www.polygon.com/rss/index.xml feed1 = Feed.new(name: "Games", user_id: demoUser.id)
   feed2 = Feed.new(name: "Feed2", user_id: demoUser.id)
   feed3 = Feed.new(name: "Feed3", user_id: demoUser.id)
   feed1.save

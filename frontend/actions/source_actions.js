@@ -6,7 +6,7 @@ export const RECEIVE_SOURCE = "RECEIVE_SOURCE";
 export const REMOVE_SOURCE = "REMOVE_SOURCE";
 
 const receiveSources = sources => ({
-  type: RECEIVE_SOURCE,
+  type: RECEIVE_SOURCES,
   sources
 });
 
@@ -21,10 +21,13 @@ const removeSource = source => ({
 });
 
 
-export const fetchSources = (id) => dispatch => SourceAPIUtil.fetchSources(id)
-  .then(source => dispatch(receiveSources(source)));
+export const fetchSources = () => dispatch => SourceAPIUtil.fetchSources()
+  .then(sources => dispatch(receiveSources(sources)));
 
-  export const fetchSource = (id) => dispatch => SourceAPIUtil.fetchSource(id)
+export const fetchSourcesfromFeed = (feed_id) => dispatch => SourceAPIUtil.fetchSourcesfromFeed(feed_id)
+  .then(sources => dispatch(receiveSources(sources)));
+
+export const fetchSource = (id) => dispatch => SourceAPIUtil.fetchSource(id)
   .then(source => dispatch(receiveSource(source)));
 
 export const createSource = (source) => dispatch => SourceAPIUtil.createSource(source)

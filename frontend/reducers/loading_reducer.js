@@ -4,7 +4,7 @@ import {
   RECEIVE_LOADING
 } from "../actions/loading_actions";
 
-export default (state = false, action) => {
+export default (state = true, action) => {
   Object.freeze(state);
 
   switch (action.type) {

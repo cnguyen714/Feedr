@@ -12,7 +12,7 @@ export default (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_SOURCES:
-      return action.sources;
+      return merge({}, state, action.sources);
     case RECEIVE_SOURCE:
       return merge({}, state, { [action.source.id]: action.source });
     case REMOVE_SOURCE:

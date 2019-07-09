@@ -5,15 +5,13 @@ import FeedsSourceIndexContainer from "./feeds_source_index_container";
 class FeedsIndex extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      currentUser: this.props.currentUser,
-      feeds: this.props.feeds
-    }
   }
 
   componentWillMount() {
-    this.props.fetchFeeds();
+    $.ajax()
+      .then(() => this.props.fetchFeeds())
+      .then(() => this.props.fetchSources())
+      .then(() => this.props.setLoading(false));
   }
 
   render() {
@@ -25,11 +23,14 @@ class FeedsIndex extends React.Component {
           FEEDS
         </header>
 
-        <ul>
-          {this.props.currentUser.subscribedFeeds.map(feedId => (
-            <FeedsSourceIndexContainer feed={this.props.feeds[feedId]} key={`feed-${feedId}`}/>
-          ))}
-        </ul>
+        {this.props.loading 
+          ? "Fetching Feeds..."
+          : <ul>
+              {this.props.currentUser.subscribedFeeds.map(feedId => (
+                <FeedsSourceIndexContainer feed={this.props.feeds[feedId]} key={`feed-${feedId}`}/>
+              ))}
+            </ul>
+        }
       </div>
     );
   }
