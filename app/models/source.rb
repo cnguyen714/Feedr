@@ -19,5 +19,11 @@ class Source < ApplicationRecord
 
   has_many :feeds,
     through: :follows
-    
+
+  # has_many :articles
+
+  def fetch_articles
+
+  end
+
 end

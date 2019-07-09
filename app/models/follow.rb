@@ -11,7 +11,7 @@
 
 class Follow < ApplicationRecord
   validates :feed_id, :source_id, presence: true
-  validates [:feed_id, :source_id], uniqueness: true
+  validates_uniqueness_of :feed_id, :scope => [:source_id]
 
   belongs_to :feed
   belongs_to :source
