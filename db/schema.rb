@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_05_181820) do
+ActiveRecord::Schema.define(version: 2019_07_09_164012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,28 @@ ActiveRecord::Schema.define(version: 2019_07_05_181820) do
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_feeds_on_name"
     t.index ["user_id"], name: "index_feeds_on_user_id"
+  end
+
+  create_table "follows", force: :cascade do |t|
+    t.integer "feed_id", null: false
+    t.integer "source_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["feed_id", "source_id"], name: "index_follows_on_feed_id_and_source_id", unique: true
+    t.index ["feed_id"], name: "index_follows_on_feed_id"
+    t.index ["source_id"], name: "index_follows_on_source_id"
+  end
+
+  create_table "sources", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "description"
+    t.string "source_url"
+    t.string "rss_url", null: false
+    t.string "icon_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_sources_on_name", unique: true
+    t.index ["rss_url"], name: "index_sources_on_rss_url", unique: true
   end
 
   create_table "users", force: :cascade do |t|

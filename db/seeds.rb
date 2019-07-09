@@ -26,4 +26,7 @@ ActiveRecord::Base.transaction do
   Feed.new(name: "Feed1", user_id: demoUser.id).save
   Feed.new(name: "Feed2", user_id: demoUser.id).save
   Feed.new(name: "Feed3", user_id: demoUser.id).save
+
+
+  
 end
