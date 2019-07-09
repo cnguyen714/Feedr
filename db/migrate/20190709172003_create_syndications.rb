@@ -1,6 +1,6 @@
-class CreateSources < ActiveRecord::Migration[5.2]
+class CreateSyndications < ActiveRecord::Migration[5.2]
   def change
-    create_table :sources do |t|
+    create_table :syndications do |t|
       t.string :name, null: false
       t.string :description
       t.string :source_url
@@ -9,7 +9,7 @@ class CreateSources < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-    add_index :sources, :name, unique: true
-    add_index :sources, :rss_url, unique: true
+    add_index :syndications, :name, unique: true
+    add_index :syndications, :rss_url, unique: true
   end
 end

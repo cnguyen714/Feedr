@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_09_164012) do
+ActiveRecord::Schema.define(version: 2019_07_09_172003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2019_07_09_164012) do
     t.index ["source_id"], name: "index_follows_on_source_id"
   end
 
-  create_table "sources", force: :cascade do |t|
+  create_table "syndications", force: :cascade do |t|
     t.string "name", null: false
     t.string "description"
     t.string "source_url"
@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(version: 2019_07_09_164012) do
     t.string "icon_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_sources_on_name", unique: true
-    t.index ["rss_url"], name: "index_sources_on_rss_url", unique: true
+    t.index ["name"], name: "index_syndications_on_name", unique: true
+    t.index ["rss_url"], name: "index_syndications_on_rss_url", unique: true
   end
 
   create_table "users", force: :cascade do |t|
