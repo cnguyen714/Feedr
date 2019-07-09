@@ -10,10 +10,13 @@
 #  icon_url    :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  user_id     :integer
 #
 
 class Source < ApplicationRecord
   validates :name, :stream_url, presence: true
+
+  belongs_to :user, optional: true
 
   has_many :follows
   has_many :feeds, through: :follows

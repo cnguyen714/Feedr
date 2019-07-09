@@ -1,7 +1,8 @@
 class Api::SourcesController < ApplicationController
 
   before_action :require_logged_in
-  before_action :require_source_exists
+  before_action :require_source_exists, only: [:show, :update, :destroy]
+  before_action :require_ownership_source, only: [:update, :destroy]
 
   def require_source_exists
     @source = Source.find_by(id: params['id'])
@@ -11,9 +12,53 @@ class Api::SourcesController < ApplicationController
     end
   end
 
+  def require_ownership_source
+    @source = Source.find_by(id: params['id'])
+
+    if @source && @source.user_id != current_user.id
+      render json: ["You don't own this source"], status: 401
+    end
+  end
+
   def show
-    @source = Source.find_by(id: params[:id])
+    @source = Source.find_by(id: params['id'])
     render "api/sources/show"
   end
   
+  def create
+    @source = Source.new(source_params)
+    @source[:user_id] = current_user.id;
+
+    if @source.save
+      render "api/sources/show"
+    else 
+      render json: @source.errors.full_messages, status: 400
+    end
+  end
+
+  def update
+    @source = Source.find(params['id'])
+
+    if @source.update_attributes(feed_params)
+      render "api/sources/show"
+    else
+      render json: @source.errors.full_messages, status: 400
+    end
+  end
+
+  def destroy
+    @source = Source.find(params['id'])
+
+    if @source.destroy
+      render "api/sources/show"
+    else
+      render json: @source.errors.full_messages, status: 400
+    end
+  end
+
+  private
+  def source_params
+    params.require(:source).permit(:name, :description, :source_url, :stream_url, :icon_url)
+  end
+
 end
