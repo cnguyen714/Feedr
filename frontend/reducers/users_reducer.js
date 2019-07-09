@@ -23,7 +23,10 @@ export default (state = {}, action) => {
       delete nextState[Object.values(state)[0].id];
       return nextState;
     case RECEIVE_FEED:
-      nextState[Object.values(state)[0].id].subscribedFeeds.push(action.feed.id);
+      let feeds = nextState[Object.values(state)[0].id].subscribedFeeds  
+      
+      if(feeds.indexOf(action.feed.id) === -1)
+        feeds.push(action.feed.id);
       return nextState;
     case REMOVE_FEED:
       let currentUser = Object.values(state)[0].id;

@@ -20078,3 +20078,208 @@ Migrating to CreateSources (20190709174145)
   ↳ bin/rails:9
   [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users"[0m
+  ↳ db/seeds.rb:12
+  [1m[36mFeed Destroy (3.1ms)[0m  [1m[31mDELETE FROM "feeds"[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "demoUser"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:21
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@feedr.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:21
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "SPO-9s6gJbkCu2OOp1uZBA"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:21
+  [1m[36mUser Create (6.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "demoUser"], ["email", "demo@feedr.com"], ["password_digest", "$2a$12$LAgTDJpJS09FwapzExdyNuHiZ4gn96vPpcg5YjdXd716.eWroyd.i"], ["session_token", "SPO-9s6gJbkCu2OOp1uZBA"], ["created_at", "2019-07-09 17:55:22.474924"], ["updated_at", "2019-07-09 17:55:22.474924"]]
+  ↳ db/seeds.rb:21
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "calvin"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:22
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "calvin@feedr.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:22
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "dAKRls7M3YJrWFVgcOeL0A"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:22
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "calvin"], ["email", "calvin@feedr.com"], ["password_digest", "$2a$12$QRdgHxgGYeGaaRsi0L4Ivenn8d.PbSzpOFIOLCSjz99xWM1eaGEp6"], ["session_token", "dAKRls7M3YJrWFVgcOeL0A"], ["created_at", "2019-07-09 17:55:22.486086"], ["updated_at", "2019-07-09 17:55:22.486086"]]
+  ↳ db/seeds.rb:22
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Allie"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "Allie@feedr.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "dD8ou_O5Zp8qrW84pZsbEg"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "Allie"], ["email", "Allie@feedr.com"], ["password_digest", "$2a$12$Gm9/bffZS1G0LINV3DieVumJbIezPWcqbGUJX8IxPKQJQ.Z61sjNm"], ["session_token", "dD8ou_O5Zp8qrW84pZsbEg"], ["created_at", "2019-07-09 17:55:22.491734"], ["updated_at", "2019-07-09 17:55:22.491734"]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "kyouka"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kyouka@feedr.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "6RgcfH1-rYWJfRQ0nWeaSg"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "kyouka"], ["email", "kyouka@feedr.com"], ["password_digest", "$2a$12$1452A2IBcSFqb0U3UFvXU.u1d9cRrOqcVXIfq9Yb.ewg1ozWIcNqK"], ["session_token", "6RgcfH1-rYWJfRQ0nWeaSg"], ["created_at", "2019-07-09 17:55:22.497129"], ["updated_at", "2019-07-09 17:55:22.497129"]]
+  ↳ db/seeds.rb:24
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:26
+  [1m[36mFeed Create (1.1ms)[0m  [1m[32mINSERT INTO "feeds" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Feed1"], ["user_id", 1], ["created_at", "2019-07-09 17:55:22.515021"], ["updated_at", "2019-07-09 17:55:22.515021"]]
+  ↳ db/seeds.rb:26
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mFeed Create (0.6ms)[0m  [1m[32mINSERT INTO "feeds" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Feed2"], ["user_id", 1], ["created_at", "2019-07-09 17:55:22.519229"], ["updated_at", "2019-07-09 17:55:22.519229"]]
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:28
+  [1m[36mFeed Create (0.4ms)[0m  [1m[32mINSERT INTO "feeds" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Feed3"], ["user_id", 1], ["created_at", "2019-07-09 17:55:22.522619"], ["updated_at", "2019-07-09 17:55:22.522619"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4615429597976623860)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RenameSourceRssFeedStream (20190709180853)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (2.6ms)[0m  [1m[35mALTER TABLE "sources" RENAME COLUMN "rss_url" TO "stream_url"[0m
+  ↳ db/migrate/20190709180853_rename_source_rss_feed_stream.rb:3
+  [1m[35m (1.3ms)[0m  [1m[35mALTER INDEX "index_sources_on_rss_url" RENAME TO "index_sources_on_stream_url"[0m
+  ↳ db/migrate/20190709180853_rename_source_rss_feed_stream.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190709180853"]]
+  ↳ bin/rails:9
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4615429597976623860)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/hahaer/.rbenv/versions/2.5.1/bin/annotate:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users"[0m
+  ↳ db/seeds.rb:12
+  [1m[36mFeed Destroy (0.4ms)[0m  [1m[31mDELETE FROM "feeds"[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "demoUser"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@feedr.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FmDB8sdtxWCc0XRRWj4WdQ"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "demoUser"], ["email", "demo@feedr.com"], ["password_digest", "$2a$12$tPRX4Y20rHYX24hJ/u20leNePNPaYH.27weTZ47JzbRWyyDj.v1sm"], ["session_token", "FmDB8sdtxWCc0XRRWj4WdQ"], ["created_at", "2019-07-09 18:18:21.943167"], ["updated_at", "2019-07-09 18:18:21.943167"]]
+  ↳ db/seeds.rb:19
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "calvin"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "calvin@feedr.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IhK1u5i0Oc69dK3J2Yk4Ig"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "calvin"], ["email", "calvin@feedr.com"], ["password_digest", "$2a$12$RZCfpA1PMNYbTsEyZEMQqeXdY.7n5HEMeICtUtbneDfkD3MBAEirW"], ["session_token", "IhK1u5i0Oc69dK3J2Yk4Ig"], ["created_at", "2019-07-09 18:18:21.949361"], ["updated_at", "2019-07-09 18:18:21.949361"]]
+  ↳ db/seeds.rb:20
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Allie"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:21
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "Allie@feedr.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:21
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Z0SS4-DO0hTjVRPdJFbc3g"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:21
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "Allie"], ["email", "Allie@feedr.com"], ["password_digest", "$2a$12$s9h4ohvUWOnRqsbBGMjmb.arYM.rCyxuHjlYOWvxysy.ALoKVuiVm"], ["session_token", "Z0SS4-DO0hTjVRPdJFbc3g"], ["created_at", "2019-07-09 18:18:21.954044"], ["updated_at", "2019-07-09 18:18:21.954044"]]
+  ↳ db/seeds.rb:21
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "kyouka"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:22
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kyouka@feedr.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:22
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "iKIYMzfJSMts6Dj1vlOq3Q"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:22
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "kyouka"], ["email", "kyouka@feedr.com"], ["password_digest", "$2a$12$tBcVodeDwJ8HfQeXoBy8vuBT8y79GoxTokyrYU4AQjIga976sAEmO"], ["session_token", "iKIYMzfJSMts6Dj1vlOq3Q"], ["created_at", "2019-07-09 18:18:21.959091"], ["updated_at", "2019-07-09 18:18:21.959091"]]
+  ↳ db/seeds.rb:22
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mFeed Create (0.4ms)[0m  [1m[32mINSERT INTO "feeds" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Games"], ["user_id", 5], ["created_at", "2019-07-09 18:18:21.978672"], ["updated_at", "2019-07-09 18:18:21.978672"]]
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:28
+  [1m[36mFeed Create (0.3ms)[0m  [1m[32mINSERT INTO "feeds" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Feed2"], ["user_id", 5], ["created_at", "2019-07-09 18:18:21.981663"], ["updated_at", "2019-07-09 18:18:21.981663"]]
+  ↳ db/seeds.rb:28
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[36mFeed Create (0.3ms)[0m  [1m[32mINSERT INTO "feeds" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Feed3"], ["user_id", 5], ["created_at", "2019-07-09 18:18:21.984495"], ["updated_at", "2019-07-09 18:18:21.984495"]]
+  ↳ db/seeds.rb:29
+  [1m[36mSource Create (4.7ms)[0m  [1m[32mINSERT INTO "sources" ("name", "source_url", "stream_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Polygon"], ["source_url", "https://www.polygon.com/"], ["stream_url", "https://www.polygon.com/rss/index.xml"], ["created_at", "2019-07-09 18:18:21.996556"], ["updated_at", "2019-07-09 18:18:21.996556"]]
+  ↳ db/seeds.rb:32
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Destroy (0.5ms)[0m  [1m[31mDELETE FROM "users"[0m
+  ↳ db/seeds.rb:12
+  [1m[36mFeed Destroy (0.4ms)[0m  [1m[31mDELETE FROM "feeds"[0m
+  ↳ db/seeds.rb:13
+  [1m[36mSource Destroy (0.4ms)[0m  [1m[31mDELETE FROM "sources"[0m
+  ↳ db/seeds.rb:14
+  [1m[36mFollow Destroy (6.9ms)[0m  [1m[31mDELETE FROM "follows"[0m
+  ↳ db/seeds.rb:15
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "demoUser"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:21
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@feedr.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:21
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-opxqiU5osVxRHao4V70UA"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:21
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "demoUser"], ["email", "demo@feedr.com"], ["password_digest", "$2a$12$zz.BXXE1Q.8tfjNobl4sJeVNtsGOfGo/qL.Afcea5E1e4kOJdT1pe"], ["session_token", "-opxqiU5osVxRHao4V70UA"], ["created_at", "2019-07-09 18:19:20.969126"], ["updated_at", "2019-07-09 18:19:20.969126"]]
+  ↳ db/seeds.rb:21
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "calvin"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:22
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "calvin@feedr.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:22
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7fbL4D5MHm0DhgeBaKkBOQ"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:22
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "calvin"], ["email", "calvin@feedr.com"], ["password_digest", "$2a$12$8Y8whArKIdSu8N.G6JmJrO4j/XEM46wsKejf68Ol1nom/GCa0KVt6"], ["session_token", "7fbL4D5MHm0DhgeBaKkBOQ"], ["created_at", "2019-07-09 18:19:20.974708"], ["updated_at", "2019-07-09 18:19:20.974708"]]
+  ↳ db/seeds.rb:22
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Allie"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "Allie@feedr.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "6PzoSWLHmBISMbgK6bw31g"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "Allie"], ["email", "Allie@feedr.com"], ["password_digest", "$2a$12$2IIdq8Y.mwYbfHKsh//z.eLLD/L8vOEMRJSuZQLidMlIYTjR97iKy"], ["session_token", "6PzoSWLHmBISMbgK6bw31g"], ["created_at", "2019-07-09 18:19:20.980188"], ["updated_at", "2019-07-09 18:19:20.980188"]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "kyouka"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kyouka@feedr.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "DTCrG6prv8AHV31yxs0ZoA"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "kyouka"], ["email", "kyouka@feedr.com"], ["password_digest", "$2a$12$mKrN8JRTU5OL/uWxC1iZwuusQ4fBiq1feiD8sdpT0MLW5fDH7KqEa"], ["session_token", "DTCrG6prv8AHV31yxs0ZoA"], ["created_at", "2019-07-09 18:19:20.985069"], ["updated_at", "2019-07-09 18:19:20.985069"]]
+  ↳ db/seeds.rb:24
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[36mFeed Create (0.4ms)[0m  [1m[32mINSERT INTO "feeds" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Games"], ["user_id", 9], ["created_at", "2019-07-09 18:19:21.001507"], ["updated_at", "2019-07-09 18:19:21.001507"]]
+  ↳ db/seeds.rb:29
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mFeed Create (0.3ms)[0m  [1m[32mINSERT INTO "feeds" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Feed2"], ["user_id", 9], ["created_at", "2019-07-09 18:19:21.004752"], ["updated_at", "2019-07-09 18:19:21.004752"]]
+  ↳ db/seeds.rb:30
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mFeed Create (0.3ms)[0m  [1m[32mINSERT INTO "feeds" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Feed3"], ["user_id", 9], ["created_at", "2019-07-09 18:19:21.007792"], ["updated_at", "2019-07-09 18:19:21.007792"]]
+  ↳ db/seeds.rb:31
+  [1m[36mSource Create (1.3ms)[0m  [1m[32mINSERT INTO "sources" ("name", "source_url", "stream_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Polygon - All"], ["source_url", "https://www.polygon.com/"], ["stream_url", "https://www.polygon.com/rss/index.xml"], ["created_at", "2019-07-09 18:19:21.021343"], ["updated_at", "2019-07-09 18:19:21.021343"]]
+  ↳ db/seeds.rb:34
+  [1m[36mFollow Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "follows" WHERE "follows"."feed_id" = $1 AND "follows"."source_id" = $2 LIMIT $3[0m  [["feed_id", 7], ["source_id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mFeed Load (0.2ms)[0m  [1m[34mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mSource Load (0.2ms)[0m  [1m[34mSELECT  "sources".* FROM "sources" WHERE "sources"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mFollow Create (1.3ms)[0m  [1m[32mINSERT INTO "follows" ("feed_id", "source_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["feed_id", 7], ["source_id", 3], ["created_at", "2019-07-09 18:19:21.048210"], ["updated_at", "2019-07-09 18:19:21.048210"]]
+  ↳ db/seeds.rb:36
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
