@@ -29,7 +29,9 @@ class FeedsSourceIndex extends React.Component {
 
         <ul>
           {this.props.feed.sourceIds.map(sourceId => (
-            <FeedsSourceIndexItem key={`source-idx-${sourceId}`} source={this.props.sources[sourceId]} />
+            <Link to={`/sources/${sourceId}`}>
+              <FeedsSourceIndexItem key={`source-idx-${sourceId}`} source={this.props.sources[sourceId]} />
+            </Link>
           ))}
         </ul>
       </li>
