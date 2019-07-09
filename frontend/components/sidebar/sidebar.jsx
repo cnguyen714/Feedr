@@ -1,6 +1,8 @@
 
 import React from "react";
 import FeedsIndexContainer from "./feeds/feeds_index_container";
+import { AuthRoute, ProtectedRoute } from "../../util/route_util";
+
 
 class Sidebar extends React.Component {
   constructor(props) {
@@ -8,13 +10,12 @@ class Sidebar extends React.Component {
   }
 
   render() {
-    return (
-      <div id="sidebar" className="sidebar active">
-        <header>
-          FEEDS
-        </header>
 
-        <FeedsIndexContainer />
+    return (
+      <div id="sidebar" 
+        className={`sidebar ${this.props.loggedIn ? "active" : "inactive"}`}>
+        
+        <ProtectedRoute component={FeedsIndexContainer} />
         
         <footer>
           <ul>

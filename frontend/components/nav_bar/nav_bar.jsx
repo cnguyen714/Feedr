@@ -6,27 +6,33 @@ import { AuthRoute, ProtectedRoute } from "../../util/route_util";
 
 import SessionModalContainer from "./session_modal/session_modal_container";
 
+export default ({ currentUser, logout, history} ) => {
 
-
-export default ({ currentUser, logout} ) => {
-  let sidebar = document.getElementById("sidebar");
+  const handleLogout = (e) => {
+    e.preventDefault();
+    logout();
+    history.push("/");
+  }
 
   return (
   <header 
     id="nav-bar" 
-    className={`nav-bar ${sidebar ? "sidebar-active" : ""}`}>
+    className={`nav-bar ${!!currentUser ? "sidebar-offset" : ""}`}>
     
     <nav className="nav-bar-inner clearfix">
       <i className="logo-icon" />
 
       <ul className="nav-list">
-        <AuthRoute to="/" component={SessionModalContainer} formType="signup" />
-        <AuthRoute to="/" component={SessionModalContainer} formType="login" />
         
         {!!currentUser
-          ? <button onClick={logout}>Logout</button>
-          : null
+          ? <div>{currentUser.email}<button onClick={handleLogout}>Logout</button></div>
+          : <SessionModalContainer formType="signup" />
         }
+        {!!currentUser
+          ? null
+          : <SessionModalContainer formType="login" />
+        }
+        
       </ul>
     </nav>
   </header>

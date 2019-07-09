@@ -7,6 +7,13 @@ import {
   logout,
   login 
 } from './actions/session_actions';
+import {  
+  fetchFeeds,
+  fetchFeed,
+  createFeed,
+  updateFeed,
+  destroyFeed
+} from "./actions/feed_actions";
 import Modal from 'react-modal';
 
 
@@ -24,19 +31,24 @@ document.addEventListener('DOMContentLoaded', () => {
         session: []
       },
       session: {
-        currentUser: window.currentUser
+        currentUserId: window.currentUser.id
       }
     };
   }
   let store = configureStore(preloadedState);
 
-  // === debug start ===
+  // === debug methods start ===
   window.store = store;
-  window.createNewUser = (user) => store.dispatch(createNewUser(user));
-  window.login = (user) => store.dispatch(login(user));
-  window.logout = () => store.dispatch(logout());
+  // window.createNewUser = (user) => store.dispatch(createNewUser(user));
+  // window.login = (user) => store.dispatch(login(user));
+  // window.logout = () => store.dispatch(logout());
+  window.fetchFeeds = () => store.dispatch(fetchFeeds());
+  window.fetchFeed = (id) => store.dispatch(fetchFeed(id));
+  window.createFeed = (feed) => store.dispatch(createFeed(feed));
+  window.updateFeed = (feed) => store.dispatch(updateFeed(feed));
+  window.destroyFeed = (id) => store.dispatch(destroyFeed(id));
 
-  // === debug end   ===
+  // === debug methods end   ===
 
   Modal.setAppElement(root);
 

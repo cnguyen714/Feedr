@@ -13,7 +13,9 @@
 }
 
 .nav-bar-inner {
-  width: 888px;
+  width: 100%;
+  max-width: 864px;
+  box-sizing: border-box;
   display: inline-block;
 }
 

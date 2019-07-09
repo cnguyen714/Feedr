@@ -83,7 +83,6 @@ class SessionModal extends React.Component {
         .then(() => this.closeModal,
         errors => this.props.pushErrors(errors));
     }
-    
   }
 
   handleDemo(e) {
@@ -100,7 +99,6 @@ class SessionModal extends React.Component {
         password: "password"
       }
     });
-
 
     this.props.login(demoUser)
   }

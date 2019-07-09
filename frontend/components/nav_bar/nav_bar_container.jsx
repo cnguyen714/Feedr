@@ -1,18 +1,16 @@
 
 import React from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import NavBar from "./nav_bar";
 import { logout } from "../../actions/session_actions";
 
 const mapStateToProps = state => ({
-  currentUser: state.session.currentUser
+  currentUser: state.entities.users[state.session.currentUserId]
 });
 
 const mapDispatchToProps = dispatch => ({
-  logout: (e) => { 
-    e.preventDefault();
-    dispatch(logout());
-  }
+  logout: () => dispatch(logout())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NavBar));

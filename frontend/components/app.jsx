@@ -10,9 +10,9 @@ import ContentMainContainer from './content_main/content_main_container';
 export default () => (
   <div className="frame">
     
-    <ProtectedRoute to="/" component={SidebarContainer} />
-    <Route to="/" component={NavBarContainer} />
-    <AuthRoute exact to="/" component={Splash} />
-    <ProtectedRoute to="/" component={ContentMainContainer} />
+    <Route path="/" component={SidebarContainer} />
+    <Route path="/" component={NavBarContainer} />
+    <AuthRoute exact path="/" component={Splash} />
+    <ProtectedRoute path="/" component={ContentMainContainer} />
   </div>
 );
