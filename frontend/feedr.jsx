@@ -14,6 +14,12 @@ import {
   updateFeed,
   destroyFeed
 } from "./actions/feed_actions";
+import {
+  fetchSource,
+  createSource,
+  updateSource,
+  destroySource
+} from "./actions/feed_actions";
 import Modal from 'react-modal';
 
 
@@ -47,6 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
   window.createFeed = (feed) => store.dispatch(createFeed(feed));
   window.updateFeed = (feed) => store.dispatch(updateFeed(feed));
   window.destroyFeed = (id) => store.dispatch(destroyFeed(id));
+  window.fetchSource = (id) => store.dispatch(fetchSource(id));
+  window.createSource = (source) => store.dispatch(createSource(source));
+  window.updateSource = (source) => store.dispatch(updateSource(source));
+  window.destroySource = (id) => store.dispatch(destroySource(id));
 
   // === debug methods end   ===
 
