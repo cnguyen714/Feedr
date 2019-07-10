@@ -3,14 +3,16 @@ import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import FeedTimeline from "./feed_timeline";
-import { fetchFeed } from "../../../actions/feed_actions";
+import { fetchArticlesfromFeed } from "../../../actions/article_actions";
 
 const mapStateToProps = (state, ownProps) => ({
-  feeds: state.entities.feeds
+  articles: state.entities.articles,
+  feeds: state.entities.feeds,
+  loading: state.ui.loading
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchFeed: id => dispatch(fetchFeed(id))
+  fetchArticlesfromFeed: (feed_id) => dispatch(fetchArticlesfromFeed(feed_id)) 
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FeedTimeline));

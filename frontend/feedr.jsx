@@ -54,15 +54,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // window.createNewUser = (user) => store.dispatch(createNewUser(user));
   // window.login = (user) => store.dispatch(login(user));
   // window.logout = () => store.dispatch(logout());
-  window.fetchFeeds = () => store.dispatch(fetchFeeds());
-  window.fetchFeed = (id) => store.dispatch(fetchFeed(id));
-  window.createFeed = (feed) => store.dispatch(createFeed(feed));
-  window.updateFeed = (feed) => store.dispatch(updateFeed(feed));
-  window.destroyFeed = (id) => store.dispatch(destroyFeed(id));
-  window.fetchSource = (id) => store.dispatch(fetchSource(id));
-  window.createSource = (source) => store.dispatch(createSource(source));
-  window.updateSource = (source) => store.dispatch(updateSource(source));
-  window.destroySource = (id) => store.dispatch(destroySource(id));
+  // window.fetchFeeds = () => store.dispatch(fetchFeeds());
+  // window.fetchFeed = (id) => store.dispatch(fetchFeed(id));
+  // window.createFeed = (feed) => store.dispatch(createFeed(feed));
+  // window.updateFeed = (feed) => store.dispatch(updateFeed(feed));
+  // window.destroyFeed = (id) => store.dispatch(destroyFeed(id));
+  // window.fetchSource = (id) => store.dispatch(fetchSource(id));
+  // window.createSource = (source) => store.dispatch(createSource(source));
+  // window.updateSource = (source) => store.dispatch(updateSource(source));
+  // window.destroySource = (id) => store.dispatch(destroySource(id));
 
   // === debug methods end   ===
 

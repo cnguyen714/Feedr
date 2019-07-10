@@ -11,7 +11,7 @@ export default (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_ARTICLES:
-      return merge({}, state, action.articles);
+      return action.articles;
     case RECEIVE_ARTICLE:
       return merge({}, state, { [action.article.id]: action.article });
     default:
