@@ -31,8 +31,10 @@ class Api::SourcesController < ApplicationController
 
     if !feed 
       render json: ["Feed does not exist"], status: 404 
+      return
     elsif feed.user_id != current_user.id
       render json: ["You don't own this feed "], status: 401
+      return
     end
     
     @sources = feed.sources

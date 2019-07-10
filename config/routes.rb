@@ -8,8 +8,13 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :feeds, only: [:index, :show, :create, :update, :destroy] do
       resources :sources, only: [:index]
+      resources :articles, only: [:index]
     end
-    resources :sources, only: [:index, :show, :create, :update, :destroy]
+    resources :sources, only: [:index, :show, :create, :update, :destroy] do
+      resources :articles, only: [:index]
+    end
+    
+    resources :articles, only: [:index, :show]
   end
   
 end
