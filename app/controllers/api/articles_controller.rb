@@ -14,7 +14,12 @@ class Api::ArticlesController < ApplicationController
         return
       end
       
-      @articles = feed.articles
+      # feed.sources.each do |source|
+      #   Article.fetch_articles(source.id)
+      # end
+
+
+      @articles = feed.articles.order("published_at DESC").take(7)
       render "api/articles/index"
     elsif (params['source_id'] != nil)
       source = Source.find_by(id: params['source_id'])
@@ -24,10 +29,16 @@ class Api::ArticlesController < ApplicationController
         return
       end
       
-      @articles = source.articles
+      # Article.fetch_articles(source.id)
+
+      @articles = source.articles.order("published_at DESC").take(7)
       render "api/articles/index"
     else
-      @articles = current_user.articles
+      current_user.sources.each do |source|
+        Article.fetch_articles(source.id)
+      end
+
+      @articles = current_user.articles.order("published_at DESC").take(7)
       render "api/articles/index"
     end
   end

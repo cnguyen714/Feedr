@@ -22,4 +22,5 @@ class Source < ApplicationRecord
   has_many :feeds, through: :follows
 
   has_many :articles, dependent: :destroy
+
 end

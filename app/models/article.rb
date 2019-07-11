@@ -18,4 +18,31 @@ class Article < ApplicationRecord
   validates :article_url, uniqueness: true
 
   belongs_to :source
+
+  def self.fetch_articles(source_id)
+    src = Source.find_by(id: source_id)
+    url = src.stream_url
+    xml = HTTParty.get(url).body
+    feed = Feedjira.parse(xml)
+
+    feed.entries.each do |entry|
+      content = ActionView::Base.full_sanitizer.sanitize(entry.content)
+      if entry.instance_variables.include?(:@content)
+        content_doc = Nokogiri::HTML(entry.content)
+      elsif
+        content_doc = Nokogiri::HTML(entry.summary)
+      end
+      begin
+        image_url = content_doc.xpath("//img").first.attributes["src"].value
+      rescue => exception
+        image_url = nil
+      end
+      article = Article.new(title: entry.title, body: content, article_url: entry.url, image_url: image_url, source_id: source_id, published_at: entry.published, author: entry.author )
+      if !article.save
+        return
+      end
+    end
+    return
+  end
+
 end

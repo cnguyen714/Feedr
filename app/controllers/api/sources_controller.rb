@@ -20,6 +20,8 @@ class Api::SourcesController < ApplicationController
     end
   end
 
+  #RESTful Routes
+
   def index
     if (params['feed_id'] == nil) 
       @sources = current_user.sources
@@ -43,6 +45,8 @@ class Api::SourcesController < ApplicationController
 
   def show
     @source = Source.find_by(id: params['id'])
+    debugger
+    @source.fetchArticles
     render "api/sources/show"
   end
   
