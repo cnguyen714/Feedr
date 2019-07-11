@@ -9,21 +9,60 @@
 
 .content {
   width: 100%;
-  max-width: 864px;
+  max-width: 860px;
+  font-family: $sans-serif;
+  margin: 25px;
+  padding-top: 30px;
+  display: flex;
+}
+
+.content-inner {
   box-sizing: border-box;
   display: inline-block;
   text-align: left;
-  margin: 20px;
-  padding-top: 30px;
+  float: left;
+  width: 75%;
 }
 
 .content header {
-  
+  margin-bottom: 40px;
 }
 
 .content h1 {
   color: $dark-gray;
-  font-family: $sans-serif;
   font-size: 30px;
   font-weight: bold;
+}
+
+.content h2 {
+  font-weight: 600;
+}
+
+.content h3 {
+  color: #AAAAAA;
+  font-size: 13px;
+  margin-block-start: .5em;
+  margin-block-end: .5em;
+  line-height: 1.35;
+  font-weight: 300;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+}
+
+.article-item {
+  display: flex;
+  padding-right: 25px;
+  cursor: pointer;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.article-item img {
+  float: left;
+  height: 78px;
+  width: 130px;
+  margin-right: 20px;
+  border-radius: 0.2rem;
 }

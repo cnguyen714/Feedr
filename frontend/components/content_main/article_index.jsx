@@ -18,7 +18,7 @@ class SourceTimeline extends React.Component {
     return (
       <ul>
         {articles.map(article => {
-          return <ArticleIndexItem key={`article-${article.id}`} article={article} />
+          return <ArticleIndexItem key={`article-${article.id}`} article={article} source={this.props.sources[article.source_id]} />
         })}
       </ul>
     );

@@ -5,7 +5,8 @@ import { withRouter } from "react-router-dom";
 import ArticleIndex from "./article_index";
 
 const mapStateToProps = (state, ownProps) => ({
-  articles: Object.values(ownProps.articles)
+  articles: Object.values(ownProps.articles),
+  sources: state.entities.sources
 });
 
 const mapDispatchToProps = dispatch => ({

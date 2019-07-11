@@ -17,9 +17,11 @@ class ContentMain extends React.Component {
     return (
       <div className="content-frame sidebar-offset">
         <div className="content">
-          <Route exact path="/" component={UserTimelineContainer} />
-          <Route exact path="/feeds/:feedId" component={FeedTimelineContainer} />
-          <Route exact path="/sources/:sourceId" component={SourceTimelineContainer} />
+          <div className="content-inner" >
+            <Route exact path="/" component={UserTimelineContainer} />
+            <Route exact path="/feeds/:feedId" component={FeedTimelineContainer} />
+            <Route exact path="/sources/:sourceId" component={SourceTimelineContainer} />
+          </div> 
         </div>
       </div>
     );
