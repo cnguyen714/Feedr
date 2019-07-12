@@ -45,7 +45,6 @@ class Api::SourcesController < ApplicationController
 
   def show
     @source = Source.find_by(id: params['id'])
-    debugger
     @source.fetchArticles
     render "api/sources/show"
   end
@@ -63,6 +62,11 @@ class Api::SourcesController < ApplicationController
 
     @source = Source.new(source_params)
     @source[:user_id] = current_user.id;
+    # url = @source.stream_url
+    # xml = HTTParty.get(url).body
+    # feed = Feedjira.parse(xml)
+    # @source[:name] = feed.title
+    # @source[:description] = feed.description
 
     if @source.save
       render "api/sources/show"

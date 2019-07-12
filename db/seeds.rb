@@ -27,9 +27,11 @@ ActiveRecord::Base.transaction do
   feed1 = Feed.new(name: "Games", user_id: demoUser.id)
   feed2 = Feed.new(name: "Comics", user_id: demoUser.id)
   feed3 = Feed.new(name: "Productivity", user_id: demoUser.id)
+  feed4 = Feed.new(name: "Music", user_id: demoUser.id)
   feed1.save
   feed2.save
   feed3.save
+  feed4.save
 
   src1 = Source.new(name: "Polygon - All", source_url: "https://www.polygon.com/", stream_url: "https://www.polygon.com/rss/index.xml")
   src1.save
@@ -41,6 +43,31 @@ ActiveRecord::Base.transaction do
   src4.save
   src5 = Source.new(name: "Lifehacker", source_url: "https://lifehacker.com/", stream_url: "https://lifehacker.com/rss")
   src5.save
+  src6 = Source.new(stream_url: "http://cucumber.gigidigi.com/feed/")
+  src6.save
+  follow6 = Follow.new(feed_id: feed2.id, source_id: src6.id)
+  follow6.save
+  src7 = Source.new(stream_url: "https://www.lackadaisy.com/rss/")
+  src7.save
+  follow7 = Follow.new(feed_id: feed2.id, source_id: src7.id)
+  follow7.save
+  src8 = Source.new(stream_url: "https://gematsu.com/feed/")
+  src8.save
+  follow8 = Follow.new(feed_id: feed1.id, source_id: src8.id)
+  follow8.save
+  src9 = Source.new(stream_url: "https://indiegamesplus.com/feed")
+  src9.save
+  follow9 = Follow.new(feed_id: feed1.id, source_id: src9.id)
+  follow9.save
+  src10 = Source.new(stream_url: "https://www.siliconera.com/feed/")
+  src10.save
+  follow10 = Follow.new(feed_id: feed1.id, source_id: src10.id)
+  follow10.save
+  src11 = Source.new(stream_url: "https://nipponsei.minglong.org/tracker/rss.php")
+  src11.save
+  follow11 = Follow.new(feed_id: feed4.id, source_id: src11.id)
+  follow11.save
+
   follow1 = Follow.new(feed_id: feed1.id, source_id: src1.id)
   follow1.save
   follow2 = Follow.new(feed_id: feed2.id, source_id: src2.id)

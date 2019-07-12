@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // === debug methods start ===
   
-  window.store = store;
+  // window.store = store;
   // window.createNewUser = (user) => store.dispatch(createNewUser(user));
   // window.login = (user) => store.dispatch(login(user));
   // window.logout = () => store.dispatch(logout());

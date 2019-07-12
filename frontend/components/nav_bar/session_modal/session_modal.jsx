@@ -80,6 +80,7 @@ class SessionModal extends React.Component {
         errors => this.props.pushErrors(errors));
     } else {
       this.props.createNewUser(this.state.user)
+        .then(() => this.props.history.push("/"))
         .then(() => this.closeModal,
         errors => this.props.pushErrors(errors));
     }
