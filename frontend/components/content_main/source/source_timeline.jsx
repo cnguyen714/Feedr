@@ -14,7 +14,7 @@ class SourceTimeline extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if(this.props.match.params.sourceId === prevProps.match.params.sourceId) {
+    if(this.props.match.params.sourceId !== prevProps.match.params.sourceId) {
       this.props.fetchArticlesfromSource(this.props.match.params.sourceId);
     }
   }

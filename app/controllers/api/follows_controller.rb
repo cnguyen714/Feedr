@@ -15,7 +15,8 @@ class Api::FollowsController < ApplicationController
     @follow = Follow.new(follow_params)
 
     if @follow.save
-      render "api/follows/show"
+      @feed = Feed.find(@follow.feed_id)
+      render "api/feeds/show"
     else
       render json: @follow.errors.full_messages, status: 400
     end
@@ -24,7 +25,8 @@ class Api::FollowsController < ApplicationController
   def destroy
     @follow = Follow.find(params['id'])
     if @follow.destroy
-      render "api/follows/show"
+      @feed = Feed.find(@follow.feed_id)
+      render "api/feeds/show"
     else
       render json: @follow.errors.full_messages, status: 404
     end

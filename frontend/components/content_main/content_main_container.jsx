@@ -5,6 +5,7 @@ import { withRouter } from "react-router-dom";
 import ContentMain from "./content_main";
 
 const mapStateToProps = (state, ownProps) => ({
+  loading: state.ui.loading
 });
 
 const mapDispatchToProps = dispatch => ({
