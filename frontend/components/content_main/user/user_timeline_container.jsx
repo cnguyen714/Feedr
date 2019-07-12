@@ -2,8 +2,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import SourceTimeline from "./source_timeline";
-import { fetchArticlesfromSource } from "../../../actions/article_actions";
+import UserTimeline from "./user_timeline";
+import { fetchArticlesforCurrentUser } from "../../../actions/article_actions";
 
 const mapStateToProps = (state, ownProps) => ({
   articles: state.entities.articles,
@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchArticlesfromSource: (source_id) => dispatch(fetchArticlesfromSource(source_id))
+  fetchArticlesforCurrentUser: () => dispatch(fetchArticlesforCurrentUser())
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SourceTimeline));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(UserTimeline));

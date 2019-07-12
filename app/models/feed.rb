@@ -13,7 +13,8 @@ class Feed < ApplicationRecord
   validates :name, :user_id, presence: true
 
   belongs_to :user
-  has_many :follows
+  has_many :follows, dependent: :destroy
   has_many :sources, through: :follows
+  has_many :articles, through: :sources
 
 end

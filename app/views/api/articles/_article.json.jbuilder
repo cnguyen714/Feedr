@@ -1,0 +1,1 @@
+json.extract! article, :id, :title, :body, :article_url, :image_url, :source_id, :published_at

@@ -1,6 +1,7 @@
 
 import React from "react";
 import FeedsSourceIndexContainer from "./feeds_source_index_container";
+import { Link } from "react-router-dom";
 
 class FeedsIndex extends React.Component {
   constructor(props) {
@@ -26,6 +27,12 @@ class FeedsIndex extends React.Component {
         {this.props.loading 
           ? "Fetching Feeds..."
           : <ul>
+              <Link to={`/`} >
+              <header className="select feed-index-item feeds-source-index all-feed">
+                    All
+                </header>
+              </Link>
+
               {this.props.currentUser.subscribedFeeds.map(feedId => (
                 <FeedsSourceIndexContainer feed={this.props.feeds[feedId]} key={`feed-${feedId}`}/>
               ))}
