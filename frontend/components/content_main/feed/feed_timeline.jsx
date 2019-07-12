@@ -14,6 +14,13 @@ class FeedTimeline extends React.Component {
     this.props.fetchArticlesfromFeed(this.props.match.params.feedId);
   }
 
+  componentDidUpdate(prevProps) {
+    if(this.props.match.params.feedId === prevProps.match.params.feedId) {
+      this.props.fetchArticlesfromFeed(this.props.match.params.feedId);
+    }
+  }
+
+
   render() {
     if (this.props.loading || this.props.feeds === undefined) { return null; }
     let feedId = this.props.match.params.feedId;

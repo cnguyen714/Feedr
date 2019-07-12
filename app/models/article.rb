@@ -14,7 +14,7 @@
 #
 
 class Article < ApplicationRecord
-  validates :title, :article_url, :source_id, :published_at, presence: true
+  validates :article_url, :source_id, :published_at, presence: true
   validates :article_url, uniqueness: true
 
   belongs_to :source
@@ -26,21 +26,23 @@ class Article < ApplicationRecord
     feed = Feedjira.parse(xml)
 
     feed.entries.each do |entry|
-      content = ActionView::Base.full_sanitizer.sanitize(entry.content)
       if entry.instance_variables.include?(:@content)
-        content_doc = Nokogiri::HTML(entry.content)
-      elsif
-        content_doc = Nokogiri::HTML(entry.summary)
+        body = entry.content
+      else
+        body = entry.summary
       end
+      content_doc = Nokogiri::HTML(body)
+      content = ActionView::Base.full_sanitizer.sanitize(body)
       begin
         image_url = content_doc.xpath("//img").first.attributes["src"].value
       rescue => exception
         image_url = nil
       end
       article = Article.new(title: entry.title, body: content, article_url: entry.url, image_url: image_url, source_id: source_id, published_at: entry.published, author: entry.author )
-      if !article.save
-        return
-      end
+      article.save
+      # if !article.save
+      #   return
+      # end
     end
     return
   end

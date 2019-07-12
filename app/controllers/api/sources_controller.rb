@@ -51,6 +51,16 @@ class Api::SourcesController < ApplicationController
   end
   
   def create
+    source_by_url = Source.find_by(stream_url: source_params[:stream_url])
+    source_by_name = Source.find_by(name: source_params[:stream_url])
+    sourced = source_by_url || source_by_name
+
+    if sourced
+      @source = sourced
+      render "api/sources/show"
+      return
+    end
+
     @source = Source.new(source_params)
     @source[:user_id] = current_user.id;
 

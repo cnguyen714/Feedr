@@ -30,7 +30,7 @@
   margin-left: 268px;
 }
 
-.sidebar footer {
+.sidebar > a {
   position: fixed;
   background-color: $green;
   z-index: 101;
@@ -50,7 +50,7 @@
   font-weight: bold;
   text-transform: uppercase;
 }
-.sidebar footer:hover {
+.sidebar > a:hover {
   background-color: $dark-green;
   transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }

@@ -8,6 +8,7 @@ class SourceForm extends React.Component {
     super(props);
 
     this.state = {
+      searched: null,
       source: {
         stream_url: ""
       }
@@ -19,7 +20,9 @@ class SourceForm extends React.Component {
   handleSubmitSource(e) {
     e.preventDefault();
 
-    this.props.createSource(this.state.source);
+    $.ajax()
+      .then(() => this.props.createSource(this.state.source))
+      .then(payload => this.setState({searched: payload.source}))
   }
 
   handleInput(type) {
@@ -33,7 +36,6 @@ class SourceForm extends React.Component {
   }
 
   render() {
-
     return (
       <div className="discover-form">
         <header>
@@ -53,6 +55,11 @@ class SourceForm extends React.Component {
           </div>
           <input type="submit" style={{display: "none"}} />
         </form>
+
+        { this.state.searched !== null
+          ? <div className="search-match">{this.state.searched.name}</div>
+          : null
+        }
       </div>
     );
   }
