@@ -31,7 +31,47 @@ Feedr is a full stack application utilizing the following:
 
 ## Features
 
+<img align="right" src="https://github.com/cnguyen714/Feedr/blob/master/readme/sidebar.png">
+### Feeds Sidebar
 
+The sidebar provides easy navigation to all of a user's feeds and sources. Clicking on any of the sections will route the page and display the corresponding articles. It is driven by mainly by the FeedsIndex component, which is an index which contains Source indexes. 
+
+```javascript
+// feeds_index.jsx
+class FeedsIndex extends React.Component {
+  // ...
+
+  render() {
+    if (!this.props.feeds) return null; 
+
+    return (
+      <div className="feeds-index">
+        <header>
+          FEEDS
+        </header>
+
+        {this.props.loading 
+          ? "Fetching Feeds..."
+          : <ul>
+              <Link to={`/`} >
+                <header className="select feed-index-item feeds-source-index all-feed">
+                    All
+                </header>
+              </Link>
+
+              {this.props.currentUser.subscribedFeeds.map(feedId => (
+                <FeedsSourceIndexContainer feed={this.props.feeds[feedId]} key={`feed-${feedId}`}/>
+              ))}
+            </ul>
+        }
+      </div>
+    );
+  }
+}
+```
+Figuring out the HTML/CSS structure to format the sidebar too some work.
+
+### 
 
 ### Future development
 * Read/Unread status and counts
