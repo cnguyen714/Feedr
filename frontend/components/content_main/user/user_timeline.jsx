@@ -1,4 +1,5 @@
 
+
 import React from "react";
 import { AuthRoute, ProtectedRoute } from "../../../util/route_util";
 import { Link, Redirect } from "react-router-dom";
@@ -10,18 +11,16 @@ class SourceTimeline extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchArticlesfromSource(this.props.match.params.sourceId);
+    this.props.fetchArticlesforCurrentUser();
   }
 
   render() {
-    if (this.props.loading || this.props.sources === undefined) return null;
-    let sourceId = this.props.match.params.sourceId;
-    let source = this.props.sources[sourceId];
-    if (source === undefined) return null;
+    if (this.props.loading || this.props.articles === undefined) return null;
+
     return (
       <div>
         <header>
-          <h1>{source.name}</h1>
+          <h1>All Feeds</h1>
         </header>
 
         <ArticleIndexContainer articles={this.props.articles} />

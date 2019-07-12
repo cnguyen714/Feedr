@@ -20,6 +20,8 @@ class Api::SourcesController < ApplicationController
     end
   end
 
+  #RESTful Routes
+
   def index
     if (params['feed_id'] == nil) 
       @sources = current_user.sources
@@ -31,8 +33,10 @@ class Api::SourcesController < ApplicationController
 
     if !feed 
       render json: ["Feed does not exist"], status: 404 
+      return
     elsif feed.user_id != current_user.id
       render json: ["You don't own this feed "], status: 401
+      return
     end
     
     @sources = feed.sources
@@ -41,12 +45,25 @@ class Api::SourcesController < ApplicationController
 
   def show
     @source = Source.find_by(id: params['id'])
+    debugger
+    @source.fetchArticles
     render "api/sources/show"
   end
   
   def create
     @source = Source.new(source_params)
     @source[:user_id] = current_user.id;
+
+    url = @source.stream_url
+    xml = HTTParty.get(url).body
+    begin
+      feed = Feedjira.parse(xml)
+    rescue => exception
+      render json: ["Not a valid URL"], status: 404
+    end
+    @source[:name] = feed.title
+    @source[:description] = feed.description
+    @source[:source_url] = feed.url
 
     if @source.save
       render "api/sources/show"

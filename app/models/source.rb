@@ -18,6 +18,9 @@ class Source < ApplicationRecord
 
   belongs_to :user, optional: true
 
-  has_many :follows
+  has_many :follows, dependent: :destroy
   has_many :feeds, through: :follows
+
+  has_many :articles, dependent: :destroy
+
 end

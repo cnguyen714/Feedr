@@ -2,7 +2,8 @@
 
 import React from "react";
 import { AuthRoute, ProtectedRoute } from "../../../util/route_util";
-import { Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom"
+import ArticleIndexContainer from "../article_index_container";
 
 class FeedTimeline extends React.Component {
   constructor(props) {
@@ -10,13 +11,14 @@ class FeedTimeline extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchFeed(this.props.match.params.feedId);
+    this.props.fetchArticlesfromFeed(this.props.match.params.feedId);
   }
 
   render() {
+    if (this.props.loading || this.props.feeds === undefined) { return null; }
     let feedId = this.props.match.params.feedId;
     let feed = this.props.feeds[feedId];
-    if (feed === undefined) return null;
+    if (!feed) { return null; }
 
     return (
       <div>
@@ -24,7 +26,7 @@ class FeedTimeline extends React.Component {
           <h1>{feed.name}</h1>
         </header>
 
-
+        <ArticleIndexContainer articles={this.props.articles} />
       </div>
     );
   }

@@ -2,7 +2,7 @@
 import React from "react";
 import FeedsIndexContainer from "./feeds/feeds_index_container";
 import { AuthRoute, ProtectedRoute } from "../../util/route_util";
-
+import { Link } from "react-router-dom";
 
 class Sidebar extends React.Component {
   constructor(props) {
@@ -18,10 +18,9 @@ class Sidebar extends React.Component {
         <ProtectedRoute component={FeedsIndexContainer} />
         
         <footer>
-          <ul>
+          <Link to="/discover">
             <div>Add Content</div>
-
-          </ul>
+          </Link>
         </footer>
       </div>
     );

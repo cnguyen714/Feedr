@@ -22,6 +22,7 @@ class User < ApplicationRecord
 
   has_many :feeds, dependent: :destroy
   has_many :sources, through: :feeds
+  has_many :articles, through: :sources
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)

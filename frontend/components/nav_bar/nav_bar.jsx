@@ -25,7 +25,7 @@ export default ({ currentUser, logout, history} ) => {
       <ul className="nav-list">
         
         {!!currentUser
-          ? <div>{currentUser.email}<button onClick={handleLogout}>Logout</button></div>
+          ? <div>{currentUser.username}<button onClick={handleLogout}>Logout</button></div>
           : <SessionModalContainer formType="signup" />
         }
         {!!currentUser
