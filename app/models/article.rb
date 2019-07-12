@@ -23,7 +23,6 @@ class Article < ApplicationRecord
     src = Source.find_by(id: source_id)
     url = src.stream_url
     xml = HTTParty.get(url).body
-    feed = Feedjira.parse(xml)
 
     feed.entries.each do |entry|
       content = ActionView::Base.full_sanitizer.sanitize(entry.content)

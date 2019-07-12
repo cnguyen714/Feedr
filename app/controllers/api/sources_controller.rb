@@ -54,6 +54,17 @@ class Api::SourcesController < ApplicationController
     @source = Source.new(source_params)
     @source[:user_id] = current_user.id;
 
+    url = @source.stream_url
+    xml = HTTParty.get(url).body
+    begin
+      feed = Feedjira.parse(xml)
+    rescue => exception
+      render json: ["Not a valid URL"], status: 404
+    end
+    @source[:name] = feed.title
+    @source[:description] = feed.description
+    @source[:source_url] = feed.url
+
     if @source.save
       render "api/sources/show"
     else 

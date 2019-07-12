@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     end
     
     resources :articles, only: [:index, :show]
+    resources :discover, only: [:show]
   end
   
 end

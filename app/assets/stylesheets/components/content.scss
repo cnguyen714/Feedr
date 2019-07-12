@@ -14,6 +14,7 @@
   margin: 25px;
   padding-top: 30px;
   display: flex;
+  flex-direction: column;
 }
 
 .content-inner {
@@ -66,7 +67,9 @@
 .article-item img {
   float: left;
   height: 78px;
+  min-height: 78px;
   width: 130px;
+  min-width: 130px;
   margin-right: 20px;
   border-radius: 0.2rem;
 }
