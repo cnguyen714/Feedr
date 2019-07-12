@@ -23,4 +23,18 @@ class Source < ApplicationRecord
 
   has_many :articles, dependent: :destroy
 
+  before_save :populate_source
+
+  def populate_source
+    url = self.stream_url
+    xml = HTTParty.get(url).body
+    begin
+      feed = Feedjira.parse(xml)
+    rescue => exception
+      render json: ["Not a valid URL"], status: 404
+    end
+    self[:name] = feed.title
+    self[:description] = feed.description
+    self[:source_url] = feed.url
+  end
 end

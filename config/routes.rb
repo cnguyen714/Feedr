@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     
     resources :articles, only: [:index, :show]
     resources :discover, only: [:show]
+    resources :follows, only: [:create, :destroy]
   end
   
 end

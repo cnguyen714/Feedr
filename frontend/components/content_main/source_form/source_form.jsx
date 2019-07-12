@@ -1,7 +1,7 @@
 
 import React from "react";
 import { AuthRoute, ProtectedRoute } from "../../../util/route_util";
-
+import FollowSourceModalContainer from "./follow_source_modal/follow_source_modal_container";
 
 class SourceForm extends React.Component {
   constructor(props) {
@@ -36,6 +36,7 @@ class SourceForm extends React.Component {
   }
 
   render() {
+    let source = this.state.searched
     return (
       <div className="discover-form">
         <header>
@@ -47,7 +48,7 @@ class SourceForm extends React.Component {
             <input 
               className="input-text-discover"
               type="text" 
-              placeholder="Search by RSS link"
+              placeholder="Search by Name or RSS link"
               value={this.state.source.stream_url}
               onChange={this.handleInput("stream_url")}
               />
@@ -56,8 +57,18 @@ class SourceForm extends React.Component {
           <input type="submit" style={{display: "none"}} />
         </form>
 
-        { this.state.searched !== null
-          ? <div className="search-match">{this.state.searched.name}</div>
+        { source !== null
+          ? <div className="search-match">
+              <img src={source.icon_url} />
+              <div className="search-body">
+                <h1>{source.name}</h1>
+                <h2>{source.source_url}</h2>
+                <p>{source.description}</p>
+              </div>
+              <div className="follow-modal">
+                <FollowSourceModalContainer source={source}/>  
+              </div>
+            </div>
           : null
         }
       </div>

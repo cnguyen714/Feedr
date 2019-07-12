@@ -33,7 +33,7 @@ ActiveRecord::Base.transaction do
 
   src1 = Source.new(name: "Polygon - All", source_url: "https://www.polygon.com/", stream_url: "https://www.polygon.com/rss/index.xml")
   src1.save
-  src2 = Source.new(name: "xkcd", source_url: "https://xkcd.com/", stream_url: "https://xkcd.com/rss.xml")
+  src2 = Source.new(name: "xkcd", source_url: "https://xkcd.com/", stream_url: "https://xkcd.com/rss.xml", description: "Gaming Reviews, News, Tips and More.")
   src2.save
   src3 = Source.new(name: "ThreePanelSoul", source_url: "http://www.threepanelsoul.com/", stream_url: "http://www.threepanelsoul.com/comic/rss")
   src3.save

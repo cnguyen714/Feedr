@@ -40,3 +40,44 @@
 .input-text-discover:focus {
   border: 1px solid $green;
 }
+
+.search-match {
+  margin-top: 50px;
+  border: 1px solid $light-gray;
+  display: flex;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.search-match img {
+  float: left;
+  height: 50px;
+  width: 50px;
+  margin-right: 20px;
+}
+
+.search-body {
+
+}
+
+.search-body h1 {
+  font-size: 18px;
+  padding-bottom: 5px;
+}
+
+.search-body h2 {
+  font-size: 13px;
+  font-weight: 200;
+  color: #BBBBBB;
+  padding-bottom: 12px;
+}
+
+.search-body p {
+  font-size: 14px;
+  color: #AAAAAA;
+}
+
+.article-item button {
+  float: right;
+  text-transform: uppercase;
+}

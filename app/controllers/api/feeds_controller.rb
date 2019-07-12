@@ -24,7 +24,7 @@ class Api::FeedsController < ApplicationController
   ## === RESTful routes ===
 
   def index
-    @feeds = current_user.feeds
+    @feeds = current_user.feeds.order("name ASC")
 
     unless @feeds.empty?
       render "api/feeds/index"
