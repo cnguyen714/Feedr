@@ -17,11 +17,11 @@ class Sidebar extends React.Component {
         
         <ProtectedRoute component={FeedsIndexContainer} />
         
-        <footer>
-          <Link to="/discover">
-            <div>Add Content</div>
-          </Link>
-        </footer>
+        <Link to="/discover">
+          <footer>
+              <div>Add Content</div>
+          </footer>
+        </Link>
       </div>
     );
   }
