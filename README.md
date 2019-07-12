@@ -69,10 +69,14 @@ class FeedsIndex extends React.Component {
   }
 }
 ```
-Figuring out the HTML/CSS structure to format the sidebar too some work.
+The structure seems a bit daunting, but once we understand that the nested index is technically an index item itself, we can structure the containers appropriately.
+The nested Source index component is the same as the top level, but without the check for loading state, and holds individual source index items. The Source index item is simply a functional component wrapped in a router Link.
 
-### 
+### Articles
+
+On Source fetching, the database will retrieve and populate articles up to the current date. Fetching parses the XML feed that was designated on creation to find more articles.
 
 ### Future development
 * Read/Unread status and counts
 * Infinite scroll
+* Interval populate articles with process worker
