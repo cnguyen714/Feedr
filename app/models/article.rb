@@ -15,15 +15,17 @@
 
 class Article < ApplicationRecord
   validates :article_url, :source_id, :published_at, presence: true
-  validates :article_url, uniqueness: true
+  # validates :article_url, uniqueness: true
 
   belongs_to :source
 
+  # find articles
   def self.fetch_articles(source_id)
     src = Source.find_by(id: source_id)
     url = src.stream_url
     xml = HTTParty.get(url).body
     feed = Feedjira.parse(xml)
+
 
     feed.entries.each do |entry|
       if entry.instance_variables.include?(:@content)
@@ -39,10 +41,11 @@ class Article < ApplicationRecord
         image_url = nil
       end
       article = Article.new(title: entry.title, body: content, article_url: entry.url, image_url: image_url, source_id: source_id, published_at: entry.published, author: entry.author )
-      article.save
-      # if !article.save
-      #   return
-      # end
+      # article.save
+      # debugger
+      if !article.save
+        return
+      end
     end
     return
   end

@@ -3,7 +3,8 @@ class Api::ArticlesController < ApplicationController
   before_action :require_logged_in
 
   def index
-    if (params['feed_id'] != nil)
+    # if you find a feed_id param, fetch articles from feeds
+    if (params['feed_id'] != nil) 
       feed = Feed.find_by(id: params['feed_id'])
 
       if !feed 
@@ -14,13 +15,15 @@ class Api::ArticlesController < ApplicationController
         return
       end
       
-      # feed.sources.each do |source|
-      #   Article.fetch_articles(source.id)
-      # end
+      feed.sources.each do |source|
+        Article.fetch_articles(source.id)
+      end
 
 
       @articles = feed.articles.order("published_at DESC").take(15)
       render "api/articles/index"
+
+      # if you find a source_id param, fetch articles from feeds
     elsif (params['source_id'] != nil)
       source = Source.find_by(id: params['source_id'])
 
@@ -29,17 +32,19 @@ class Api::ArticlesController < ApplicationController
         return
       end
       
-      # Article.fetch_articles(source.id)
+      Article.fetch_articles(source.id)
 
       @articles = source.articles.order("published_at DESC").take(30)
       render "api/articles/index"
+    
+    # if you find no params, you must be at all feeds, so fetch everything
     else
-      current_user.sources.each do |source|
-        Article.fetch_articles(source.id)
-      end
+      # current_user.sources.each do |source|
+      #   Article.fetch_articles(source.id)
+      # end
 
-      @articles = current_user.articles.order("published_at DESC").take(15)
-      render "api/articles/index"
+      # @articles = current_user.articles.order("published_at DESC").take(15)
+      # render "api/articles/index"
     end
   end
 

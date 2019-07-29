@@ -25,8 +25,7 @@ ActiveRecord::Schema.define(version: 2019_07_12_005630) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "author"
-    t.index ["article_url"], name: "index_articles_on_article_url", unique: true
-    t.index ["body"], name: "index_articles_on_body"
+    t.index ["article_url"], name: "index_articles_on_article_url"
     t.index ["source_id"], name: "index_articles_on_source_id"
     t.index ["title"], name: "index_articles_on_title"
   end

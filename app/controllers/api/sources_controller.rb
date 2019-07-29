@@ -45,7 +45,7 @@ class Api::SourcesController < ApplicationController
 
   def show
     @source = Source.find_by(id: params['id'])
-    @source.fetchArticles
+    # Article.fetch_articles(@source)
     render "api/sources/show"
   end
   

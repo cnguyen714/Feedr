@@ -20,7 +20,6 @@ class FeedTimeline extends React.Component {
     }
   }
 
-
   render() {
     if (this.props.loading || this.props.feeds === undefined) { return null; }
     let feedId = this.props.match.params.feedId;

@@ -11,8 +11,7 @@ class CreateArticles < ActiveRecord::Migration[5.2]
       t.timestamps
     end
     add_index :articles, :title
-    add_index :articles, :body
-    add_index :articles, :article_url, unique: true
+    add_index :articles, :article_url
     add_index :articles, :source_id
   end
 end

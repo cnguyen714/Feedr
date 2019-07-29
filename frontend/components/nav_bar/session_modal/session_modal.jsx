@@ -75,8 +75,8 @@ class SessionModal extends React.Component {
 
     if (this.isLoginForm()) {
       this.props.login(this.state.user)
+        .then(() => this.props.history.push("/"))
         .then(() => this.closeModal,
-        
         errors => this.props.pushErrors(errors));
     } else {
       this.props.createNewUser(this.state.user)
