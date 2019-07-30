@@ -39,12 +39,12 @@ class Api::ArticlesController < ApplicationController
     
     # if you find no params, you must be at all feeds, so fetch everything
     else
-      # current_user.sources.each do |source|
-      #   Article.fetch_articles(source.id)
-      # end
+      current_user.sources.each do |source|
+        Article.fetch_articles(source.id)
+      end
 
-      # @articles = current_user.articles.order("published_at DESC").take(15)
-      # render "api/articles/index"
+      @articles = current_user.articles.order("published_at DESC").take(15)
+      render "api/articles/index"
     end
   end
 

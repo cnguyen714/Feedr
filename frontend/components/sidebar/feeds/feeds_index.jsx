@@ -15,6 +15,10 @@ class FeedsIndex extends React.Component {
       .then(() => this.props.setLoading(false));
   }
 
+  onClick() {
+    
+  }
+
   render() {
     if (!this.props.feeds) return null; 
 

@@ -11,7 +11,12 @@ class SourceTimeline extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchArticlesforCurrentUser();
+    $.ajax()
+      .then(() => this.props.setContentLoading(true))
+      .then(() => this.props.fetchArticlesforCurrentUser())
+      .then(() => this.props.setContentLoading(false))
+
+    
   }
 
   render() {
@@ -23,7 +28,9 @@ class SourceTimeline extends React.Component {
           <h1>All Feeds</h1>
         </header>
 
-        <ArticleIndexContainer articles={this.props.articles} />
+        {this.props.contentLoading
+          ? <div>Loading...</div>
+          : <ArticleIndexContainer articles={this.props.articles} />}
       </div>
     );
   }

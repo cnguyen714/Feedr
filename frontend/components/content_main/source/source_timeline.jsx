@@ -4,18 +4,27 @@ import { AuthRoute, ProtectedRoute } from "../../../util/route_util";
 import { Link, Redirect } from "react-router-dom";
 import ArticleIndexContainer from "../article_index_container";
 
+
 class SourceTimeline extends React.Component {
   constructor(props) {
     super(props);
   }
 
   componentWillMount() {
-    this.props.fetchArticlesfromSource(this.props.match.params.sourceId);
+    $.ajax()
+      .then(() => this.props.setContentLoading(true))
+      .then(() => this.props.fetchArticlesfromSource(this.props.match.params.sourceId))
+      .then(() => this.props.setContentLoading(false));
+
   }
 
   componentDidUpdate(prevProps) {
-    if(this.props.match.params.sourceId !== prevProps.match.params.sourceId) {
-      this.props.fetchArticlesfromSource(this.props.match.params.sourceId);
+    if (this.props.match.params.sourceId !== prevProps.match.params.sourceId) {
+      document.body.scrollTop = document.documentElement.scrollTop = 0;
+      $.ajax()
+        .then(() => this.props.setContentLoading(true))
+        .then(() => this.props.fetchArticlesfromSource(this.props.match.params.sourceId))
+        .then(() => this.props.setContentLoading(false));
     }
   }
 
@@ -30,7 +39,9 @@ class SourceTimeline extends React.Component {
           <h1>{source.name}</h1>
         </header>
 
-        <ArticleIndexContainer articles={this.props.articles} />
+        {this.props.contentLoading
+          ? <div>Loading...</div>
+          : <ArticleIndexContainer articles={this.props.articles} />}
       </div>
     );
   }

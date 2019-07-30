@@ -11,12 +11,19 @@ class FeedTimeline extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchArticlesfromFeed(this.props.match.params.feedId);
+    $.ajax()
+      .then(() => this.props.setContentLoading(true))
+      .then(() => this.props.fetchArticlesfromFeed(this.props.match.params.feedId))
+      .then(() => this.props.setContentLoading(false))
   }
 
   componentDidUpdate(prevProps) {
     if(this.props.match.params.feedId !== prevProps.match.params.feedId) {
-      this.props.fetchArticlesfromFeed(this.props.match.params.feedId);
+      document.body.scrollTop = document.documentElement.scrollTop = 0;
+      $.ajax()
+        .then(() => this.props.setContentLoading(true))
+        .then(() => this.props.fetchArticlesfromFeed(this.props.match.params.feedId))
+        .then(() => this.props.setContentLoading(false))
     }
   }
 
@@ -32,7 +39,9 @@ class FeedTimeline extends React.Component {
           <h1>{feed.name}</h1>
         </header>
 
-        <ArticleIndexContainer articles={this.props.articles} />
+        {this.props.contentLoading
+          ? <div>Loading...</div>
+          : <ArticleIndexContainer articles={this.props.articles} />}
       </div>
     );
   }
