@@ -15,7 +15,7 @@
 
 class Article < ApplicationRecord
   validates :article_url, :source_id, :published_at, presence: true
-  # validates :article_url, uniqueness: true
+  validates [:article_url, :source_id, :published_at], uniqueness: true
 
   belongs_to :source
 
