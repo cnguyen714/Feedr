@@ -20,10 +20,10 @@ class Api::ArticlesController < ApplicationController
       end
 
 
-      @articles = feed.articles.order("published_at DESC").take(15)
+      @articles = feed.articles.order(published_at: :desc).take(15)
       render "api/articles/index"
 
-      # if you find a source_id param, fetch articles from feeds
+      # if you find a source_id param, fetch articles from source
     elsif (params['source_id'] != nil)
       source = Source.find_by(id: params['source_id'])
 
@@ -34,7 +34,7 @@ class Api::ArticlesController < ApplicationController
       
       Article.fetch_articles(source.id)
 
-      @articles = source.articles.order("published_at DESC").take(30)
+      @articles = source.articles.order(published_at: :desc).take(30)
       render "api/articles/index"
     
     # if you find no params, you must be at all feeds, so fetch everything
@@ -43,7 +43,7 @@ class Api::ArticlesController < ApplicationController
         Article.fetch_articles(source.id)
       end
 
-      @articles = current_user.articles.order("published_at DESC").take(15)
+      @articles = current_user.articles.order(published_at: :desc).take(15)
       render "api/articles/index"
     end
   end
