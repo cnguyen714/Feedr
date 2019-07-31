@@ -54,19 +54,39 @@ class Api::SourcesController < ApplicationController
     source_by_name = Source.find_by(name: source_params[:stream_url])
     sourced = source_by_url || source_by_name
 
+    # if source exists, go straight to show
     if sourced
       @source = sourced
       render "api/sources/show"
       return
     end
 
+    # otherwise
     @source = Source.new(source_params)
     @source[:user_id] = current_user.id;
-    # url = @source.stream_url
-    # xml = HTTParty.get(url).body
-    # feed = Feedjira.parse(xml)
-    # @source[:name] = feed.title
-    # @source[:description] = feed.description
+
+    url = @source.stream_url
+    begin
+      xml = HTTParty.get(url).body
+    rescue => exception
+      render json: ["Not a valid URL. Did you include `http://` ?"], status: 404
+      return
+    end
+
+    if xml[2..4] != "xml"
+      render json: ["Could not read XML file at RSS/Atom URL"], status: 400
+      return
+    end
+
+    begin
+      feed = Feedjira.parse(xml)
+    rescue => exception
+      render json: ["Could not parse XML"], status: 400
+      return
+    end
+    @source[:name] = feed.title
+    @source[:description] = feed.description
+    @source[:source_url] = feed.url
 
     if @source.save
       render "api/sources/show"

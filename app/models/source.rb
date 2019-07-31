@@ -23,15 +23,27 @@ class Source < ApplicationRecord
 
   has_many :articles, dependent: :destroy
 
-  before_validation :populate_source
+  # before_validation :populate_source
 
   def populate_source
     url = self.stream_url
-    xml = HTTParty.get(url).body
+    begin
+      xml = HTTParty.get(url).body
+    rescue => exception
+      render json: ["Not a valid URL"], status: 404
+      return
+    end
+
+    if xml[2..4] != "xml"
+      render json: ["Could not read XML file at RSS/Atom URL"], status: 400
+      return
+    end
+
     begin
       feed = Feedjira.parse(xml)
     rescue => exception
-      render json: ["Not a valid URL"], status: 404
+      render json: ["Could not parse XML"], status: 400
+      return
     end
     self[:name] = feed.title
     self[:description] = feed.description
