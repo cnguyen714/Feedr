@@ -19,10 +19,13 @@ class SourceForm extends React.Component {
 
   handleSubmitSource(e) {
     e.preventDefault();
+    if (this.props.errors.length !== 0) this.props.dropErrors();
+
 
     $.ajax()
       .then(() => this.props.createSource(this.state.source))
-      .then(payload => this.setState({searched: payload.source}))
+      .then(payload => this.setState({searched: payload.source}),
+      errors => this.props.pushErrors(errors));
   }
 
   handleInput(type) {
@@ -56,6 +59,15 @@ class SourceForm extends React.Component {
           </div>
           <input type="submit" style={{display: "none"}} />
         </form>
+
+        {this.props.errors.length !== 0
+          ? <ul className="errors">
+            {this.props.errors.map(error =>
+              <li key={error}>{error}</li>
+            )}
+          </ul>
+          : null
+        }  
 
         { source !== null
           ? <div className="search-match">

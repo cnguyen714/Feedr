@@ -61,7 +61,7 @@ class Api::SourcesController < ApplicationController
       return
     end
 
-    # otherwise
+    # otherwise create a new source
     @source = Source.new(source_params)
     @source[:user_id] = current_user.id;
 
@@ -73,7 +73,7 @@ class Api::SourcesController < ApplicationController
       return
     end
 
-    if xml[2..4] != "xml"
+    if xml[2..4].downcase != "xml"
       render json: ["Could not read XML file at RSS/Atom URL"], status: 400
       return
     end
