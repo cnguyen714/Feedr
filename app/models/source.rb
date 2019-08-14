@@ -20,13 +20,13 @@ class Source < ApplicationRecord
 
   has_many :follows, dependent: :destroy
   has_many :feeds, through: :follows
-
   has_many :articles, dependent: :destroy
 
   before_validation :populate_source
 
   def populate_source
     url = self.stream_url
+
     begin
       xml = HTTParty.get(url).body
     rescue => exception
@@ -45,6 +45,7 @@ class Source < ApplicationRecord
       render json: ["Could not parse XML"], status: 400
       return
     end
+    
     self[:name] = feed.title
     self[:description] = feed.description
     self[:source_url] = feed.url

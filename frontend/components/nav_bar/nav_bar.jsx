@@ -20,7 +20,9 @@ export default ({ currentUser, logout, history} ) => {
     className={`nav-bar ${!!currentUser ? "sidebar-offset" : ""}`}>
     
     <nav className="nav-bar-inner clearfix">
-      <i className="logo-icon" />
+      <Link to="/">
+        <i className="logo-icon" />
+      </Link>
 
       <ul className="nav-list">
         

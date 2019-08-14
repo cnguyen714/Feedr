@@ -12,7 +12,7 @@ export default () => (
     
     <Route path="/" component={SidebarContainer} />
     <Route path="/" component={NavBarContainer} />
-    {/* <AuthRoute exact path="/" component={Splash} /> */}
+    <AuthRoute exact path="/" component={Splash} />
     <ProtectedRoute path="/" component={ContentMainContainer} />
   </div>
 );
