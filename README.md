@@ -80,4 +80,13 @@ On Source fetching, the database will retrieve and populate articles up to the c
 ### Future development
 * Read/Unread status and counts
 * Infinite scroll
-* Interval populate articles with process worker
+* Interval populate articles with process worker/scheduler
+
+### Local Build
+`npm install`<br>
+`rails db:setup`<br>
+
+You can run this locally by running both these commands concurrently:
+
+`npm start`<br>
+`rails server`<br>

@@ -41,7 +41,13 @@ class Article < ApplicationRecord
       rescue => exception
         image_url = nil
       end
-      article = Article.new(title: entry.title, body: content, article_url: entry.url, image_url: image_url, source_id: source_id, published_at: entry.published, author: entry.author )
+      article = Article.new(title: entry.title, 
+                            body: content, 
+                            article_url: entry.url, 
+                            image_url: image_url, 
+                            source_id: source_id, 
+                            published_at: entry.published, 
+                            author: entry.author )
       # article.save
       # debugger
       if !article.save

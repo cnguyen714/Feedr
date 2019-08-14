@@ -14,7 +14,6 @@ class FollowSourceModal extends React.Component {
       }
     };
 
-
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.handleFollow = this.handleFollow.bind(this);
@@ -54,7 +53,11 @@ class FollowSourceModal extends React.Component {
   }
 
   handleUnfollow(follow_id) {
-    this.props.unfollowSource(follow_id)
+    return (e) => {
+      e.preventDefault();
+      return this.props.followSource({ feed_id: feed_id, source_id: this.props.source.id })
+        .then(() => this.props.fetchFeed(feed_id))
+    }
   }
 
   handleInput(type) {
@@ -95,7 +98,9 @@ class FollowSourceModal extends React.Component {
                   return <li key={`feed-follow-${feed.id}`}>
                     <p className="feed-follow-item">
                       {feed.name}
-                      <button onClick={this.handleFollow(feed.id)}>Follow</button>
+                      { feed.sourceIds.includes(this.props.source.id)
+                        ? <button onClick={this.handleUnfollow(feed.id)}>Unfollow</button>
+                        : <button onClick={this.handleFollow(feed.id)}>Follow</button> }
                     </p>
                   </li>
                 })

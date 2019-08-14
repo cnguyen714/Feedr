@@ -15,4 +15,5 @@ class Follow < ApplicationRecord
 
   belongs_to :feed
   belongs_to :source
+  has_one :user, through: :feed 
 end

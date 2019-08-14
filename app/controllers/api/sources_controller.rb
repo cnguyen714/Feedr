@@ -85,8 +85,17 @@ class Api::SourcesController < ApplicationController
       return
     end
     @source[:name] = feed.title
+    
     @source[:description] = feed.description
     @source[:source_url] = feed.url
+
+    # do one last check on parsed source name before attempting to save
+    source_by_name = Source.find_by(name: feed.title)
+    if source_by_name
+      @source = source_by_name 
+      render "api/sources/show"
+      return
+    end
 
     if @source.save
       render "api/sources/show"

@@ -23,7 +23,7 @@ class Source < ApplicationRecord
 
   has_many :articles, dependent: :destroy
 
-  # before_validation :populate_source
+  before_validation :populate_source
 
   def populate_source
     url = self.stream_url

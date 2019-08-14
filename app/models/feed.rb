@@ -16,5 +16,4 @@ class Feed < ApplicationRecord
   has_many :follows, dependent: :destroy
   has_many :sources, through: :follows
   has_many :articles, through: :sources
-
 end

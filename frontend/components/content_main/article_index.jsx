@@ -18,8 +18,14 @@ class SourceTimeline extends React.Component {
     return (
       <ul>
         
-        {Object.values(articles).sort((a, b) => new Date(b.published_at) - new Date(a.published_at)).map(article => {
-          return <ArticleIndexItem key={`article-${article.id}`} article={article} source={this.props.sources[article.source_id]} />
+        {/* Redux stores articles as an obj, not ordered */}
+        {Object.values(articles)
+          .sort((a, b) => new Date(b.published_at) - new Date(a.published_at))
+          .map(article => {
+            return <ArticleIndexItem 
+              key={`article-${article.id}`} 
+              article={article} 
+              source={this.props.sources[article.source_id]} />
         })}
       </ul>
     );

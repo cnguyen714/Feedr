@@ -51,7 +51,7 @@ class SourceForm extends React.Component {
             <input 
               className="input-text-discover"
               type="text" 
-              placeholder="Search by Name or RSS link"
+              placeholder="Search by RSS/Atom link"
               value={this.state.source.stream_url}
               onChange={this.handleInput("stream_url")}
               />
