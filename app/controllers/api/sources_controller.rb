@@ -51,7 +51,9 @@ class Api::SourcesController < ApplicationController
   
   def create
     source_by_url = Source.find_by(stream_url: source_params[:stream_url])
-    source_by_name = Source.find_by(name: source_params[:stream_url])
+    
+    t = Source.arel_table
+    source_by_name = Source.where(t[:name].matches(source_params[:stream_url]))[0]
     sourced = source_by_url || source_by_name
 
     # if source exists, go straight to show

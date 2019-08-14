@@ -21,7 +21,6 @@ class SourceForm extends React.Component {
     e.preventDefault();
     if (this.props.errors.length !== 0) this.props.dropErrors();
 
-
     $.ajax()
       .then(() => this.props.createSource(this.state.source))
       .then(payload => this.setState({searched: payload.source}),
