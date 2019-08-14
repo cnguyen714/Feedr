@@ -8,8 +8,8 @@ export default ({ article, source }) => {
       <a href={article.article_url} target="_blank" >
         {article.image_url !== null
           ? <img className="image" src={article.image_url} />
-          : <div className="image"></div> }
-        
+          : <img className="image null-image" src="/assets/logo.svg">
+            </img> }
         <div>
           <h2>{article.title}</h2>
           <h3>{`${source.name} / ${Math.floor((new Date().getTime() - new Date(article.published_at).getTime()) / 86400000)}d`}</h3>

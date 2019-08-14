@@ -15,8 +15,10 @@ class SourceTimeline extends React.Component {
       .then(() => this.props.setContentLoading(true))
       .then(() => this.props.fetchArticlesforCurrentUser())
       .then(() => this.props.setContentLoading(false))
-
-    
+      .then(() => {
+        $(`.select:contains('All Feeds')`).addClass("selected");
+      })
+      
   }
 
   render() {
@@ -25,7 +27,7 @@ class SourceTimeline extends React.Component {
     return (
       <div>
         <header>
-          <h1>All Feeds</h1>
+          <h1 id="timeline-name">All Feeds</h1>
         </header>
 
         {this.props.contentLoading

@@ -11,7 +11,16 @@ class FeedsSourceIndex extends React.Component {
   }
 
   componentWillMount() {
+    $(`.select:contains(${this.props.feed.name})`).addClass("selected");
+  }
 
+  componentDidUpdate(prevProps) {
+
+  }
+
+  onClick(e) {
+    $(`.select`).removeClass("selected");
+    e.target.classList.add("selected")  
   }
 
   render() {
@@ -21,17 +30,21 @@ class FeedsSourceIndex extends React.Component {
 
     return (
       <li className="feeds-source-index">
-        <Link to={`/feeds/${this.props.feed.id}`} >
-          <header className="select feed-index-item">
-            {this.props.feed.name}
-          </header>
-        </Link>
+        <div onClick={this.onClick}> 
+          <Link to={`/feeds/${this.props.feed.id}`} >
+            <header className="select feed-index-item">
+              {this.props.feed.name}
+            </header>
+          </Link>
+        </div>
 
         <ul>
           {this.props.feed.sourceIds.map(sourceId => (
-            <Link key={`source-idx-${sourceId}`} to={`/sources/${sourceId}`}>
-              <FeedsSourceIndexItem source={this.props.sources[sourceId]} />
-            </Link>
+            <div onClick={this.onClick} key={`source-idx-${sourceId}`}> 
+              <Link to={`/sources/${sourceId}`}>
+                <FeedsSourceIndexItem source={this.props.sources[sourceId]} />
+              </Link>
+            </div>
           ))}
         </ul>
       </li>

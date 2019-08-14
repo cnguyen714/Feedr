@@ -60,6 +60,10 @@
   padding-bottom: 10px;
 }
 
+.article-item:hover {
+  background-color: #F5F5F5;
+}
+
 .article-item a {
   display: flex;
 }
@@ -73,5 +77,12 @@
   min-width: 130px;
   margin-right: 20px;
   border-radius: 0.2rem;
+}
+
+.article-item .null-image {
+  // background: url(/assets/logo.svg) no-repeat center center;
+  max-width:100%;
+  max-height:100%;
+  object-fit: fill;
 }
 

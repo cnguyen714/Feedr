@@ -14,8 +14,10 @@ class SourceTimeline extends React.Component {
     $.ajax()
       .then(() => this.props.setContentLoading(true))
       .then(() => this.props.fetchArticlesfromSource(this.props.match.params.sourceId))
-      .then(() => this.props.setContentLoading(false));
-
+      .then(() => this.props.setContentLoading(false))
+      .then(() => {
+        $(`.select:contains(${this.props.sources[this.props.match.params.sourceId].name})`)[0].classList.add("selected");
+      })
   }
 
   componentDidUpdate(prevProps) {
@@ -36,7 +38,7 @@ class SourceTimeline extends React.Component {
     return (
       <div>
         <header>
-          <h1>{source.name}</h1>
+          <h1 id="timeline-name">{source.name}</h1>
         </header>
 
         {this.props.contentLoading

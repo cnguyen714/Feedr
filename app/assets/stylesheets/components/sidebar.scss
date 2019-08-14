@@ -102,6 +102,10 @@
   transition: 0.1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
+.selected {
+  background-color: #CCCCCC;
+}
+
 .source-item {
   box-sizing: border-box;
   padding: 6px;

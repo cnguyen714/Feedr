@@ -12,11 +12,16 @@ class FeedsIndex extends React.Component {
     $.ajax()
       .then(() => this.props.fetchFeeds())
       .then(() => this.props.fetchSources())
-      .then(() => this.props.setLoading(false));
+      .then(() => this.props.setLoading(false))
   }
 
-  onClick() {
-    
+  componentDidUpdate(prevProps) {
+
+  }
+
+  onClick(e) {
+    $(`.select`).removeClass("selected");
+    e.target.classList.add("selected")  
   }
 
   render() {
@@ -31,11 +36,13 @@ class FeedsIndex extends React.Component {
         {this.props.loading 
           ? "Fetching Feeds..."
           : <ul>
-              <Link to={`/`} >
-              <header className="select feed-index-item feeds-source-index all-feed">
-                    All
-                </header>
-              </Link>
+              <div onClick={this.onClick}> 
+                <Link to={`/`}>
+                  <header className="select feed-index-item feeds-source-index all-feed">
+                    All Feeds
+                  </header>
+                </Link>
+              </div>
 
               {this.props.currentUser.subscribedFeeds.map(feedId => (
                 <FeedsSourceIndexContainer feed={this.props.feeds[feedId]} key={`feed-${feedId}`}/>

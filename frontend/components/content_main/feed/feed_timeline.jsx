@@ -15,6 +15,9 @@ class FeedTimeline extends React.Component {
       .then(() => this.props.setContentLoading(true))
       .then(() => this.props.fetchArticlesfromFeed(this.props.match.params.feedId))
       .then(() => this.props.setContentLoading(false))
+      .then(() => {
+        $(`.select:contains(${this.props.feeds[this.props.match.params.feedId].name})`)[0].classList.add("selected");
+      })
   }
 
   componentDidUpdate(prevProps) {
@@ -36,7 +39,7 @@ class FeedTimeline extends React.Component {
     return (
       <div>
         <header>
-          <h1>{feed.name}</h1>
+          <h1 id="timeline-name">{feed.name}</h1>
         </header>
 
         {this.props.contentLoading
