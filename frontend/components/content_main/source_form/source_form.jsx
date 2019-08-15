@@ -142,6 +142,8 @@ class SourceForm extends React.Component {
         if (currentFocus > -1) {
           /*and simulate a click on the "active" item:*/
           if (x) x[currentFocus].click();
+        } else {
+          if (x) x[0].click();          
         }
       }
     });
@@ -202,7 +204,7 @@ class SourceForm extends React.Component {
               id="myInput"
               className="input-text-discover"
               type="text" 
-              placeholder="Search by RSS/Atom link"
+              placeholder="Search by Name or RSS/Atom link"
               value={this.state.source.stream_url}
               onChange={this.handleInput("stream_url")}
               />
