@@ -32,12 +32,7 @@ class SourceForm extends React.Component {
     $.getJSON('/api/search_source?q=' + this.state.source.stream_url)
       .then(response => this.setState({ autoCompleteResults: response.items }))
       .then(() => {
-        let autoCompleteList = this.state.autoCompleteResults.map((response, index) => {
-          // return {name: response.name, stream_url: response.stream_url}}
-          return response.name
-        }
-        );
-        this.autocomplete(document.getElementById("myInput"), autoCompleteList);
+        this.autocomplete(document.getElementById("myInput"), this.state.autoCompleteResults);
       })
   }
 
@@ -78,6 +73,9 @@ class SourceForm extends React.Component {
   }
 
   autocomplete(inp, arr) {
+
+    
+
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/
     let currentFocus;
@@ -97,15 +95,18 @@ class SourceForm extends React.Component {
       /*for each item in the array...*/
       for (i = 0; i < arr.length; i++) {
         /*check if the item starts with the same letters as the text field value:*/
-        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+        if (arr[i].name.substr(0, val.length).toUpperCase() == val.toUpperCase()) {
           /*create a DIV element for each matching element:*/
           b = document.createElement("DIV");
           b.setAttribute("class", "autocomplete-child");
           /*make the matching letters bold:*/
-          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-          b.innerHTML += arr[i].substr(val.length);
+          // b.innerHTML = "<strong>" + arr[i].name.substr(0, val.length) + "</strong>";
+          // b.innerHTML += arr[i].name.substr(val.length);
+          b.innerHTML = `${arr[i].name}`;
+          // b.innerHTML = `<p class="autocomplete-child">${arr[i].name}</p>`;
           /*insert a input field that will hold the current array item's value:*/
-          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          b.innerHTML += "<input type='hidden' value='" + arr[i].name + "'>";
+          // b.innerHTML += `<h3 class="autocomplete-child">${arr[i].stream_url}</h3>`;
           /*execute a function when someone clicks on the item value (DIV element):*/
           b.addEventListener("click", function(e) {
             /*insert the value for the autocomplete text field:*/
@@ -179,7 +180,7 @@ class SourceForm extends React.Component {
       }
       if (elmnt && elmnt.classList.contains("autocomplete-child") && this.state.source.stream_url !== "") {
         let nextState = Object.assign({}, this.state);
-        nextState.source.stream_url = elmnt.innerText;
+        nextState.source.stream_url = elmnt.textContent;
         this.setState(nextState);
         this.handleSubmitSource();
       }
