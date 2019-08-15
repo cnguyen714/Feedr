@@ -16,7 +16,7 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = dispatch => ({
   createFeed: feed => dispatch(createFeed(feed)),
   followSource: follow => FollowAPIUtil.createFollow(follow),
-  unfollowSource: follow => FollowAPIUtil.destroyFollow(follow),
+  unfollowSource: id => FollowAPIUtil.destroyFollow(id),
   fetchFeed: id => dispatch(fetchFeed(id))
 });
 

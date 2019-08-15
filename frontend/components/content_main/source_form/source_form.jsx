@@ -17,6 +17,10 @@ class SourceForm extends React.Component {
     this.handleSubmitSource = this.handleSubmitSource.bind(this)
   }
 
+  componentWillMount() {
+    if (this.props.errors.length !== 0) this.props.dropErrors();
+  }
+
   handleSubmitSource(e) {
     e.preventDefault();
     if (this.props.errors.length !== 0) this.props.dropErrors();

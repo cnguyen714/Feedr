@@ -87,7 +87,6 @@ class Api::SourcesController < ApplicationController
       return
     end
     @source[:name] = feed.title
-    
     @source[:description] = feed.description
     @source[:source_url] = feed.url
 

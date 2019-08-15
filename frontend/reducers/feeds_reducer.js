@@ -9,14 +9,15 @@ import {
 
 export default (state = {}, action) => {
   Object.freeze(state);
+  let nextState = merge({}, state);
 
   switch (action.type) {
     case RECEIVE_FEEDS:
       return action.feeds;
     case RECEIVE_FEED:
-      return merge({}, state, { [action.feed.id]: action.feed });
+      delete nextState[action.feed.id];
+      return merge({}, nextState, { [action.feed.id]: action.feed });
     case REMOVE_FEED:
-      let nextState = merge({}, state);
       delete nextState[action.feed.id];
       return nextState;
     default:
