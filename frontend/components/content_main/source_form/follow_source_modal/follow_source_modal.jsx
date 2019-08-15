@@ -95,13 +95,13 @@ class FollowSourceModal extends React.Component {
             ? <ul>
 
                 {this.props.feeds.map(feed => {
-                  return <li key={`feed-follow-${feed.id}`}>
-                    <p className="feed-follow-item">
+                  return <li className="feed-follow-item" key={`feed-follow-${feed.id}`}>
+                    <span>
                       {feed.name}
-                      { feed.sourceIds.includes(this.props.source.id)
-                        ? <button onClick={this.handleUnfollow(feed.followIds[this.props.source.id], feed.id)}>Unfollow</button>
-                        : <button onClick={this.handleFollow(feed.id)}>Follow</button> }
-                    </p>
+                    </span>
+                    { feed.sourceIds.includes(this.props.source.id)
+                      ? <button onClick={this.handleUnfollow(feed.followIds[this.props.source.id], feed.id)}>Unfollow</button>
+                      : <button onClick={this.handleFollow(feed.id)}>Follow</button> }
                   </li>
                 })
                 }

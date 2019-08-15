@@ -79,6 +79,7 @@ class SourceForm extends React.Component {
                 <h1>{source.name}</h1>
                 <h2>{source.source_url}</h2>
                 <p>{source.description}</p>
+                <br />
                 <FollowSourceModalContainer source={source}/>  
               </div>
             </div>

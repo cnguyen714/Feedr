@@ -122,17 +122,20 @@
   padding: 3px
 }
 
-.follow-modal li {
-
-}
-
 .feed-follow-item {
+  margin: 3px;
   width: 200px;
   height: 30px;
 }
 
-.feed-follow-item p{
-  display: flex;
+.feed-follow-item span {
+  line-height: 30px;
+  float: left;
+}
+
+.feed-follow-item button {
+  float: right;
+  line-height: 23px;
 }
 
 .feed-follow-item button {
@@ -148,4 +151,7 @@
   background: $green;
   color: white;
   font-weight: bold;
+  line-height: 23px;
+  padding: 3px;
+
 }

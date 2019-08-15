@@ -51,7 +51,6 @@ class Api::SourcesController < ApplicationController
   
   def create
     source_by_url = Source.find_by(stream_url: source_params[:stream_url])
-    
     t = Source.arel_table
     source_by_name = Source.where(t[:name].matches(source_params[:stream_url]))[0]
     sourced = source_by_url || source_by_name
@@ -71,7 +70,7 @@ class Api::SourcesController < ApplicationController
     begin
       xml = HTTParty.get(url).body
     rescue => exception
-      render json: ["Not a valid URL. Did you include `http://` ?"], status: 404
+      render json: ["Not a valid URL. Did you include `http://` or `https://`?"], status: 404
       return
     end
 
