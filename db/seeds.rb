@@ -6,8 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
-
 ActiveRecord::Base.transaction do
   User.delete_all
   Feed.delete_all
@@ -74,14 +72,5 @@ ActiveRecord::Base.transaction do
   src10.save
   follow10 = Follow.new(feed_id: feed1.id, source_id: src10.id)
   follow10.save
-  
-  src11 = Source.new(stream_url: "https://nipponsei.minglong.org/tracker/rss.php")
-  src11.save
-  follow11 = Follow.new(feed_id: feed4.id, source_id: src11.id)
-  follow11.save
-  
-
-  # art1 = Article.new(title: "Final Fantasy 14: Shadowbringers is one of the best MMOs available for both fans and newcomers", body: "After stumbling through its launch, Final Fantasy 14 has been made anew by director Naoki Yoshida. It has evolved from a punchline to a fan favorite to one of the biggest MMOs on the market. The latest expansion, Shadowbringers, feels like its overdue victory lap. Final Fantasy 14 has become one of the best stories in the franchise. It’s also one of the longest. While the latest expansion is a feast for all Final Fantasy fans, its twists, turns, and character growth will resonate best with those who’ve played all the earlier expansions. And yet, this is still the best time for newcomers to jump onboard. Whether they should skip to the latest expansion or work through the tons of quests and story that build to this moment is a tricky question to answer. It will depend on what you’re willing to sacrifice: time or story.", article_url: "https://www.polygon.com/reviews/2019/7/9/20687643/final-fantasy-14-shadowbringers-review", image_url: "https://cdn.vox-cdn.com/thumbor/feoakfvkg3OMDq7ePjfzTaz_3m4=/0x0:1920x1080/2070x1164/filters:focal(807x387:1113x693):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/64695396/ffxiv_shadowbringers_trailer_still.0.jpg", source_id: src1.id, published_at: "2019-07-09T16:20:00-04:00" )
-
 
 end

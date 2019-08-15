@@ -47,6 +47,9 @@
   display: flex;
   padding: 20px;
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .search-match img {
@@ -136,10 +139,8 @@
 .feed-follow-item button {
   float: right;
   line-height: 23px;
-}
-
-.feed-follow-item button {
-  float: right;
+  width: 70px;
+  text-align: center;
 }
 
 .feed-follow-item input {
@@ -147,11 +148,11 @@
 }
 
 .new-feed-button {
-  margin-top: 10px;
+  margin-top: 20px;
   background: $green;
   color: white;
   font-weight: bold;
   line-height: 23px;
-  padding: 3px;
+  padding: 5px;
 
 }

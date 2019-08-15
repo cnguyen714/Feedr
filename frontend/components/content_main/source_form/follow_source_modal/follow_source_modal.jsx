@@ -93,7 +93,6 @@ class FollowSourceModal extends React.Component {
         >
           { this.state.formType === "follow" 
             ? <ul>
-
                 {this.props.feeds.map(feed => {
                   return <li className="feed-follow-item" key={`feed-follow-${feed.id}`}>
                     <span>
