@@ -27,7 +27,6 @@ class SourceForm extends React.Component {
   componentDidMount() {
     if (this.props.errors.length !== 0) this.props.dropErrors();
 
-    
     // let autoCompleteList = ["Afghanistan", "Albania", "Algeria", "Andorra"]
 
     $.getJSON('/api/search_source?q=' + this.state.source.stream_url)
@@ -43,7 +42,7 @@ class SourceForm extends React.Component {
   }
 
   handleSubmitSource(e) {
-    e.preventDefault();
+    if (e) e.preventDefault();
     if (this.props.errors.length !== 0) this.props.dropErrors();
 
     $.ajax()
@@ -54,9 +53,9 @@ class SourceForm extends React.Component {
 
   handleInput(type) {
     return (e) => {
-
       let nextState = Object.assign({}, this.state)
       nextState.source[type] = e.target.value;
+      nextState.searched = null;
 
       this.setState(nextState, () => {
         $.getJSON('/api/search_source?q=' + this.state.source.stream_url)
@@ -75,17 +74,16 @@ class SourceForm extends React.Component {
           .then(response => this.setState({ autoCompleteResults: response.items }))
           .then(this.handleSubmitSource(e));
       });
-
     }
   }
 
   autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/
-    var currentFocus;
+    let currentFocus;
     /*execute a function when someone writes in the text field:*/
     inp.addEventListener("input", function(e) {
-      var a, b, i, val = this.value;
+      let a, b, i, val = this.value;
       /*close any already open lists of autocompleted values*/
       closeAllLists();
       if (!val) { return false; }
@@ -102,6 +100,7 @@ class SourceForm extends React.Component {
         if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
           /*create a DIV element for each matching element:*/
           b = document.createElement("DIV");
+          b.setAttribute("class", "autocomplete-child");
           /*make the matching letters bold:*/
           b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
           b.innerHTML += arr[i].substr(val.length);
@@ -122,7 +121,7 @@ class SourceForm extends React.Component {
     
     /*execute a function presses a key on the keyboard:*/
     inp.addEventListener("keydown", function(e) {
-      var x = document.getElementById(this.id + "autocomplete-list");
+      let x = document.getElementById(this.id + "autocomplete-list");
       if (x) x = x.getElementsByTagName("div");
       if (e.keyCode == 40) {
         /*If the arrow DOWN key is pressed,
@@ -164,35 +163,31 @@ class SourceForm extends React.Component {
 
     function removeActive(x) {
       /*a function to remove the "active" class from all autocomplete items:*/
-      for (var i = 0; i < x.length; i++) {
+      for (let i = 0; i < x.length; i++) {
         x[i].classList.remove("autocomplete-active");
       }
     }
 
-    function closeAllLists(elmnt) {
+    const closeAllLists = (elmnt) => {
       /*close all autocomplete lists in the document,
       except the one passed as an argument:*/
-      var x = document.getElementsByClassName("autocomplete-items");
-      for (var i = 0; i < x.length; i++) {
+      let x = document.getElementsByClassName("autocomplete-items");
+      for (let i = 0; i < x.length; i++) {
         if (elmnt != x[i] && elmnt != inp) {
           x[i].parentNode.removeChild(x[i]);
         }
       }
+      if (elmnt && elmnt.classList.contains("autocomplete-child") && this.state.source.stream_url !== "") {
+        let nextState = Object.assign({}, this.state);
+        nextState.source.stream_url = elmnt.innerText;
+        this.setState(nextState);
+        this.handleSubmitSource();
+      }
     }
-
   }
-
-
 
   render() {
     let source = this.state.searched;
-
-    let autoCompleteList = this.state.autoCompleteResults.map((response, index) => {
-      return <li key={index} onClick={this.handleAutoComplete(response.name)}>
-        <h2>{response.name}</h2>
-        <p>{response.stream_url}</p>
-      </li>;
-    });
 
     return (
       <div className="discover-form">
