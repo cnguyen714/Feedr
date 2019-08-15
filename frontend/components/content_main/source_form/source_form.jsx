@@ -9,11 +9,17 @@ class SourceForm extends React.Component {
 
     this.state = {
       searched: null,
+      autoCompleteResults: [],
+      itemSelected: {},
+      showItemSelected: false,
       source: {
         stream_url: ""
       }
     }
     
+    $.getJSON('/api/search_source?q=' + this.state.source.stream_url)
+      .then(response => this.setState({ autoCompleteResults: response.items }))
+
     this.handleSubmitSource = this.handleSubmitSource.bind(this)
   }
 
@@ -37,12 +43,23 @@ class SourceForm extends React.Component {
       let nextState = Object.assign({}, this.state)
       nextState.source[type] = e.target.value;
 
-      this.setState(nextState);
+      this.setState(nextState, () => {
+        $.getJSON('/api/search_source?q=' + this.state.source.stream_url)
+          .then(response => this.setState({ autoCompleteResults: response.items }))
+        });
     };
   }
 
   render() {
-    let source = this.state.searched
+    let source = this.state.searched;
+
+    let autoCompleteList = this.state.autoCompleteResults.map((response, index) => {
+      return <div key={index}>
+        <h2>{response.name}</h2>
+        <p>{response.stream_url}</p>
+      </div>;
+    });
+
     return (
       <div className="discover-form">
         <header>
@@ -59,6 +76,7 @@ class SourceForm extends React.Component {
               onChange={this.handleInput("stream_url")}
               />
               <i className="material-icons search">search</i>
+              { autoCompleteList }
           </div>
           <input type="submit" style={{display: "none"}} />
         </form>
