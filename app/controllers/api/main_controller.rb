@@ -6,7 +6,7 @@ class Api::MainController < ApplicationController
 
   def search_source
     # @sources = Source.ransack(name: params[:q]).result(distinct: true).limit(5)
-    @sources = Source.where("LOWER(name) LIKE ?", "%#{params[:q]}%").limit(5)
+    @sources = Source.where("LOWER(name) LIKE LOWER(?)", "%#{params[:q]}%").limit(5)
   end
 
   private
