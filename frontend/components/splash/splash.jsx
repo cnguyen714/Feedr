@@ -16,6 +16,7 @@ class Splash extends React.Component {
           </h2>
           </section>
 
+          <img src="/assets/screenshot-web@2x.png" alt="splash-image" />
         </div>
       </div>
     );
