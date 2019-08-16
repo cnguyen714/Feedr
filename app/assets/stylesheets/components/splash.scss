@@ -5,7 +5,10 @@
   flex-direction: column;
   width: 100%;
   background-color: $lighter-gray;
-  height: 700px;
+  // height: 700px;
+  // height: 100%;
+  height: calc(100vh - 56px);
+  overflow: hidden;
 }
 
 .splash-wrapper {
@@ -36,6 +39,12 @@
   margin-bottom: 2.0rem;
 }
 
-#title-splash img {
+.splash-img {
+  background: image_url('screenshot-web@2x.png');
+  background-size: 100% 60%;
+  height: 1080px;
+  // height: 100%;
   box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
+  object-fit: contain;
+  background-repeat: no-repeat;
 }

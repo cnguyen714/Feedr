@@ -107,7 +107,8 @@ class SessionModal extends React.Component {
   render() {
     return (
       <div>
-        <button id={this.state.initialFormType} onClick={this.openModal}>
+        <button id={this.state.initialFormType} onClick={this.openModal}
+          className={!this.isLoginForm() ? "signup-form" : null}>
           {this.state.initialFormType === "login" ? "Log In" : "Sign Up"}
         </button>
         <Modal

@@ -1,6 +1,6 @@
 
 import React from "react";
-
+import splashImage from 'assets/images/screenshot-web@2x.png';
 
 class Splash extends React.Component {
 
@@ -16,7 +16,7 @@ class Splash extends React.Component {
           </h2>
           </section>
 
-          <img src="/assets/screenshot-web@2x.png" alt="splash-image" />
+          <img className="splash-img" />
         </div>
       </div>
     );
