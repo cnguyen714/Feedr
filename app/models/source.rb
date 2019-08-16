@@ -50,4 +50,37 @@ class Source < ApplicationRecord
     self[:description] = feed.description
     self[:source_url] = feed.url
   end
+
+  def fetch_articles
+    url = self.stream_url
+    xml = HTTParty.get(url).body
+    feed = Feedjira.parse(xml)
+
+    feed.entries.each do |entry|
+      if entry.instance_variables.include?(:@content)
+        body = entry.content
+      else
+        body = entry.summary
+      end
+      content_doc = Nokogiri::HTML(body)
+      content = ActionView::Base.full_sanitizer.sanitize(body)
+      begin
+        image_url = content_doc.xpath("//img").first.attributes["src"].value
+      rescue => exception
+        image_url = nil
+      end
+      article = Article.new(title: entry.title, 
+                            body: content, 
+                            article_url: entry.url, 
+                            image_url: image_url, 
+                            source_id: self.id, 
+                            published_at: entry.published, 
+                            author: entry.author )
+
+      # return when an article fails to save, its likely you've hit a duplicate date
+      return unless article.save
+    end
+
+    return
+  end
 end
