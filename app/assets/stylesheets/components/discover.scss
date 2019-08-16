@@ -114,10 +114,11 @@
   text-transform: uppercase;
 }
 
-.follow-modal-base{
+.follow-modal-base {
   float: right;
   display: inline-block;
 }
+
 .follow-modal-base > button {
   float: right;
   padding: 5px;
@@ -214,4 +215,16 @@
 .autocomplete-active {
   background-color: DodgerBlue !important; 
   color: #ffffff; 
+}
+
+.feed-create-form {
+  box-sizing: border-box;
+  border: 1px solid $light-gray;
+  background-color: #FAFAFA;
+  font-size: 17px;
+  padding: 8px;
+  width: 100%;
+  height: 60px;
+  border-radius: 5px;
+  font-weight: 200;
 }

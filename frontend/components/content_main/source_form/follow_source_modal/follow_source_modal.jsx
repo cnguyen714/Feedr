@@ -106,8 +106,8 @@ class FollowSourceModal extends React.Component {
                 }
               </ul>
             : <form onSubmit={this.handleSubmitFeed}>
-                <input type="text" placeholder="Feed name" value={this.state.feed.name} onChange={this.handleInput("name")} />
-                <input type="submit" value="Create new feed" />
+                <input className="feed-create-form" type="text" placeholder="Feed name" value={this.state.feed.name} onChange={this.handleInput("name")} />
+                <input className="new-feed-button"type="submit" value="Create new feed" />
               </form>
           }
               
@@ -115,7 +115,6 @@ class FollowSourceModal extends React.Component {
             ? <button className="new-feed-button" onClick={this.switchModal}>New Feed</button>
             : null
           }
-
 
         </Modal>
       </div>

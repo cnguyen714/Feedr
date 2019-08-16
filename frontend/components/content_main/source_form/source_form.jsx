@@ -73,9 +73,6 @@ class SourceForm extends React.Component {
   }
 
   autocomplete(inp, arr) {
-
-    
-
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/
     let currentFocus;
@@ -208,9 +205,7 @@ class SourceForm extends React.Component {
               value={this.state.source.stream_url}
               onChange={this.handleInput("stream_url")}
               />
-            <ul className="auto-complete-list">
-              {/* { autoCompleteList } */}
-            </ul>
+            <ul className="auto-complete-list"></ul>
             <i className="material-icons search">search</i>
           </div>
           <input type="submit" style={{display: "none"}} />
