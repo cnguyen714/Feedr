@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :sources, only: [:index]
       resources :articles, only: [:index]
     end
+
     resources :sources, only: [:index, :show, :create, :update, :destroy] do
       resources :articles, only: [:index]
     end
@@ -17,6 +18,8 @@ Rails.application.routes.draw do
     resources :articles, only: [:index, :show]
     resources :discover, only: [:show]
     resources :follows, only: [:create, :destroy]
+
+    get :search_source, controller: :main
   end
   
 end

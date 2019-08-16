@@ -22,6 +22,7 @@ class Api::SourcesController < ApplicationController
 
   #RESTful Routes
 
+  # Returns all sources from the current user
   def index
     if (params['feed_id'] == nil) 
       @sources = current_user.sources.order("name ASC")

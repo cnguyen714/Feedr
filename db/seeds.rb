@@ -21,7 +21,6 @@ ActiveRecord::Base.transaction do
   feed1 = Feed.new(name: "Games", user_id: demoUser.id); feed1.save
   feed2 = Feed.new(name: "Comics", user_id: demoUser.id); feed2.save
   feed3 = Feed.new(name: "Productivity", user_id: demoUser.id); feed3.save
-  feed4 = Feed.new(name: "Music", user_id: demoUser.id); feed4.save
   
   src1 = Source.new(stream_url: "https://www.polygon.com/rss/index.xml")
   src1.save

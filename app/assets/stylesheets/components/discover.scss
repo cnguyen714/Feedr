@@ -26,6 +26,7 @@
 }
 
 .input-text-discover {
+  position: relative;
   border: 1px solid $light-gray;
   background-color: #FAFAFA;
   font-size: 17px;
@@ -39,6 +40,34 @@
 
 .input-text-discover:focus {
   border: 1px solid $green;
+}
+
+.search-form-wrapper:focus-within .auto-complete-list {
+  // display: initial;
+}
+
+.auto-complete-list {
+  position: absolute;
+  background: white;
+  // z-index: 100;
+  left: 0px;
+  top: 55px;
+  border: 1px solid lightgray;
+  width: 100%;
+}
+
+.auto-complete-list:empty {
+  display: none !important;
+}
+
+.auto-complete-list li {
+  padding: 5px;
+  padding-left: 60px;
+  cursor: pointer;
+}
+
+.auto-complete-list li:hover {
+  background-color: lightgray;
 }
 
 .search-match {
@@ -154,5 +183,35 @@
   font-weight: bold;
   line-height: 23px;
   padding: 5px;
+}
 
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9; 
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
 }
