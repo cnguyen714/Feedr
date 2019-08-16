@@ -15,10 +15,9 @@ class Api::ArticlesController < ApplicationController
         return
       end
       
-      feed.sources.each do |source|
-        source.fetch_articles
-      end
-
+      # feed.sources.each do |source|
+      #   source.fetch_articles
+      # end
 
       @articles = feed.articles.order(published_at: :desc).take(15)
       render "api/articles/index"
@@ -32,16 +31,16 @@ class Api::ArticlesController < ApplicationController
         return
       end
       
-      source.fetch_articles
+      # source.fetch_articles
 
       @articles = source.articles.order(published_at: :desc).take(30)
       render "api/articles/index"
     
     # if you find no params, you must be at all feeds, so fetch everything
     else
-      current_user.sources.each do |source|
-        source.fetch_articles
-      end
+      # current_user.sources.each do |source|
+      #   source.fetch_articles
+      # end
 
       @articles = current_user.articles.order(published_at: :desc).take(15)
       render "api/articles/index"

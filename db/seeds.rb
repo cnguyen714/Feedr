@@ -71,5 +71,4 @@ ActiveRecord::Base.transaction do
   src10.save
   follow10 = Follow.new(feed_id: feed1.id, source_id: src10.id)
   follow10.save
-
 end
