@@ -98,7 +98,9 @@ class Api::SourcesController < ApplicationController
       return
     end
 
+    # if source was created, fetch articles
     if @source.save
+      @source.fetch_articles
       render "api/sources/show"
     else 
       render json: @source.errors.full_messages, status: 400
