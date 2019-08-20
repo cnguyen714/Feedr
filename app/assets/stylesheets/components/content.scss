@@ -70,6 +70,7 @@
 }
 
 .article-item .image {
+  margin-left: 10px;
   object-fit: cover;
   float: left;
   height: 78px;
@@ -81,7 +82,8 @@
 }
 
 .article-item .null-image {
-  // background: url(/assets/logo.svg) no-repeat center center;
+  background: url(/assets/logo.svg) no-repeat center center;
+  background-size: contain;
   max-width:100%;
   max-height:100%;
   object-fit: fill;

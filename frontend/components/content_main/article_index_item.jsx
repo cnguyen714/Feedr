@@ -8,7 +8,7 @@ export default ({ article, source }) => {
       <a href={article.article_url} target="_blank" >
         {article.image_url !== null
           ? <img className="image" src={article.image_url} />
-          : <img className="image null-image" src="/assets/logo.svg">
+          : <img className="image null-image">
             </img> }
         <div>
           <h2>{article.title}</h2>
