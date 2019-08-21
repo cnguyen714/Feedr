@@ -82,7 +82,7 @@
 }
 
 .article-item .null-image {
-  background: url(/assets/logo.svg) no-repeat center center;
+  background: image_url('logo.svg') no-repeat center center;
   background-size: contain;
   max-width:100%;
   max-height:100%;
