@@ -33,6 +33,15 @@ class SourceTimeline extends React.Component {
     this.setState({ page: this.state.page += 1 });
   }
 
+  _renderWaypoint() {
+    if (!this.props.contentLoading) {
+      return (
+        <Waypoint
+          onEnter={this.getArticles} />
+      )
+    }
+  }
+
 
   render() {
     if (this.props.loading || this.props.articles === undefined) return null;
@@ -47,7 +56,7 @@ class SourceTimeline extends React.Component {
           ? <div>Loading...</div>
           : <ArticleIndexContainer articles={this.props.articles} />}
 
-        <Waypoint onEnter={this.getArticles} />
+        {this._renderWaypoint()};
       </div>
     );
   }
