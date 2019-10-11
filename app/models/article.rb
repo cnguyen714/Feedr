@@ -19,5 +19,4 @@ class Article < ApplicationRecord
   validates_uniqueness_of :article_url, :scope => [:source_id, :published_at]
 
   belongs_to :source
-
 end

@@ -20,6 +20,7 @@ class Api::ArticlesController < ApplicationController
       # end
 
       @articles = feed.articles.order(published_at: :desc).take(15)
+      
       render "api/articles/index"
 
       # if you find a source_id param, fetch articles from source
