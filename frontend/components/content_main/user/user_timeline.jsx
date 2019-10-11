@@ -56,7 +56,7 @@ class SourceTimeline extends React.Component {
           ? <div>Loading...</div>
           : <ArticleIndexContainer articles={this.props.articles} />}
 
-        {this._renderWaypoint()};
+        {this._renderWaypoint()}
       </div>
     );
   }
