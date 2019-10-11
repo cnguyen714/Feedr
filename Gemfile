@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'annotate'
 gem 'jquery-rails'
+gem 'will_paginate'
 # gem 'ransack'
 
 # Use ActiveStorage variant
