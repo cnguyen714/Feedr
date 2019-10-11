@@ -3,7 +3,8 @@ import merge from 'lodash/merge';
 
 import {
   RECEIVE_ARTICLES,
-  RECEIVE_ARTICLE
+  RECEIVE_ARTICLE,
+  CLEAR_ARTICLES
 } from "../actions/article_actions";
 
 
@@ -15,6 +16,8 @@ export default (state = {}, action) => {
       return merge({}, state, action.articles);
     case RECEIVE_ARTICLE:
       return merge({}, state, { [action.article.id]: action.article });
+    case CLEAR_ARTICLES:
+      return {};
     default:
       return state;
   }

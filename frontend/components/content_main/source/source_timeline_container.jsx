@@ -3,7 +3,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import SourceTimeline from "./source_timeline";
-import { fetchArticlesfromSource } from "../../../actions/article_actions";
+import { fetchArticlesfromSource, emptyArticles } from "../../../actions/article_actions";
 import { setContentLoading } from "../../../actions/content_loading_actions";
 
 const mapStateToProps = (state, ownProps) => ({
@@ -14,8 +14,9 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchArticlesfromSource: (source_id) => dispatch(fetchArticlesfromSource(source_id)),
-  setContentLoading: (bool) => dispatch(setContentLoading(bool))
+  fetchArticlesfromSource: (source_id, page) => dispatch(fetchArticlesfromSource(source_id, page)),
+  setContentLoading: (bool) => dispatch(setContentLoading(bool)),
+  emptyArticles: () => dispatch(emptyArticles()),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SourceTimeline));
