@@ -12,7 +12,9 @@ export default ({ article, source }) => {
             </img> }
         <div>
           <h2>{article.title}</h2>
-          <h3>{`${source.name} / ${Math.floor((new Date().getTime() - new Date(article.published_at).getTime()) / 86400000)}d`}</h3>
+          {source
+            ? <h3>{`${source.name} / ${Math.floor((new Date().getTime() - new Date(article.published_at).getTime()) / 86400000)}d`}</h3>
+            : null }
           <h3>{article.body}</h3>
         </div>
       </a>  

@@ -17,7 +17,7 @@ const receiveArticle = article => ({
 export const fetchArticlesforCurrentUser = () => dispatch => ArticleAPIUtil.fetchArticlesforCurrentUser()
   .then(feeds => dispatch(receiveArticles(feeds)))
 
-export const fetchArticlesfromFeed = (feed_id) => dispatch => ArticleAPIUtil.fetchArticlesfromFeed(feed_id)
+export const fetchArticlesfromFeed = (feed_id, page) => dispatch => ArticleAPIUtil.fetchArticlesfromFeed(feed_id, page)
   .then(feeds => dispatch(receiveArticles(feeds)))
 
 export const fetchArticlesfromSource = (source_id) => dispatch => ArticleAPIUtil.fetchArticlesfromSource(source_id)

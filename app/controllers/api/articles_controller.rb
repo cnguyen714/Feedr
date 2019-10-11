@@ -19,7 +19,8 @@ class Api::ArticlesController < ApplicationController
       #   source.fetch_articles
       # end
 
-      @articles = feed.articles.order(published_at: :desc).take(15)
+      # @articles = feed.articles.order(published_at: :desc).take(15)
+      @articles = feed.articles.order(published_at: :desc).page(params[:page]).per(5)
       
       render "api/articles/index"
 

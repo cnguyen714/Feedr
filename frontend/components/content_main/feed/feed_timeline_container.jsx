@@ -14,7 +14,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchArticlesfromFeed: (feed_id) => dispatch(fetchArticlesfromFeed(feed_id)),
+  fetchArticlesfromFeed: (feed_id, page) => dispatch(fetchArticlesfromFeed(feed_id, page)),
   setContentLoading: (bool) => dispatch(setContentLoading(bool))
 });
 
