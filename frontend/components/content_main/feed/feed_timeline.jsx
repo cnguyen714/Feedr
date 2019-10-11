@@ -20,7 +20,7 @@ class FeedTimeline extends React.Component {
     $.ajax()
       .then(() => this.props.setContentLoading(true))
       .then(() => this.props.emptyArticles())
-      .then(() => this.setState({ page: this.state.page += 1 }))
+      .then(() => this.setState({ page: 1 }))
       .then(() => this.getArticles())
       .then(() => this.props.setContentLoading(false))
       .then(() => {
@@ -34,7 +34,7 @@ class FeedTimeline extends React.Component {
       $.ajax()
         .then(() => this.props.setContentLoading(true))
         .then(() => this.props.emptyArticles())
-        .then(() => this.setState({ page: this.state.page += 1 }))
+        .then(() => this.setState({ page: 1 }))
         .then(() => this.getArticles())
         .then(() => this.props.setContentLoading(false))
     }
@@ -43,6 +43,15 @@ class FeedTimeline extends React.Component {
   getArticles() {
     this.props.fetchArticlesfromFeed(this.props.match.params.feedId, this.state.page);
     this.setState({ page: this.state.page += 1 });
+  }
+
+  _renderWaypoint() {
+    if(!this.props.contentLoading) {
+      return (
+        <Waypoint
+          onEnter={this.getArticles} />
+      )
+    }
   }
 
   render() {
@@ -61,7 +70,7 @@ class FeedTimeline extends React.Component {
           ? <div>Loading...</div>
           : <ArticleIndexContainer articles={this.props.articles} />}
 
-        <Waypoint onEnter={this.getArticles} />
+        {this._renderWaypoint()};
       </div>
     );
   }

@@ -18,6 +18,8 @@ class SourceTimeline extends React.Component {
   componentWillMount() {
     $.ajax()
       .then(() => this.props.setContentLoading(true))
+      .then(() => this.props.emptyArticles())
+      .then(() => this.setState({ page: 1 }))
       .then(() => this.getArticles())
       .then(() => this.props.setContentLoading(false))
       .then(() => {
@@ -30,6 +32,8 @@ class SourceTimeline extends React.Component {
       document.body.scrollTop = document.documentElement.scrollTop = 0;
       $.ajax()
         .then(() => this.props.setContentLoading(true))
+        .then(() => this.props.emptyArticles())
+        .then(() => this.setState({ page: 1 }))
         .then(() => this.getArticles())
         .then(() => this.props.setContentLoading(false));
     }
