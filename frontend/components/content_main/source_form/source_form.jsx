@@ -1,14 +1,15 @@
 
 import React from "react";
 import { AuthRoute, ProtectedRoute } from "../../../util/route_util";
-import FollowSourceModalContainer from "./follow_source_modal/follow_source_modal_container";
+// import FollowSourceModalContainer from "./follow_source_modal/follow_source_modal_container";
+import SourceFormItem from "./source_form_item";
 
 class SourceForm extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      searched: null,
+      searchedSources: null,
       autoCompleteResults: [],
       itemSelected: {},
       showItemSelected: false,
@@ -17,17 +18,12 @@ class SourceForm extends React.Component {
       }
     }
     
-    // $.getJSON('/api/search_source?q=' + this.state.source.stream_url)
-    //   .then(response => this.setState({ autoCompleteResults: response.items }))
-
     this.handleSubmitSource = this.handleSubmitSource.bind(this);
     this.autocomplete = this.autocomplete.bind(this);
   }
 
   componentDidMount() {
     if (this.props.errors.length !== 0) this.props.dropErrors();
-
-    // let autoCompleteList = ["Afghanistan", "Albania", "Algeria", "Andorra"]
 
     $.getJSON('/api/search_source?q=' + this.state.source.stream_url)
       .then(response => this.setState({ autoCompleteResults: response.items }))
@@ -42,7 +38,13 @@ class SourceForm extends React.Component {
 
     $.ajax()
       .then(() => this.props.createSource(this.state.source))
-      .then(payload => this.setState({searched: payload.source}),
+      .then(payload => {
+        if (Array.isArray(payload.source)) {
+          this.setState({ searchedSources: payload.source })
+        } else {
+          this.setState({searchedSources: [payload.source]})
+        }
+      },
       errors => this.props.pushErrors(errors));
   }
 
@@ -50,7 +52,7 @@ class SourceForm extends React.Component {
     return (e) => {
       let nextState = Object.assign({}, this.state)
       nextState.source[type] = e.target.value;
-      nextState.searched = null;
+      nextState.searchedSources = null;
 
       this.setState(nextState, () => {
         $.getJSON('/api/search_source?q=' + this.state.source.stream_url)
@@ -118,7 +120,7 @@ class SourceForm extends React.Component {
     });
     
     /*execute a function presses a key on the keyboard:*/
-    inp.addEventListener("keydown", function(e) {
+    inp.addEventListener("keydown", (e) => {
       let x = document.getElementById(this.id + "autocomplete-list");
       if (x) x = x.getElementsByTagName("div");
       if (e.keyCode == 40) {
@@ -140,7 +142,8 @@ class SourceForm extends React.Component {
           /*and simulate a click on the "active" item:*/
           if (x) x[currentFocus].click();
         } else {
-          if (x) x[0].click();          
+          // if (x) x[0].click();
+          this.handleSubmitSource(e);
         }
       }
     });
@@ -187,7 +190,7 @@ class SourceForm extends React.Component {
   }
 
   render() {
-    let source = this.state.searched;
+    let sources = this.state.searchedSources;
 
     return (
       <div className="discover-form">
@@ -220,17 +223,15 @@ class SourceForm extends React.Component {
           : null
         }  
 
-        { source !== null
-          ? <div className="search-match">
-              {/* <img src={source.icon_url} /> */}
-              <div className="search-body">
-                <h1>{source.name}</h1>
-                <h2>{source.source_url}</h2>
-                <p>{source.description}</p>
-                <br />
-              </div>
-              <FollowSourceModalContainer source={source}/>  
-            </div>
+        { sources !== null
+          ? <ul>
+              {sources.map(source =>
+                <SourceFormItem 
+                  key={`source-orm-${source.id}`} 
+                  source={source}
+                ></SourceFormItem>
+              )}
+            </ul>
           : null
         }
       </div>

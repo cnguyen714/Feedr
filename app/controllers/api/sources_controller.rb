@@ -63,47 +63,52 @@ class Api::SourcesController < ApplicationController
       return
     end
 
-    # otherwise create a new source
+    # otherwise, attempt to create a new source
     @source = Source.new(source_params)
     @source[:user_id] = current_user.id;
 
     url = @source.stream_url
-    begin
-      xml = HTTParty.get(url).body
-    rescue => exception
-      render json: ["Not a valid URL. Did you include `http://` or `https://`?"], status: 404
-      return
-    end
+    if url.slice(0, 8) == "https://" || url.slice(0, 7) == "http://"
+      begin
+        xml = HTTParty.get(url).body
+      rescue => exception
+        render json: ["URL not found"], status: 404
+        return
+      end
+  
+      if xml[2..4].downcase != "xml"
+        render json: ["Could not read XML file at RSS/Atom URL"], status: 400
+        return
+      end
+  
+      begin
+        feed = Feedjira.parse(xml)
+      rescue => exception
+        render json: ["Could not parse XML"], status: 400
+        return
+      end
+      @source[:name] = feed.title
+      @source[:description] = feed.description
+      @source[:source_url] = feed.url
+  
+      # do one last check on parsed source name before attempting to save
+      source_by_name = Source.find_by(name: feed.title)
+      if source_by_name
+        @source = source_by_name 
+        render "api/sources/show"
+        return
+      end
 
-    if xml[2..4].downcase != "xml"
-      render json: ["Could not read XML file at RSS/Atom URL"], status: 400
-      return
-    end
-
-    begin
-      feed = Feedjira.parse(xml)
-    rescue => exception
-      render json: ["Could not parse XML"], status: 400
-      return
-    end
-    @source[:name] = feed.title
-    @source[:description] = feed.description
-    @source[:source_url] = feed.url
-
-    # do one last check on parsed source name before attempting to save
-    source_by_name = Source.find_by(name: feed.title)
-    if source_by_name
-      @source = source_by_name 
-      render "api/sources/show"
-      return
-    end
-
-    # if source was created, fetch articles
-    if @source.save
-      @source.fetch_articles
-      render "api/sources/show"
-    else 
-      render json: @source.errors.full_messages, status: 400
+      # if source was created, fetch articles
+      if @source.save
+        @source.fetch_articles
+        render "api/sources/show"
+      else 
+        render json: @source.errors.full_messages, status: 400
+      end
+    else # if submitted value is not a url, then do a search on it
+      @sources = Source.where("lower(name) like ?", "%#{url}%".downcase).limit(5)
+      render "api/sources/show_many"
     end
   end
 
