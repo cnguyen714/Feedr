@@ -228,7 +228,7 @@ class SourceForm extends React.Component {
           ? <ul>
               {sources.map(source =>
                 <SourceFormItem 
-                  key={`source-orm-${source.id}`} 
+                  key={`source-form-${source.id}`} 
                   source={source}
                 ></SourceFormItem>
               )}

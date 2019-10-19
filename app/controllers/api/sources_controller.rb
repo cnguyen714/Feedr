@@ -108,7 +108,11 @@ class Api::SourcesController < ApplicationController
       end
     else # if submitted value is not a url, then do a search on it
       @sources = Source.where("lower(name) like ?", "%#{url}%".downcase).limit(5)
-      render "api/sources/show_many"
+      if @sources.empty?
+        render json: ["Search found nothing, try a different query"], status: 400
+      else 
+        render "api/sources/show_many"
+      end
     end
   end
 

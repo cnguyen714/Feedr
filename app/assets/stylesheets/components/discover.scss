@@ -2,6 +2,7 @@
 .discover-form {
   width: 100%;
   box-sizing: border-box;
+  margin-bottom: 50px;
 }
 
 .discover-form header {
@@ -17,6 +18,8 @@
 
 .search-form-wrapper {
   position: relative;
+  margin-bottom: 50px;
+
 }
 
 .search {
@@ -71,7 +74,7 @@
 }
 
 .search-match {
-  margin-top: 50px;
+  margin-bottom: 50px;
   border: 1px solid $light-gray;
   display: flex;
   padding: 20px;
@@ -89,7 +92,9 @@
 }
 
 .search-body {
-
+  float: left;
+  width: 100%;
+  
 }
 
 .search-body h1 {
@@ -101,7 +106,7 @@
   font-size: 13px;
   font-weight: 200;
   color: #BBBBBB;
-  padding-bottom: 12px;
+  padding-bottom: 18px;
 }
 
 .search-body p {
@@ -183,7 +188,7 @@
   color: white;
   font-weight: bold;
   line-height: 23px;
-  padding: 5px;
+  padding: 6px;
 }
 
 
