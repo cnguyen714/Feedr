@@ -11,6 +11,8 @@ Feedr is a web application for keeping track of RSS/Atom source feeds. Users can
 * Users can organize their sources inside feeds
 * Feedr will display recent entries and have corresponding links to the content
 
+<img src="https://github.com/cnguyen714/Feedr/blob/master/readme/feedr-main.png">
+
 ## Technologies used
 
 Feedr is a full stack application utilizing the following:
