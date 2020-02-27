@@ -4,3 +4,4 @@
 /config/master.key
 /app/assets/javascripts/bundle.js
 /log
+/config/database.yml
