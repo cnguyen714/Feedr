@@ -16,9 +16,9 @@ class SourceTimeline extends React.Component {
     let articles = this.props.articles;
     if (articles === undefined || articles.length === 0) return null;
     return (
-      <ul>
+      <ul className="timeline">
         
-        {/* Redux stores articles as an obj, not ordered */}
+        {/* Redux stores articles as an unodered obj, so we sort here */}
         {Object.values(articles)
           .sort((a, b) => new Date(b.published_at) - new Date(a.published_at))
           .map(article => {

@@ -49,7 +49,8 @@ class FeedTimeline extends React.Component {
     if(!this.props.contentLoading) {
       return (
         <Waypoint
-          onEnter={this.getArticles} />
+          onEnter={this.getArticles} 
+          bottomOffset='-200px' />
       )
     }
   }
