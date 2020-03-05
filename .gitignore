@@ -5,3 +5,4 @@
 /app/assets/javascripts/bundle.js
 /log
 /config/database.yml
+/.bash_profile

@@ -2,17 +2,19 @@ development:
   adapter: postgresql
   encoding: unicode
   database: feedr_development
+  host: ''
   pool: 5
   username: hahaer
-  password:
+  password: 
   timeout: 5000
 
 test:
   adapter: postgresql
   encoding: unicode
   database: feedr_test
+  host: ''
   pool: 5
   username: hahaer
-  password:
+  password: 
   timeout: 5000
 
