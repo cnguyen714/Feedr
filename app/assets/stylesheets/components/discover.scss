@@ -134,6 +134,7 @@
 
 .follow-modal {
   position: fixed;
+  z-index: 1;
   font-family: $sans-serif;
   background: white;
 
@@ -153,6 +154,11 @@
   display: flex;
   flex-direction: column;
   align-items: center; 
+}
+
+.follow-modal .close-button {
+  border: none;
+  float: right;
 }
 
 .follow-modal button {

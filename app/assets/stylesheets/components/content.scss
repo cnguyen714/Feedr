@@ -18,12 +18,22 @@
   height: calc(100vh - 136px);
 }
 
+
+
 .content-inner {
   box-sizing: border-box;
   display: inline-block;
   text-align: left;
   float: left;
   width: 75%;
+  min-width: 600px;
+}
+
+@media screen and (max-width: 900px) {
+  .content-inner {
+    width: 100%;
+    min-width: 0;
+  }
 }
 
 .content header {
