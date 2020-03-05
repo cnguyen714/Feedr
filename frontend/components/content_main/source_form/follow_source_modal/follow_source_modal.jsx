@@ -91,6 +91,8 @@ class FollowSourceModal extends React.Component {
           onRequestClose={this.closeModal}
           className="follow-modal"
         >
+          <button className="close-button" onClick={this.closeModal}>&times;</button>
+
           { this.state.formType === "follow" 
             ? <ul>
                 {this.props.feeds.map(feed => {

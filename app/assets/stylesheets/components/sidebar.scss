@@ -1,7 +1,7 @@
 
 .sidebar {
   position: fixed;
-  z-index: 100;
+  z-index: 0;
   top: 0;
   left: 0;
   height: calc(100% - 71px);
@@ -33,7 +33,7 @@
 .sidebar > a {
   position: fixed;
   background-color: $green;
-  z-index: 101;
+  z-index: 0;
   bottom: 0;
   left: 0;
   width: inherit;

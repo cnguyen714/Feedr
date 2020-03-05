@@ -134,7 +134,7 @@
 
 .follow-modal {
   position: fixed;
-  z-index: 1;
+  z-index: 100;
   font-family: $sans-serif;
   background: white;
 
@@ -157,8 +157,12 @@
 }
 
 .follow-modal .close-button {
+  font-size: 1.5em;
+  position: absolute;
+  right: 10px;
+  top: 2px;
   border: none;
-  float: right;
+  // float: right;
 }
 
 .follow-modal button {
@@ -196,7 +200,6 @@
   line-height: 23px;
   padding: 6px;
 }
-
 
 .autocomplete-items {
   position: absolute;
