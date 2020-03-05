@@ -2,7 +2,8 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
-import Splash from "./splash/splash"
+import Splash from "./splash/splash";
+import Footer from "./footer";
 import NavBarContainer from "./nav_bar/nav_bar_container";
 import SidebarContainer from "./sidebar/sidebar_container";
 import ContentMainContainer from './content_main/content_main_container';
@@ -13,6 +14,7 @@ export default () => (
     <Route path="/" component={SidebarContainer} />
     <Route path="/" component={NavBarContainer} />
     <AuthRoute exact path="/" component={Splash} />
+    <AuthRoute exact path="/" component={Footer} />
     <ProtectedRoute path="/" component={ContentMainContainer} />
   </div>
 );
