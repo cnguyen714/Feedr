@@ -23,13 +23,16 @@ class Footer extends React.Component {
           </a></li>
           <li><a title="Resume"
             href="https://docs.google.com/document/d/1PDJEhGBPwgXqI44NVkrDE0Oyb1MkzHG6TUREMHM_-Mo/edit?usp=sharing">
-            <i className="icon fas fa-file"></i>
-          </a>
-          </li>
+            <i class="icon fas fa-file-pdf"></i>
+          </a></li>
+          <li><a title="Portfolio"
+            href="https://calvinnguyen.dev/">
+            <i class="icon fas fa-folder-open"></i>
+          </a></li>
         </ul>
 
         <span className="copyright"> 
-          - Calvin Nguyen 2020 -
+          - Calvin Nguyen -
         </span>
       </footer>
     );

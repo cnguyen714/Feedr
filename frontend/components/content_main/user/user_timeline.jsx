@@ -38,7 +38,7 @@ class SourceTimeline extends React.Component {
       return (
         <Waypoint
           onEnter={this.getArticles}
-          bottomOffset='-200px' />
+          bottomOffset='-200px'/>
       )
     }
   }
