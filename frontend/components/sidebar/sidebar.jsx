@@ -19,7 +19,8 @@ class Sidebar extends React.Component {
         
         <Link to="/discover">
           <footer>
-              <div>Add Content</div>
+            <i className="icon far fa-plus-square"></i>
+            <span>Add Content</span>
           </footer>
         </Link>
       </div>

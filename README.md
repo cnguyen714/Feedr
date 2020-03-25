@@ -92,3 +92,7 @@ You can run this locally by running both these commands concurrently:
 
 `npm start`<br>
 `rails server`<br>
+
+Additionally, ensure Postgres is running:
+
+`sudo service postgresql start`<br>

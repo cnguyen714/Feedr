@@ -113,7 +113,21 @@
   font-weight: 100;
 }
 
-/* Let's get this party started */
+.sidebar footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar footer i {
+  padding-right: 1em;
+  font-size: 2em;
+}
+
+.sidebar footer span {
+  font-size: 1.3em;
+}
+
 ::-webkit-scrollbar {
     width: 4px;
     margin: 2px;
