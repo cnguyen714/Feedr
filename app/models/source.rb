@@ -25,7 +25,7 @@ class Source < ApplicationRecord
 
   before_validation :populate_source
 
-  def populate_source
+  def populate_source()
     url = self.stream_url
 
     begin
@@ -89,6 +89,7 @@ class Source < ApplicationRecord
   private
 
   def url_exist?(url_string)
+    return if url_string = nil
     url = URI.parse(url_string)
     req = Net::HTTP.new(url.host, url.port)
     req.use_ssl = (url.scheme == 'https')

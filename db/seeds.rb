@@ -101,6 +101,46 @@ ActiveRecord::Base.transaction do
   # src.save
   # follow = Follow.new(feed_id: feed4.id, source_id: src.id)
   # follow.save 
+  src = Source.new(stream_url: "http://feeds.washingtonpost.com/rss/world")
+  src.save
+  follow = Follow.new(feed_id: feed4.id, source_id: src.id)
+  follow.save 
+  src = Source.new(stream_url: "https://www.cnbc.com/id/100727362/device/rss/rss.html")
+  src.save
+  follow = Follow.new(feed_id: feed4.id, source_id: src.id)
+  follow.save 
+  src = Source.new(stream_url: "http://feeds.reuters.com/Reuters/worldNews")
+  src.save
+  follow = Follow.new(feed_id: feed4.id, source_id: src.id)
+  follow.save 
+  src = Source.new(stream_url: "https://www.vox.com/rss/world/index.xml")
+  src.save
+  follow = Follow.new(feed_id: feed4.id, source_id: src.id)
+  follow.save 
+  src = Source.new(stream_url: "https://time.com/feed/")
+  src.save
+  follow = Follow.new(feed_id: feed4.id, source_id: src.id)
+  follow.save 
+  src = Source.new(stream_url: "http://www.independent.co.uk/news/world/rss")
+  src.save
+  follow = Follow.new(feed_id: feed4.id, source_id: src.id)
+  follow.save 
+  src = Source.new(stream_url: "https://feeds.feedburner.com/time/world")
+  src.save
+  follow = Follow.new(feed_id: feed4.id, source_id: src.id)
+  follow.save 
+  src = Source.new(stream_url: "https://www.espn.com/espn/rss/news")
+  src.save
+  follow = Follow.new(feed_id: feed4.id, source_id: src.id)
+  follow.save 
+
+  Source.new(stream_url: "https://www.thesun.co.uk/news/worldnews/feed/").save
+  Source.new(stream_url: "https://www.cbc.ca/cmlink/rss-world").save
+  Source.new(stream_url: "https://www.cbsnews.com/latest/rss/world").save
+  Source.new(stream_url: "http://www.mirror.co.uk/news/world-news/rss.xml").save
+  Source.new(stream_url: "https://www.latimes.com/world/rss2.0.xml").save
+  Source.new(stream_url: "https://www.espn.com/blog/feed?blog=nflnation").save
+  Source.new(stream_url: "https://feeds.feedburner.com/TechCrunch/").save
 
   Rake::Task["feedr:fetch_articles"].invoke
   puts "Seeded DB"
