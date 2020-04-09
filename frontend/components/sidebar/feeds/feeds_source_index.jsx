@@ -10,7 +10,7 @@ class FeedsSourceIndex extends React.Component {
 
   }
 
-  componentWillMount() {
+  componentDidMount() {
     $(`.select:contains(${this.props.feed.name})`).addClass("selected");
   }
 

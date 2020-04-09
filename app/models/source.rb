@@ -12,6 +12,7 @@
 #  updated_at  :datetime         not null
 #  user_id     :integer
 #
+# include AbstractController::Rendering
 
 class Source < ApplicationRecord
   validates :name, :stream_url, presence: true
@@ -66,6 +67,7 @@ class Source < ApplicationRecord
       content = ActionView::Base.full_sanitizer.sanitize(body)
       begin
         image_url = content_doc.xpath("//img").first.attributes["src"].value
+        image_url = nil unless url_exist?(image_url)
       rescue => exception
         image_url = nil
       end
@@ -83,4 +85,18 @@ class Source < ApplicationRecord
 
     return
   end
+
+  private
+
+  def url_exist?(url_string)
+    url = URI.parse(url_string)
+    req = Net::HTTP.new(url.host, url.port)
+    req.use_ssl = (url.scheme == 'https')
+    path = url.path if url.path.present?
+    res = req.request_head(path || '/')
+    return res.code == "200" # false if returns 404 - not found
+  rescue Errno::ENOENT
+    false # false if can't find the server
+  end
+
 end

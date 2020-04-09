@@ -2,12 +2,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+function imgError(image) {
+  // image.src = ``;
+  image.removeAttribute('src');
+  image.classList.add('null-image');
+  return true;
+}
+
 export default ({ article, source }) => {
   return (
     <li className="article-item">
       <a href={article.article_url} target="_blank" >
         {article.image_url !== null
-          ? <img className="image" src={article.image_url} />
+          ? <img className="image" src={article.image_url} onError={(e) => imgError(e.target)} />
           : <img className="image null-image">
             </img> }
         <div>

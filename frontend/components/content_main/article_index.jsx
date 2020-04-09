@@ -9,7 +9,7 @@ class SourceTimeline extends React.Component {
     super(props);
   }
 
-  componentWillMount() {
+  componentDidMount() {
   }
 
   render() {

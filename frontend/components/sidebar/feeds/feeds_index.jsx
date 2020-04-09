@@ -8,7 +8,7 @@ class FeedsIndex extends React.Component {
     super(props);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     $.ajax()
       .then(() => this.props.fetchFeeds())
       .then(() => this.props.fetchSources())

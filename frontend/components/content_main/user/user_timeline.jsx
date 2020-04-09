@@ -16,7 +16,7 @@ class SourceTimeline extends React.Component {
     this.getArticles = this.getArticles.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     $.ajax()
       .then(() => this.props.setContentLoading(true))
       .then(() => this.props.emptyArticles())

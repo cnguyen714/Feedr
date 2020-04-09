@@ -21,6 +21,7 @@ ActiveRecord::Base.transaction do
   feed1 = Feed.new(name: "Games", user_id: demoUser.id); feed1.save
   feed2 = Feed.new(name: "Comics", user_id: demoUser.id); feed2.save
   feed3 = Feed.new(name: "Productivity", user_id: demoUser.id); feed3.save
+  feed4 = Feed.new(name: "News", user_id: demoUser.id); feed4.save
   
   src1 = Source.new(stream_url: "https://www.polygon.com/rss/index.xml")
   src1.save
@@ -72,5 +73,35 @@ ActiveRecord::Base.transaction do
   follow10 = Follow.new(feed_id: feed1.id, source_id: src10.id)
   follow10.save
 
+  src = Source.new(stream_url: "http://feeds.bbci.co.uk/news/world/rss.xml")
+  src.save
+  follow = Follow.new(feed_id: feed4.id, source_id: src.id)
+  follow.save 
+  src = Source.new(stream_url: "https://www.yahoo.com/news/rss/world")
+  src.save
+  follow = Follow.new(feed_id: feed4.id, source_id: src.id)
+  follow.save 
+  src = Source.new(stream_url: "http://rss.cnn.com/rss/edition_world.rss")
+  src.save
+  follow = Follow.new(feed_id: feed4.id, source_id: src.id)
+  follow.save 
+  src = Source.new(stream_url: "https://www.buzzfeed.com/world.xml")
+  src.save
+  follow = Follow.new(feed_id: feed4.id, source_id: src.id)
+  follow.save 
+  src = Source.new(stream_url: "https://www.theguardian.com/world/rss")
+  src.save
+  follow = Follow.new(feed_id: feed4.id, source_id: src.id)
+  follow.save 
+  # src = Source.new(stream_url: "https://www.reddit.com/r/worldnews/.rss")
+  # src.save
+  # follow = Follow.new(feed_id: feed4.id, source_id: src.id)
+  # follow.save 
+  # src = Source.new(stream_url: "https://www.nytimes.com/svc/collections/v1/publish/https://www.nytimes.com/section/world/rss.xml")
+  # src.save
+  # follow = Follow.new(feed_id: feed4.id, source_id: src.id)
+  # follow.save 
+
+  Rake::Task["feedr:fetch_articles"].invoke
   puts "Seeded DB"
 end
