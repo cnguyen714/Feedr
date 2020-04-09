@@ -7,11 +7,9 @@ import { Link } from "react-router-dom";
 class FeedsSourceIndex extends React.Component {
   constructor(props) {
     super(props);
-
   }
 
   componentDidMount() {
-    $(`.select:contains(${this.props.feed.name})`).addClass("selected");
   }
 
   componentDidUpdate(prevProps) {
