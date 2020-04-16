@@ -39,7 +39,9 @@ class SourceForm extends React.Component {
     $.ajax()
       .then(() => this.props.createSource(this.state.source))
       .then(payload => {
-        if (Array.isArray(payload.source.sources)) {
+        if (payload.source.id) {
+          this.setState({ searchedSources: [payload.source] });
+        } else if (Array.isArray(payload.source.sources)) {
           this.setState({ searchedSources: payload.source.sources })
         } else {
           this.setState({searchedSources: [payload.source.sources]})
@@ -154,7 +156,7 @@ class SourceForm extends React.Component {
     
     /*execute a function when someone clicks in the document:*/
     document.addEventListener("click", function(e) {
-      closeAllLists(e.target);
+      closeAllLists(e, e.target);
     });
 
     function addActive(x) {
@@ -175,7 +177,7 @@ class SourceForm extends React.Component {
       }
     }
 
-    const closeAllLists = (elmnt) => {
+    const closeAllLists = (e, elmnt) => {
       /*close all autocomplete lists in the document,
       except the one passed as an argument:*/
       let x = document.getElementsByClassName("autocomplete-items");
@@ -188,7 +190,7 @@ class SourceForm extends React.Component {
         let nextState = Object.assign({}, this.state);
         nextState.source.stream_url = elmnt.textContent;
         this.setState(nextState);
-        this.handleSubmitSource();
+        this.handleSubmitSource(e);
       }
     }
   }
@@ -219,7 +221,7 @@ class SourceForm extends React.Component {
         </form>
 
         {this.props.errors.length !== 0
-          ? <ul className="errors">
+          ? <ul className="source-errors">
             {this.props.errors.map(error =>
               <li key={error}>{error}</li>
             )}

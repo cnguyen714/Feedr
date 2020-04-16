@@ -8,10 +8,10 @@ const _nullErrors = [];
 
 export default (state = _nullErrors, action) => {
   Object.freeze(state);
-
+ 
   switch (action.type) {
     case RECEIVE_SOURCE_ERRORS:
-      let errors = action.errors.responseJSON;
+      let errors = action.errors;
       return errors;
     case REMOVE_SOURCE_ERRORS:
       return _nullErrors;
