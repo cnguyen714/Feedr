@@ -39,10 +39,13 @@ class SourceForm extends React.Component {
     $.ajax()
       .then(() => this.props.createSource(this.state.source))
       .then(payload => {
-        if (Array.isArray(payload.source)) {
-          this.setState({ searchedSources: payload.source })
+        if (Array.isArray(payload.source.sources)) {
+          this.setState({ searchedSources: payload.source.sources })
         } else {
-          this.setState({searchedSources: [payload.source]})
+          this.setState({searchedSources: [payload.source.sources]})
+        }
+        if(payload.source.errors) {
+          this.props.pushErrors(payload.source.errors);
         }
       },
       errors => this.props.pushErrors(errors));

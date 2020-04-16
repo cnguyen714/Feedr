@@ -125,10 +125,6 @@ ActiveRecord::Base.transaction do
   src.save
   follow = Follow.new(feed_id: feed4.id, source_id: src.id)
   follow.save 
-  src = Source.new(stream_url: "https://feeds.feedburner.com/time/world")
-  src.save
-  follow = Follow.new(feed_id: feed4.id, source_id: src.id)
-  follow.save 
   src = Source.new(stream_url: "https://www.espn.com/espn/rss/news")
   src.save
   follow = Follow.new(feed_id: feed4.id, source_id: src.id)

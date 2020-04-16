@@ -8,7 +8,6 @@ export default ({ source }) => {
     <li className="search-match">
       {/* <img src={source.icon_url} /> */}
       <div className="search-body">
-        <img></img>
         <h1>{source.name}</h1>
         <h2>{source.source_url}</h2>
         <p>{source.description}</p>
