@@ -89,7 +89,7 @@ class Source < ApplicationRecord
   private
 
   def url_exist?(url_string)
-    return if url_string = nil
+    return false if url_string == nil
     url = URI.parse(url_string)
     req = Net::HTTP.new(url.host, url.port)
     req.use_ssl = (url.scheme == 'https')
