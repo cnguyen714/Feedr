@@ -80,7 +80,12 @@ class Source < ApplicationRecord
                             author: entry.author )
 
       # return when an article fails to save, its likely you've hit a duplicate date
-      return unless article.save
+
+      begin
+        return unless article.save
+      rescue => exception
+        return
+      end
     end
 
     return
