@@ -13,10 +13,10 @@ ActiveRecord::Base.transaction do
   Follow.delete_all
   Article.delete_all
   
-  demoUser = User.new(username: "demoUser", email: "demo@feedr.com", password: "password");   demoUser.save!
-  user1 = User.new(username: "calvin", email: "calvin@feedr.com", password: "password");   user1.save!
+  demoUser = User.new(username: "Demo User", email: "demo@feedr.com", password: "password");   demoUser.save!
+  user1 = User.new(username: "Calvin", email: "calvin@feedr.com", password: "password");   user1.save!
   user2 = User.new(username: "Allie", email: "Allie@feedr.com", password: "password1");   user2.save!
-  user3 = User.new(username: "kyouka", email: "kyouka@feedr.com", password: "password1");   user3.save!
+  user3 = User.new(username: "Kyouka", email: "kyouka@feedr.com", password: "password1");   user3.save!
 
   feed1 = Feed.new(name: "Games", user_id: demoUser.id); feed1.save
   feed2 = Feed.new(name: "Comics", user_id: demoUser.id); feed2.save
@@ -127,8 +127,8 @@ ActiveRecord::Base.transaction do
   follow.save 
   src = Source.new(stream_url: "https://www.espn.com/espn/rss/news")
   src.save
-  follow = Follow.new(feed_id: feed4.id, source_id: src.id)
-  follow.save 
+  # follow = Follow.new(feed_id: feed4.id, source_id: src.id)
+  # follow.save 
 
   Source.new(stream_url: "https://www.thesun.co.uk/news/worldnews/feed/").save
   Source.new(stream_url: "https://www.cbc.ca/cmlink/rss-world").save
