@@ -31,19 +31,31 @@ class Source < ApplicationRecord
     begin
       xml = HTTParty.get(url).body
     rescue => exception
-      render json: ["Not a valid URL"], status: 404
+      begin
+        render json: ["Not a valid URL"], status: 404
+      rescue => exception
+        return
+      end
       return
     end
 
     if xml[2..4] != "xml"
-      render json: ["Could not read XML file at RSS/Atom URL"], status: 400
+      begin
+        render json: ["Could not read XML file at RSS/Atom URL"], status: 400
+      rescue => exception
+        return
+      end
       return
     end
 
     begin
       feed = Feedjira.parse(xml)
     rescue => exception
-      render json: ["Could not parse XML"], status: 400
+      begin
+        render json: ["Could not parse XML"], status: 400
+      rescue => exception
+        return
+      end
       return
     end
     
