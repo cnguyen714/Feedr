@@ -6,3 +6,4 @@
 /log
 /config/database.yml
 /.bash_profile
+/.byebug_history
