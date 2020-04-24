@@ -59,9 +59,9 @@ class Source < ApplicationRecord
       return
     end
     
-    self[:name] = feed.title
-    self[:description] = feed.description
-    self[:source_url] = feed.url
+    self[:name] = self[:name] || feed.title
+    self[:description] = self[:description] || feed.description
+    self[:source_url] = self[:source_url] || feed.url
   end
 
   def fetch_articles

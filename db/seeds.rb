@@ -77,11 +77,11 @@ ActiveRecord::Base.transaction do
   src.save
   follow = Follow.new(feed_id: feed4.id, source_id: src.id)
   follow.save 
-  src = Source.new(stream_url: "https://www.yahoo.com/news/rss/world")
+  src = Source.new(name: "Yahoo World News", stream_url: "https://www.yahoo.com/news/rss/world")
   src.save
   follow = Follow.new(feed_id: feed4.id, source_id: src.id)
   follow.save 
-  src = Source.new(stream_url: "http://rss.cnn.com/rss/edition_world.rss")
+  src = Source.new(name: "CNN.com - World",stream_url: "http://rss.cnn.com/rss/edition_world.rss")
   src.save
   follow = Follow.new(feed_id: feed4.id, source_id: src.id)
   follow.save 
@@ -89,23 +89,19 @@ ActiveRecord::Base.transaction do
   src.save
   follow = Follow.new(feed_id: feed4.id, source_id: src.id)
   follow.save 
-  src = Source.new(stream_url: "https://www.theguardian.com/world/rss")
+  src = Source.new(name: "The Guardian - World News",stream_url: "https://www.theguardian.com/world/rss")
   src.save
   follow = Follow.new(feed_id: feed4.id, source_id: src.id)
   follow.save 
-  # src = Source.new(stream_url: "https://www.reddit.com/r/worldnews/.rss")
-  # src.save
-  # follow = Follow.new(feed_id: feed4.id, source_id: src.id)
-  # follow.save 
-  # src = Source.new(stream_url: "https://www.nytimes.com/svc/collections/v1/publish/https://www.nytimes.com/section/world/rss.xml")
-  # src.save
-  # follow = Follow.new(feed_id: feed4.id, source_id: src.id)
-  # follow.save 
-  src = Source.new(stream_url: "http://feeds.washingtonpost.com/rss/world")
+  src = Source.new(name: "New York Times - World", stream_url: "https://www.nytimes.com/svc/collections/v1/publish/https://www.nytimes.com/section/world/rss.xml")
   src.save
   follow = Follow.new(feed_id: feed4.id, source_id: src.id)
   follow.save 
-  src = Source.new(stream_url: "https://www.cnbc.com/id/100727362/device/rss/rss.html")
+  src = Source.new(name: "Washington Post - World", stream_url: "http://feeds.washingtonpost.com/rss/world")
+  src.save
+  follow = Follow.new(feed_id: feed4.id, source_id: src.id)
+  follow.save 
+  src = Source.new(name: "CNBC",stream_url: "https://www.cnbc.com/id/100727362/device/rss/rss.html")
   src.save
   follow = Follow.new(feed_id: feed4.id, source_id: src.id)
   follow.save 
@@ -113,19 +109,19 @@ ActiveRecord::Base.transaction do
   src.save
   follow = Follow.new(feed_id: feed4.id, source_id: src.id)
   follow.save 
-  src = Source.new(stream_url: "https://www.vox.com/rss/world/index.xml")
+  src = Source.new(name: "Vox - World",stream_url: "https://www.vox.com/rss/world/index.xml")
   src.save
-  follow = Follow.new(feed_id: feed4.id, source_id: src.id)
-  follow.save 
+  # follow = Follow.new(feed_id: feed4.id, source_id: src.id)
+  # follow.save 
   src = Source.new(stream_url: "https://time.com/feed/")
   src.save
   follow = Follow.new(feed_id: feed4.id, source_id: src.id)
   follow.save 
-  src = Source.new(stream_url: "http://www.independent.co.uk/news/world/rss")
+  src = Source.new(name: "Independent - World News",stream_url: "http://www.independent.co.uk/news/world/rss")
   src.save
-  follow = Follow.new(feed_id: feed4.id, source_id: src.id)
-  follow.save 
-  src = Source.new(stream_url: "https://www.espn.com/espn/rss/news")
+  # follow = Follow.new(feed_id: feed4.id, source_id: src.id)
+  # follow.save 
+  src = Source.new(name: "ESPN - World News",stream_url: "https://www.espn.com/espn/rss/news")
   src.save
   # follow = Follow.new(feed_id: feed4.id, source_id: src.id)
   # follow.save 
