@@ -1,7 +1,7 @@
 
 # Feedr, a [Feedly](https://feedly.com/) clone
 
-[Feedr Live](https://feedr-fsp.herokuapp.com/)
+[Feedr Live](https://feedr-fsp.herokuapp.com/) (no longer live as there is no free Heroku tier)
 
 ## Keep track of all your feeds in one place!
 
